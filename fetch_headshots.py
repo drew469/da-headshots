@@ -89,10 +89,26 @@ def espn_candidates(name, league):
     return out[:3]
 
 
+CORE = {'nfl': 'football/leagues/nfl', 'nba': 'basketball/leagues/nba', 'wnba': 'basketball/leagues/wnba', 'mlb': 'baseball/leagues/mlb',
+        'nhl': 'hockey/leagues/nhl', 'college-football': 'football/leagues/college-football',
+        'mens-college-basketball': 'basketball/leagues/mens-college-basketball'}
+
+def espn_name(aid, league):
+    """Look up who an ESPN athlete id actually is. Returns displayName or None if it can't be checked."""
+    if league not in CORE:
+        return None
+    d = get(f'https://sports.core.api.espn.com/v2/sports/{CORE[league]}/athletes/{aid}', as_json=True)
+    return (d or {}).get('displayName')
+
+
 def try_espn(name, league):
     cands = espn_candidates(name, league)
     DEBUG.append(f'{name}: espn candidates={cands}')
     for aid in cands:
+        who = espn_name(aid, league)
+        DEBUG.append(f'{name}: espn id {aid} is {who}')
+        if who and norm(who) != norm(name):
+            continue
         url = f'https://a.espncdn.com/i/headshots/{league}/players/full/{aid}.png'
         r = get(url)
         if r and len(r[0]) > 5000:
@@ -190,8 +206,12 @@ def main():
         res = None
         if override and override.startswith('espn:'):  # "nfl: Kyle Pitts | espn:4360248"
             aid = override.split(':', 1)[1]; override = None
+            who = espn_name(aid, league)
+            DEBUG.append(f'{name}: espn override id {aid} is {who}')
+            if who and norm(who) != norm(name):
+                aid = None
             url = f'https://a.espncdn.com/i/headshots/{league}/players/full/{aid}.png'
-            r = get(url)
+            r = get(url) if aid else None
             if r and len(r[0]) > 5000:
                 res = (r[0], 'png', url)
         if not res and not override:
@@ -212,7 +232,7 @@ def main():
         f.write('## Missing (add manually to headshots/<slug>.jpg)\n' + ''.join(f'- {m}\n' for m in missing) + '\n')
         f.write('## Fetched\n' + ''.join(f'- {x}\n' for x in found))
         miss_names = [m.rsplit(' (', 1)[0] for m in missing]
-        dbg = [d for d in DEBUG if d.split(':', 1)[0] in miss_names]
+        dbg = [d for d in DEBUG if d.split(':', 1)[0] in miss_names or 'override' in d]
         if dbg:
             f.write('\n## Debug (missing only)\n' + ''.join(f'- {d}\n' for d in dbg))
     print(f'fetched={len(found)} skipped={len(skipped)} missing={len(missing)}')
