@@ -24,7 +24,8 @@ def slug(name):
 
 
 def norm(s):
-    return re.sub(r'[^a-z0-9]', '', s.lower())
+    s = re.sub(r'\b(jr|sr|ii|iii|iv)\.?$', '', s.lower().strip())
+    return re.sub(r'[^a-z0-9]', '', s)
 
 
 def get(url, as_json=False, tries=3):
