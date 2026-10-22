@@ -17,6 +17,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10452.png"
  },
+ "alex-smith": {
+  "league": "nfl",
+  "name": "Alex Smith",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Alex_Smith"
+ },
+ "andre-johnson": {
+  "league": "nfl",
+  "name": "Andre Johnson",
+  "source": "Wikipedia",
+  "url": "https://commons.wikimedia.org/wiki/File:Andre_Johnson_%28WR%29_-_Houston_Texans.jpg"
+ },
  "andrew-luck": {
   "league": "nfl",
   "name": "Andrew Luck",
@@ -65,11 +77,29 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12438.png"
  },
+ "dan-marino": {
+  "league": "nfl",
+  "name": "Dan Marino",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Dan_Marino"
+ },
+ "deion-sanders": {
+  "league": "nfl",
+  "name": "Deion Sanders",
+  "source": "Wikipedia",
+  "url": "https://commons.wikimedia.org/wiki/File:Deion_Sanders_11-May-2008_cropped.jpg"
+ },
  "demarcus-ware": {
   "league": "nfl",
   "name": "DeMarcus Ware",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8426.png"
+ },
+ "emmitt-smith": {
+  "league": "nfl",
+  "name": "Emmitt Smith",
+  "source": "Wikipedia",
+  "url": "https://commons.wikimedia.org/wiki/File:EmmittSmith2007.jpg"
  },
  "frank-gore": {
   "league": "nfl",
@@ -88,6 +118,12 @@
   "name": "Ja'Marr Chase",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png"
+ },
+ "jerry-rice": {
+  "league": "nfl",
+  "name": "Jerry Rice",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Jerry_Rice"
  },
  "joe-burrow": {
   "league": "nfl",
@@ -274,5 +310,11 @@
   "name": "Walter Payton",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Walter_Payton"
+ },
+ "warrick-dunn": {
+  "league": "nfl",
+  "name": "Warrick Dunn",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Warrick_Dunn"
  }
 }
