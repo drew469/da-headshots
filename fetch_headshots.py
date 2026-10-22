@@ -102,9 +102,13 @@ def try_espn(name, league):
 
 DEBUG = []
 
-def try_wiki_rest(name, league):
+POSITIONS = {'nfl': ['running back', 'wide receiver', 'quarterback', 'linebacker', 'defensive end', 'cornerback', 'tight end', 'safety', 'offensive tackle'],
+             'nba': ['basketball, born'], 'mlb': ['baseball', 'pitcher', 'outfielder', 'infielder']}
+
+def try_wiki_rest(name, league, title_override=None):
     hint = WIKI_HINT.get(league, '')
-    for title in ([f'{name} ({hint})'] if hint else []) + [name]:
+    titles = [title_override] if title_override else ([f'{name} ({hint})'] if hint else []) + [name] + [f'{name} ({p})' for p in POSITIONS.get(league.split('-')[0], [])]
+    for title in titles:
         data = get('https://en.wikipedia.org/api/rest_v1/page/summary/' + urllib.parse.quote(title.replace(' ', '_')), as_json=True)
         DEBUG.append(f'{name}: rest[{title}] -> {"none" if not data else data.get("type")}, img={bool(data and (data.get("originalimage") or data.get("thumbnail")))}')
         if not data or data.get('type') == 'disambiguation':
@@ -141,7 +145,9 @@ def try_wikidata(name, league):
     return None
 
 
-def try_wiki(name, league):
+def try_wiki(name, league, title_override=None):
+    if title_override:
+        return try_wiki_rest(name, league, title_override)
     res = try_wiki_rest(name, league) or try_wikidata(name, league)
     if res:
         return res
@@ -175,13 +181,16 @@ def main():
     found, missing, skipped = [], [], []
     for line in lines:
         league, name = [x.strip() for x in line.split(':', 1)]
+        override = None
+        if '|' in name:  # optional exact Wikipedia title: "nfl: Larry Johnson | Larry Johnson (running back)"
+            name, override = [x.strip() for x in name.split('|', 1)]
         s = slug(name)
         if s in existing:
             skipped.append(name); continue
-        res = try_espn(name, league)
+        res = None if override else try_espn(name, league)
         origin = 'ESPN'
         if not res:
-            res = try_wiki(name, league); origin = 'Wikipedia'
+            res = try_wiki(name, league, override); origin = 'Wikipedia'
         if not res:
             missing.append(f'{name} ({league})'); print('MISSING', name); continue
         data, ext, url = res
