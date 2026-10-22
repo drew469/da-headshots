@@ -90,7 +90,9 @@ def espn_candidates(name, league):
 
 
 def try_espn(name, league):
-    for aid in espn_candidates(name, league):
+    cands = espn_candidates(name, league)
+    DEBUG.append(f'{name}: espn candidates={cands}')
+    for aid in cands:
         url = f'https://a.espncdn.com/i/headshots/{league}/players/full/{aid}.png'
         r = get(url)
         if r and len(r[0]) > 5000:
@@ -98,7 +100,51 @@ def try_espn(name, league):
     return None
 
 
+DEBUG = []
+
+def try_wiki_rest(name, league):
+    hint = WIKI_HINT.get(league, '')
+    for title in ([f'{name} ({hint})'] if hint else []) + [name]:
+        data = get('https://en.wikipedia.org/api/rest_v1/page/summary/' + urllib.parse.quote(title.replace(' ', '_')), as_json=True)
+        DEBUG.append(f'{name}: rest[{title}] -> {"none" if not data else data.get("type")}, img={bool(data and (data.get("originalimage") or data.get("thumbnail")))}')
+        if not data or data.get('type') == 'disambiguation':
+            continue
+        img = (data.get('thumbnail') or data.get('originalimage') or {}).get('source')
+        if not img:
+            continue
+        img = re.sub(r'/(\d+)px-', '/800px-', img)
+        r = get(img) or get((data.get('originalimage') or {}).get('source', ''))
+        if r and len(r[0]) > 3000:
+            return r[0], ('png' if img.lower().endswith('.png') else 'jpg'), data.get('content_urls', {}).get('desktop', {}).get('page', img)
+    return None
+
+
+def try_wikidata(name, league):
+    q = urllib.parse.quote(name)
+    data = get(f'https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=7&search={q}', as_json=True)
+    hint = WIKI_HINT.get(league, '').split()[-1] if league in WIKI_HINT else ''
+    ents = (data or {}).get('search', [])
+    ents.sort(key=lambda e: -(hint.lower() in (e.get('description') or '').lower()))
+    DEBUG.append(f'{name}: wikidata {len(ents)} hits, top desc={ents[0].get("description") if ents else None}')
+    for e in ents[:3]:
+        if hint and hint.lower() not in (e.get('description') or '').lower():
+            continue
+        ent = get(f'https://www.wikidata.org/wiki/Special:EntityData/{e["id"]}.json', as_json=True)
+        try:
+            fname = ent['entities'][e['id']]['claims']['P18'][0]['mainsnak']['datavalue']['value']
+        except Exception:
+            continue
+        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fname.replace(' ', '_')) + '?width=800'
+        r = get(url)
+        if r and len(r[0]) > 3000:
+            return r[0], ('png' if fname.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(fname.replace(' ', '_'))
+    return None
+
+
 def try_wiki(name, league):
+    res = try_wiki_rest(name, league) or try_wikidata(name, league)
+    if res:
+        return res
     hint = WIKI_HINT.get(league, '')
     titles = [f'{name} ({hint})', name] if hint else [name]
     for title in titles:
@@ -148,6 +194,10 @@ def main():
         f.write(f'# Last run\n\nFetched {len(found)} · already had {len(skipped)} · missing {len(missing)}\n\n')
         f.write('## Missing (add manually to headshots/<slug>.jpg)\n' + ''.join(f'- {m}\n' for m in missing) + '\n')
         f.write('## Fetched\n' + ''.join(f'- {x}\n' for x in found))
+        miss_names = [m.rsplit(' (', 1)[0] for m in missing]
+        dbg = [d for d in DEBUG if d.split(':', 1)[0] in miss_names]
+        if dbg:
+            f.write('\n## Debug (missing only)\n' + ''.join(f'- {d}\n' for d in dbg))
     print(f'fetched={len(found)} skipped={len(skipped)} missing={len(missing)}')
 
 
