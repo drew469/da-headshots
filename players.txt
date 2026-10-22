@@ -56,4 +56,4 @@ nfl: Randy Moss
 nfl: Ja'Marr Chase
 nfl: Micah Parsons
 nfl: Trevor Lawrence
-nfl: Kyle Pitts
+nfl: Kyle Pitts | espn:4360248

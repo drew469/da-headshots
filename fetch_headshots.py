@@ -187,7 +187,15 @@ def main():
         s = slug(name)
         if s in existing:
             skipped.append(name); continue
-        res = None if override else try_espn(name, league)
+        res = None
+        if override and override.startswith('espn:'):  # "nfl: Kyle Pitts | espn:4360248"
+            aid = override.split(':', 1)[1]; override = None
+            url = f'https://a.espncdn.com/i/headshots/{league}/players/full/{aid}.png'
+            r = get(url)
+            if r and len(r[0]) > 5000:
+                res = (r[0], 'png', url)
+        if not res and not override:
+            res = try_espn(name, league)
         origin = 'ESPN'
         if not res:
             res = try_wiki(name, league, override); origin = 'Wikipedia'
