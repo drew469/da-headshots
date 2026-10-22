@@ -1,0 +1,59 @@
+# One player per line: <league>: <full name>   (leagues: nfl, nba, mlb, nhl, wnba, soccer, college-football)
+# Adding names here and pushing triggers the fetch job. Photos land in headshots/<slug>.png|jpg
+
+# NFL — What if the legends played as long as Tom Brady
+nfl: Barry Sanders
+nfl: Cam Newton
+nfl: J.J. Watt
+nfl: Von Miller
+nfl: Julio Jones
+nfl: Walter Payton
+nfl: Tony Gonzalez
+nfl: Warrick Dunn
+nfl: Tiki Barber
+nfl: Corey Dillon
+nfl: Lawrence Taylor
+nfl: Troy Polamalu
+nfl: Terrell Suggs
+nfl: Andre Johnson
+nfl: Larry Johnson
+nfl: Dan Marino
+nfl: Aaron Rodgers
+nfl: Frank Gore
+nfl: DeMarcus Ware
+nfl: Alex Smith
+nfl: Jerry Rice
+nfl: Adrian Peterson
+nfl: Calvin Johnson
+nfl: Marshawn Lynch
+nfl: Patrick Willis
+nfl: Bo Jackson
+nfl: Matthew Stafford
+nfl: Clay Matthews
+nfl: LeSean McCoy
+nfl: Percy Harvin
+nfl: Emmitt Smith
+nfl: Andrew Luck
+nfl: Russell Wilson
+nfl: Robert Griffin III
+nfl: Luke Kuechly
+nfl: Deion Sanders
+nfl: Odell Beckham Jr.
+nfl: Aaron Donald
+nfl: Khalil Mack
+nfl: Mike Evans
+nfl: Ray Lewis
+nfl: Josh Allen
+nfl: Lamar Jackson
+nfl: Saquon Barkley
+nfl: Baker Mayfield
+nfl: Peyton Manning
+nfl: Joe Burrow
+nfl: Justin Jefferson
+nfl: Justin Herbert
+nfl: CeeDee Lamb
+nfl: Randy Moss
+nfl: Ja'Marr Chase
+nfl: Micah Parsons
+nfl: Trevor Lawrence
+nfl: Kyle Pitts

@@ -1,0 +1,35 @@
+name: Fetch headshots
+
+on:
+  push:
+    paths:
+      - players.txt
+      - fetch_headshots.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-headshots
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch
+        run: python fetch_headshots.py
+      - name: Commit results
+        run: |
+          git config user.name "headshot-bot"
+          git config user.email "headshot-bot@users.noreply.github.com"
+          git add headshots sources.json report.md
+          git diff --cached --quiet || git commit -m "Fetch headshots [bot]"
+          git pull --rebase
+          git push
