@@ -1,0 +1,278 @@
+{
+ "aaron-donald": {
+  "league": "nfl",
+  "name": "Aaron Donald",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16716.png"
+ },
+ "aaron-rodgers": {
+  "league": "nfl",
+  "name": "Aaron Rodgers",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8439.png"
+ },
+ "adrian-peterson": {
+  "league": "nfl",
+  "name": "Adrian Peterson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10452.png"
+ },
+ "andrew-luck": {
+  "league": "nfl",
+  "name": "Andrew Luck",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14874.png"
+ },
+ "baker-mayfield": {
+  "league": "nfl",
+  "name": "Baker Mayfield",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3052587.png"
+ },
+ "barry-sanders": {
+  "league": "nfl",
+  "name": "Barry Sanders",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Barry_Sanders"
+ },
+ "bo-jackson": {
+  "league": "nfl",
+  "name": "Bo Jackson",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Bo_Jackson"
+ },
+ "calvin-johnson": {
+  "league": "nfl",
+  "name": "Calvin Johnson",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Calvin_Johnson"
+ },
+ "cam-newton": {
+  "league": "nfl",
+  "name": "Cam Newton",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13994.png"
+ },
+ "ceedee-lamb": {
+  "league": "nfl",
+  "name": "CeeDee Lamb",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4241389.png"
+ },
+ "clay-matthews": {
+  "league": "nfl",
+  "name": "Clay Matthews",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12438.png"
+ },
+ "demarcus-ware": {
+  "league": "nfl",
+  "name": "DeMarcus Ware",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8426.png"
+ },
+ "frank-gore": {
+  "league": "nfl",
+  "name": "Frank Gore",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8479.png"
+ },
+ "j-j-watt": {
+  "league": "nfl",
+  "name": "J.J. Watt",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13979.png"
+ },
+ "ja-marr-chase": {
+  "league": "nfl",
+  "name": "Ja'Marr Chase",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png"
+ },
+ "joe-burrow": {
+  "league": "nfl",
+  "name": "Joe Burrow",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3915511.png"
+ },
+ "josh-allen": {
+  "league": "nfl",
+  "name": "Josh Allen",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png"
+ },
+ "julio-jones": {
+  "league": "nfl",
+  "name": "Julio Jones",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13982.png"
+ },
+ "justin-herbert": {
+  "league": "nfl",
+  "name": "Justin Herbert",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4038941.png"
+ },
+ "justin-jefferson": {
+  "league": "nfl",
+  "name": "Justin Jefferson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4262921.png"
+ },
+ "khalil-mack": {
+  "league": "nfl",
+  "name": "Khalil Mack",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16710.png"
+ },
+ "kyle-pitts": {
+  "league": "nfl",
+  "name": "Kyle Pitts",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Kyle_Pitts"
+ },
+ "lamar-jackson": {
+  "league": "nfl",
+  "name": "Lamar Jackson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3916387.png"
+ },
+ "lawrence-taylor": {
+  "league": "nfl",
+  "name": "Lawrence Taylor",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Lawrence_Taylor"
+ },
+ "lesean-mccoy": {
+  "league": "nfl",
+  "name": "LeSean McCoy",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12514.png"
+ },
+ "luke-kuechly": {
+  "league": "nfl",
+  "name": "Luke Kuechly",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14938.png"
+ },
+ "marshawn-lynch": {
+  "league": "nfl",
+  "name": "Marshawn Lynch",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10456.png"
+ },
+ "matthew-stafford": {
+  "league": "nfl",
+  "name": "Matthew Stafford",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12483.png"
+ },
+ "micah-parsons": {
+  "league": "nfl",
+  "name": "Micah Parsons",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4361423.png"
+ },
+ "mike-evans": {
+  "league": "nfl",
+  "name": "Mike Evans",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16737.png"
+ },
+ "odell-beckham-jr": {
+  "league": "nfl",
+  "name": "Odell Beckham Jr.",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16733.png"
+ },
+ "patrick-willis": {
+  "league": "nfl",
+  "name": "Patrick Willis",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10455.png"
+ },
+ "percy-harvin": {
+  "league": "nfl",
+  "name": "Percy Harvin",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12569.png"
+ },
+ "peyton-manning": {
+  "league": "nfl",
+  "name": "Peyton Manning",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1428.png"
+ },
+ "randy-moss": {
+  "league": "nfl",
+  "name": "Randy Moss",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1433.png"
+ },
+ "ray-lewis": {
+  "league": "nfl",
+  "name": "Ray Lewis",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/964.png"
+ },
+ "robert-griffin-iii": {
+  "league": "nfl",
+  "name": "Robert Griffin III",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14875.png"
+ },
+ "russell-wilson": {
+  "league": "nfl",
+  "name": "Russell Wilson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14881.png"
+ },
+ "saquon-barkley": {
+  "league": "nfl",
+  "name": "Saquon Barkley",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png"
+ },
+ "terrell-suggs": {
+  "league": "nfl",
+  "name": "Terrell Suggs",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4468.png"
+ },
+ "tiki-barber": {
+  "league": "nfl",
+  "name": "Tiki Barber",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1218.png"
+ },
+ "tony-gonzalez": {
+  "league": "nfl",
+  "name": "Tony Gonzalez",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1231.png"
+ },
+ "trevor-lawrence": {
+  "league": "nfl",
+  "name": "Trevor Lawrence",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4360310.png"
+ },
+ "troy-polamalu": {
+  "league": "nfl",
+  "name": "Troy Polamalu",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4474.png"
+ },
+ "von-miller": {
+  "league": "nfl",
+  "name": "Von Miller",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13976.png"
+ },
+ "walter-payton": {
+  "league": "nfl",
+  "name": "Walter Payton",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Walter_Payton"
+ }
+}
