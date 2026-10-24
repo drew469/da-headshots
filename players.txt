@@ -106,6 +106,5 @@ nba: Magic Johnson Prime | commons:Magic Johnson Lipofsky
 nba: Kareem Abdul-Jabbar Prime | commons:File:Kareem-Abdul-Jabbar Lipofsky (HQ) (cropped) (b).jpg
 nba: Kareem Abdul-Jabbar Prime B | commons:File:Kareem-Abdul-Jabbar Lipofsky (HQ) (cropped).jpg
 nba: Hakeem Olajuwon Prime | commons:Hakeem Olajuwon Rockets
-nba: Hakeem Olajuwon Prime B | commons:Olajuwon Houston 1990s
-nba: James Worthy Prime | commons:James Worthy Lakers
+nba: James Worthy Prime | commons:File:James Worthy attempting layup vs Houston Rockets 1986-05-17.jpg
 nba: Dominique Wilkins Prime | commons:Dominique Wilkins Hawks
