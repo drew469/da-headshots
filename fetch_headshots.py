@@ -6,7 +6,7 @@ Sources, in order:
   2. Wikipedia lead image (good for retired legends ESPN doesn't carry)
 Skips players already in headshots/. Writes report.md (what was found where / what's missing) and sources.json.
 """
-import json, os, re, sys, time, urllib.parse, urllib.request
+import json, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, 'headshots')
@@ -24,6 +24,7 @@ def slug(name):
 
 
 def norm(s):
+    s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode()
     s = re.sub(r'\b(jr|sr|ii|iii|iv)\.?$', '', s.lower().strip())
     return re.sub(r'[^a-z0-9]', '', s)
 
@@ -162,6 +163,25 @@ def try_wikidata(name, league):
     return None
 
 
+def try_commons(name, query):
+    """Specific Wikimedia Commons photo: 'File:Exact name.jpg' or a search query (first photo hit wins; top hits logged)."""
+    if query.startswith('File:'):
+        files = [query]
+    else:
+        data = get('https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=12&srsearch='
+                   + urllib.parse.quote(query), as_json=True)
+        files = [h['title'] for h in (data or {}).get('query', {}).get('search', [])
+                 if re.search(r'\.(jpe?g|png)$', h['title'], re.I)]
+        DEBUG.append(f'{name}: commons search [{query}] -> ' + ' | '.join(files[:6]))
+    for f in files[:3]:
+        fn = f.split(':', 1)[1]
+        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fn.replace(' ', '_')) + '?width=900'
+        r = get(url)
+        if r and len(r[0]) > 3000:
+            return r[0], ('png' if fn.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/' + urllib.parse.quote(f.replace(' ', '_'))
+    return None
+
+
 def try_wiki(name, league, title_override=None):
     if title_override:
         return try_wiki_rest(name, league, title_override)
@@ -205,6 +225,14 @@ def main():
         if s in existing:
             skipped.append(name); continue
         res = None
+        if override and override.startswith('commons:'):  # "nba: LeBron James Rookie | commons:LeBron James Cavaliers 2004"
+            res = try_commons(name, override.split(':', 1)[1].strip()); origin = 'Commons'
+            if not res:
+                missing.append(f'{name} ({league})'); print('MISSING', name); continue
+            data, ext, url = res
+            open(os.path.join(OUT, f'{s}.{ext}'), 'wb').write(data)
+            sources[s] = {'name': name, 'league': league, 'source': origin, 'url': url}
+            found.append(f'{name} — {origin}'); print('OK', name, origin); continue
         if override and override.startswith('espn:'):  # "nfl: Kyle Pitts | espn:4360248"
             aid = override.split(':', 1)[1]; override = None
             who = espn_name(aid, league)
@@ -233,7 +261,7 @@ def main():
         f.write('## Missing (add manually to headshots/<slug>.jpg)\n' + ''.join(f'- {m}\n' for m in missing) + '\n')
         f.write('## Fetched\n' + ''.join(f'- {x}\n' for x in found))
         miss_names = [m.rsplit(' (', 1)[0] for m in missing]
-        dbg = [d for d in DEBUG if d.split(':', 1)[0] in miss_names or 'override' in d]
+        dbg = [d for d in DEBUG if d.split(':', 1)[0] in miss_names or 'override' in d or 'commons search' in d]
         if dbg:
             f.write('\n## Debug (missing only)\n' + ''.join(f'- {d}\n' for d in dbg))
     print(f'fetched={len(found)} skipped={len(skipped)} missing={len(missing)}')

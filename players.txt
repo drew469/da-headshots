@@ -57,3 +57,43 @@ nfl: Ja'Marr Chase
 nfl: Micah Parsons
 nfl: Trevor Lawrence
 nfl: Kyle Pitts | espn:4360248
+
+# NBA — This puts LeBron's longevity in perspective (Year 24)
+nba: LeBron James
+nba: LeBron James Rookie | commons:LeBron James Cleveland Cavaliers 2004
+nba: Michael Jordan
+nba: Bill Russell
+nba: Wilt Chamberlain
+nba: Kareem Abdul-Jabbar
+nba: Larry Bird
+nba: Hakeem Olajuwon
+nba: Shaquille O'Neal
+nba: Kobe Bryant
+nba: Tim Duncan
+nba: Kyrie Irving
+nba: Klay Thompson
+nba: Kawhi Leonard
+nba: Jimmy Butler
+nba: Magic Johnson
+nba: Dominique Wilkins
+nba: James Worthy
+nba: Alonzo Mourning
+nba: Yao Ming
+nba: Amar'e Stoudemire
+nba: Manu Ginobili
+nba: Kevin Durant
+nba: Al Horford
+nba: Joakim Noah
+nba: Mike Conley
+nba: Nikola Jokic
+nba: Karl-Anthony Towns
+nba: Devin Booker
+nba: Kristaps Porzingis
+nba: Zion Williamson
+nba: Ja Morant
+nba: Darius Garland
+nba: Tyler Herro
+nba: LaMelo Ball
+nba: Anthony Edwards
+nba: Tyrese Haliburton
+nba: Tyrese Maxey
