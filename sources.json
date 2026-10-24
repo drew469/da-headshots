@@ -143,6 +143,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Dominique_Wilkins"
  },
+ "dominique-wilkins-prime": {
+  "league": "nba",
+  "name": "Dominique Wilkins Prime",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADominique_Wilkins_2022.jpg"
+ },
  "emmitt-smith": {
   "league": "nfl",
   "name": "Emmitt Smith",
@@ -160,6 +166,12 @@
   "name": "Hakeem Olajuwon",
   "source": "Wikipedia",
   "url": "https://commons.wikimedia.org/wiki/File:Nigerian_President_Buhari_Stands_With_Secretary_Kerry%2C_U.S._Delegation_After_They_Attended_His_Inauguration_Ceremony_%28cropped%29.jpg"
+ },
+ "hakeem-olajuwon-prime": {
+  "league": "nba",
+  "name": "Hakeem Olajuwon Prime",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AHakeem_Olajuwon-Bill_Fitch-Ralph_Sampson.jpg"
  },
  "j-j-watt": {
   "league": "nfl",
@@ -184,6 +196,12 @@
   "name": "James Worthy",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/James_Worthy"
+ },
+ "james-worthy-prime": {
+  "league": "nba",
+  "name": "James Worthy Prime",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJames_Worthy_2011.jpg"
  },
  "jerry-rice": {
   "league": "nfl",
@@ -238,6 +256,18 @@
   "name": "Kareem Abdul-Jabbar",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar"
+ },
+ "kareem-abdul-jabbar-prime": {
+  "league": "nba",
+  "name": "Kareem Abdul-Jabbar Prime",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AKareem-Abdul-Jabbar_Lipofsky_%28HQ%29_%28cropped%29_%28b%29.jpg"
+ },
+ "kareem-abdul-jabbar-prime-b": {
+  "league": "nba",
+  "name": "Kareem Abdul-Jabbar Prime B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AKareem-Abdul-Jabbar_Lipofsky_%28HQ%29_%28cropped%29.jpg"
  },
  "karl-anthony-towns": {
   "league": "nba",
