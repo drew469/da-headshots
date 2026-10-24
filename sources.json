@@ -17,11 +17,23 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10452.png"
  },
+ "al-horford": {
+  "league": "nba",
+  "name": "Al Horford",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3213.png"
+ },
  "alex-smith": {
   "league": "nfl",
   "name": "Alex Smith",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Alex_Smith"
+ },
+ "amar-e-stoudemire": {
+  "league": "nba",
+  "name": "Amar'e Stoudemire",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/1727.png"
  },
  "andre-johnson": {
   "league": "nfl",
@@ -35,6 +47,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14874.png"
  },
+ "anthony-edwards": {
+  "league": "nba",
+  "name": "Anthony Edwards",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4594268.png"
+ },
  "baker-mayfield": {
   "league": "nfl",
   "name": "Baker Mayfield",
@@ -46,6 +64,12 @@
   "name": "Barry Sanders",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Barry_Sanders"
+ },
+ "bill-russell": {
+  "league": "nba",
+  "name": "Bill Russell",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Bill_Russell"
  },
  "bo-jackson": {
   "league": "nfl",
@@ -83,6 +107,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Dan_Marino"
  },
+ "darius-garland": {
+  "league": "nba",
+  "name": "Darius Garland",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4396907.png"
+ },
  "deion-sanders": {
   "league": "nfl",
   "name": "Deion Sanders",
@@ -94,6 +124,18 @@
   "name": "DeMarcus Ware",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8426.png"
+ },
+ "devin-booker": {
+  "league": "nba",
+  "name": "Devin Booker",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3136193.png"
+ },
+ "dominique-wilkins": {
+  "league": "nba",
+  "name": "Dominique Wilkins",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Dominique_Wilkins"
  },
  "emmitt-smith": {
   "league": "nfl",
@@ -107,6 +149,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8479.png"
  },
+ "hakeem-olajuwon": {
+  "league": "nba",
+  "name": "Hakeem Olajuwon",
+  "source": "Wikipedia",
+  "url": "https://commons.wikimedia.org/wiki/File:Nigerian_President_Buhari_Stands_With_Secretary_Kerry%2C_U.S._Delegation_After_They_Attended_His_Inauguration_Ceremony_%28cropped%29.jpg"
+ },
  "j-j-watt": {
   "league": "nfl",
   "name": "J.J. Watt",
@@ -119,11 +167,35 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png"
  },
+ "ja-morant": {
+  "league": "nba",
+  "name": "Ja Morant",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4279888.png"
+ },
+ "james-worthy": {
+  "league": "nba",
+  "name": "James Worthy",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/James_Worthy"
+ },
  "jerry-rice": {
   "league": "nfl",
   "name": "Jerry Rice",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Jerry_Rice"
+ },
+ "jimmy-butler": {
+  "league": "nba",
+  "name": "Jimmy Butler",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/6430.png"
+ },
+ "joakim-noah": {
+  "league": "nba",
+  "name": "Joakim Noah",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3224.png"
  },
  "joe-burrow": {
   "league": "nfl",
@@ -155,11 +227,53 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4262921.png"
  },
+ "kareem-abdul-jabbar": {
+  "league": "nba",
+  "name": "Kareem Abdul-Jabbar",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar"
+ },
+ "karl-anthony-towns": {
+  "league": "nba",
+  "name": "Karl-Anthony Towns",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3136195.png"
+ },
+ "kawhi-leonard": {
+  "league": "nba",
+  "name": "Kawhi Leonard",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/6450.png"
+ },
+ "kevin-durant": {
+  "league": "nba",
+  "name": "Kevin Durant",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3202.png"
+ },
  "khalil-mack": {
   "league": "nfl",
   "name": "Khalil Mack",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16710.png"
+ },
+ "klay-thompson": {
+  "league": "nba",
+  "name": "Klay Thompson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/6475.png"
+ },
+ "kobe-bryant": {
+  "league": "nba",
+  "name": "Kobe Bryant",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/110.png"
+ },
+ "kristaps-porzingis": {
+  "league": "nba",
+  "name": "Kristaps Porzingis",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3102531.png"
  },
  "kyle-pitts": {
   "league": "nfl",
@@ -167,11 +281,29 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4360248.png"
  },
+ "kyrie-irving": {
+  "league": "nba",
+  "name": "Kyrie Irving",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/6442.png"
+ },
  "lamar-jackson": {
   "league": "nfl",
   "name": "Lamar Jackson",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3916387.png"
+ },
+ "lamelo-ball": {
+  "league": "nba",
+  "name": "LaMelo Ball",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4432816.png"
+ },
+ "larry-bird": {
+  "league": "nba",
+  "name": "Larry Bird",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Larry_Bird"
  },
  "larry-johnson": {
   "league": "nfl",
@@ -185,6 +317,18 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Lawrence_Taylor"
  },
+ "lebron-james": {
+  "league": "nba",
+  "name": "LeBron James",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png"
+ },
+ "lebron-james-rookie": {
+  "league": "nba",
+  "name": "LeBron James Rookie",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ALeBron_jump_shot_2004.jpg"
+ },
  "lesean-mccoy": {
   "league": "nfl",
   "name": "LeSean McCoy",
@@ -196,6 +340,18 @@
   "name": "Luke Kuechly",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14938.png"
+ },
+ "magic-johnson": {
+  "league": "nba",
+  "name": "Magic Johnson",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Magic_Johnson"
+ },
+ "manu-ginobili": {
+  "league": "nba",
+  "name": "Manu Ginobili",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/272.png"
  },
  "marshawn-lynch": {
   "league": "nfl",
@@ -215,11 +371,29 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4361423.png"
  },
+ "michael-jordan": {
+  "league": "nba",
+  "name": "Michael Jordan",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Michael_Jordan"
+ },
+ "mike-conley": {
+  "league": "nba",
+  "name": "Mike Conley",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3195.png"
+ },
  "mike-evans": {
   "league": "nfl",
   "name": "Mike Evans",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16737.png"
+ },
+ "nikola-jokic": {
+  "league": "nba",
+  "name": "Nikola Jokic",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3112335.png"
  },
  "odell-beckham-jr": {
   "league": "nfl",
@@ -281,6 +455,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png"
  },
+ "shaquille-o-neal": {
+  "league": "nba",
+  "name": "Shaquille O'Neal",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/614.png"
+ },
  "terrell-suggs": {
   "league": "nfl",
   "name": "Terrell Suggs",
@@ -292,6 +472,12 @@
   "name": "Tiki Barber",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1218.png"
+ },
+ "tim-duncan": {
+  "league": "nba",
+  "name": "Tim Duncan",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/215.png"
  },
  "tony-gonzalez": {
   "league": "nfl",
@@ -311,6 +497,24 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4474.png"
  },
+ "tyler-herro": {
+  "league": "nba",
+  "name": "Tyler Herro",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4395725.png"
+ },
+ "tyrese-haliburton": {
+  "league": "nba",
+  "name": "Tyrese Haliburton",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4396993.png"
+ },
+ "tyrese-maxey": {
+  "league": "nba",
+  "name": "Tyrese Maxey",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4431678.png"
+ },
  "von-miller": {
   "league": "nfl",
   "name": "Von Miller",
@@ -328,5 +532,23 @@
   "name": "Warrick Dunn",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Warrick_Dunn"
+ },
+ "wilt-chamberlain": {
+  "league": "nba",
+  "name": "Wilt Chamberlain",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain"
+ },
+ "yao-ming": {
+  "league": "nba",
+  "name": "Yao Ming",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/1722.png"
+ },
+ "zion-williamson": {
+  "league": "nba",
+  "name": "Zion Williamson",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4395628.png"
  }
 }
