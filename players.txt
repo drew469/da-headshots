@@ -60,10 +60,7 @@ nfl: Kyle Pitts | espn:4360248
 
 # NBA — This puts LeBron's longevity in perspective (Year 24)
 nba: LeBron James
-nba: LeBron James Rookie | commons:File:Lebron james freethrow.jpg
 nba: LeBron James Rookie B | commons:LeBron James Cavaliers 2006
-nba: LeBron James Rookie C | commons:LeBron James 2007 Cleveland
-nba: LeBron James Rookie D | commons:LeBron James Cavs portrait
 nba: Michael Jordan
 nba: Bill Russell
 nba: Wilt Chamberlain
@@ -106,7 +103,9 @@ nba: Michael Jordan Prime | commons:Jordan Lipofsky
 nba: Michael Jordan Prime B | commons:Michael Jordan Bulls 1987
 nba: Larry Bird Prime | commons:Larry Bird Lipofsky
 nba: Magic Johnson Prime | commons:Magic Johnson Lipofsky
-nba: Kareem Abdul-Jabbar Prime | commons:Kareem Abdul-Jabbar Lipofsky
-nba: Hakeem Olajuwon Prime | commons:Hakeem Olajuwon Lipofsky
-nba: James Worthy Prime | commons:James Worthy Lipofsky
-nba: Dominique Wilkins Prime | commons:Dominique Wilkins Lipofsky
+nba: Kareem Abdul-Jabbar Prime | commons:File:Kareem-Abdul-Jabbar Lipofsky (HQ) (cropped) (b).jpg
+nba: Kareem Abdul-Jabbar Prime B | commons:File:Kareem-Abdul-Jabbar Lipofsky (HQ) (cropped).jpg
+nba: Hakeem Olajuwon Prime | commons:Hakeem Olajuwon Rockets
+nba: Hakeem Olajuwon Prime B | commons:Olajuwon Houston 1990s
+nba: James Worthy Prime | commons:James Worthy Lakers
+nba: Dominique Wilkins Prime | commons:Dominique Wilkins Hawks

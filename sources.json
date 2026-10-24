@@ -161,12 +161,6 @@
   "source": "Wikipedia",
   "url": "https://commons.wikimedia.org/wiki/File:Nigerian_President_Buhari_Stands_With_Secretary_Kerry%2C_U.S._Delegation_After_They_Attended_His_Inauguration_Ceremony_%28cropped%29.jpg"
  },
- "hakeem-olajuwon-prime": {
-  "league": "nba",
-  "name": "Hakeem Olajuwon Prime",
-  "source": "Commons",
-  "url": "https://commons.wikimedia.org/wiki/File%3ALipofsky-Kevin_McHale_%28high_quality%29.jpg"
- },
  "j-j-watt": {
   "league": "nfl",
   "name": "J.J. Watt",
@@ -244,12 +238,6 @@
   "name": "Kareem Abdul-Jabbar",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar"
- },
- "kareem-abdul-jabbar-prime": {
-  "league": "nba",
-  "name": "Kareem Abdul-Jabbar Prime",
-  "source": "Commons",
-  "url": "https://commons.wikimedia.org/wiki/File%3AKareem-Abdul-Jabbar_Lipofsky_%28HQ%29.jpg"
  },
  "karl-anthony-towns": {
   "league": "nba",
@@ -347,23 +335,11 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png"
  },
- "lebron-james-rookie": {
-  "league": "nba",
-  "name": "LeBron James Rookie",
-  "source": "Commons",
-  "url": "https://commons.wikimedia.org/wiki/File%3ALebron_james_freethrow.jpg"
- },
  "lebron-james-rookie-b": {
   "league": "nba",
   "name": "LeBron James Rookie B",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ALeBron_James_2.jpg"
- },
- "lebron-james-rookie-c": {
-  "league": "nba",
-  "name": "LeBron James Rookie C",
-  "source": "Commons",
-  "url": "https://commons.wikimedia.org/wiki/File%3ALeBron_James%27_pregame_ritual.jpg"
  },
  "lesean-mccoy": {
   "league": "nfl",
