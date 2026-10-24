@@ -60,7 +60,10 @@ nfl: Kyle Pitts | espn:4360248
 
 # NBA — This puts LeBron's longevity in perspective (Year 24)
 nba: LeBron James
-nba: LeBron James Rookie | commons:LeBron James Cleveland Cavaliers 2004
+nba: LeBron James Rookie | commons:File:Lebron james freethrow.jpg
+nba: LeBron James Rookie B | commons:LeBron James Cavaliers 2006
+nba: LeBron James Rookie C | commons:LeBron James 2007 Cleveland
+nba: LeBron James Rookie D | commons:LeBron James Cavs portrait
 nba: Michael Jordan
 nba: Bill Russell
 nba: Wilt Chamberlain
@@ -77,7 +80,7 @@ nba: Jimmy Butler
 nba: Magic Johnson
 nba: Dominique Wilkins
 nba: James Worthy
-nba: Alonzo Mourning
+nba: Alonzo Mourning | commons:Alonzo Mourning
 nba: Yao Ming
 nba: Amar'e Stoudemire
 nba: Manu Ginobili
@@ -97,3 +100,13 @@ nba: LaMelo Ball
 nba: Anthony Edwards
 nba: Tyrese Haliburton
 nba: Tyrese Maxey
+
+# Playing-days photos for legends (Lipofsky archive on Commons)
+nba: Michael Jordan Prime | commons:Jordan Lipofsky
+nba: Michael Jordan Prime B | commons:Michael Jordan Bulls 1987
+nba: Larry Bird Prime | commons:Larry Bird Lipofsky
+nba: Magic Johnson Prime | commons:Magic Johnson Lipofsky
+nba: Kareem Abdul-Jabbar Prime | commons:Kareem Abdul-Jabbar Lipofsky
+nba: Hakeem Olajuwon Prime | commons:Hakeem Olajuwon Lipofsky
+nba: James Worthy Prime | commons:James Worthy Lipofsky
+nba: Dominique Wilkins Prime | commons:Dominique Wilkins Lipofsky
