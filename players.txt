@@ -108,3 +108,10 @@ nba: Kareem Abdul-Jabbar Prime B | commons:File:Kareem-Abdul-Jabbar Lipofsky (HQ
 nba: Hakeem Olajuwon Prime | commons:Hakeem Olajuwon Rockets
 nba: James Worthy Prime | commons:File:James Worthy attempting layup vs Houston Rockets 1986-05-17.jpg
 nba: Dominique Wilkins Prime | commons:Dominique Wilkins Hawks
+
+# NFL — Brady 100,000 careers simulation
+nfl: Tom Brady
+nfl: Tom Brady Patriots | commons:Tom Brady Patriots
+nfl: Tom Brady Patriots B | commons:Tom Brady 2011 New England
+nfl: Tom Brady Patriots C | commons:Brady Patriots quarterback game
+nfl: Tom Brady Bucs | commons:Tom Brady Buccaneers 2021
