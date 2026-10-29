@@ -539,6 +539,36 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/215.png"
  },
+ "tom-brady": {
+  "league": "nfl",
+  "name": "Tom Brady",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Tom_Brady"
+ },
+ "tom-brady-bucs": {
+  "league": "nfl",
+  "name": "Tom Brady Bucs",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_WFT-Buccaneers_NOV2021_%28cropped%29.jpg"
+ },
+ "tom-brady-patriots": {
+  "league": "nfl",
+  "name": "Tom Brady Patriots",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2017.JPG"
+ },
+ "tom-brady-patriots-b": {
+  "league": "nfl",
+  "name": "Tom Brady Patriots B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2011.JPG"
+ },
+ "tom-brady-patriots-c": {
+  "league": "nfl",
+  "name": "Tom Brady Patriots C",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2016.JPG"
+ },
  "tony-gonzalez": {
   "league": "nfl",
   "name": "Tony Gonzalez",
