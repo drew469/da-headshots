@@ -17,6 +17,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10452.png"
  },
+ "aidan-hutchinson-lions": {
+  "league": "nfl",
+  "name": "Aidan Hutchinson Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAidan_Hutchinson.jpg"
+ },
  "al-horford": {
   "league": "nba",
   "name": "Al Horford",
@@ -40,6 +46,12 @@
   "name": "Amar'e Stoudemire",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/1727.png"
+ },
+ "amon-ra-st-brown-lions": {
+  "league": "nfl",
+  "name": "Amon-Ra St. Brown Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAmon-Ra_St._Brown_FanDuel_Interview.png"
  },
  "andre-johnson": {
   "league": "nfl",
@@ -71,6 +83,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Barry_Sanders"
  },
+ "barry-sanders-lions": {
+  "league": "nfl",
+  "name": "Barry Sanders Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ABarry_Sanders_2019.jpg"
+ },
  "bill-belichick": {
   "league": "nfl",
   "name": "Bill Belichick",
@@ -94,6 +112,12 @@
   "name": "Calvin Johnson",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Calvin_Johnson"
+ },
+ "calvin-johnson-lions": {
+  "league": "nfl",
+  "name": "Calvin Johnson Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADetroit_Lions_receiver_Calvin_Johnson_in_2012.jpg"
  },
  "cam-newton": {
   "league": "nfl",
@@ -124,6 +148,12 @@
   "name": "Cooper Flagg Dunk",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADuke_and_Wake_Forest_basketball_game%2C_2025-03-03_Wake_Forest_Cooper_Flagg_dunking_C_%28cropped%29.jpg"
+ },
+ "dan-campbell-lions": {
+  "league": "nfl",
+  "name": "Dan Campbell Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADetroit_Lions_head_coach_Dan_Campbell.jpg"
  },
  "dan-marino": {
   "league": "nfl",
@@ -238,6 +268,12 @@
   "name": "James Worthy Prime",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AJames_Worthy_attempting_layup_vs_Houston_Rockets_1986-05-17.jpg"
+ },
+ "jared-goff-lions": {
+  "league": "nfl",
+  "name": "Jared Goff Lions",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJared_Goff_%26_D%27Andre_Swift_Commanders_vs_Lions_SEP2022.jpg"
  },
  "jerry-rice": {
   "league": "nfl",
