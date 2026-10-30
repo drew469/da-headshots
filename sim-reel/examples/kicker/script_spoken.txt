@@ -1,0 +1,9 @@
+The longest field goal in NFL history is sixty-eight yards. I simulated the future of kicking one hundred thousand times to find out when someone makes one from one hundred. The answer? Around the year twenty one oh seven. If it ever happens at all. Let me show you how this works.
+First, a one hundred yard field goal means kicking from your own seventeen yard line. The ball has to fly the length of the entire field.
+I pulled every NFL field goal since nineteen ninety-nine. Over twenty-eight thousand kicks. From fifty-five to fifty-nine yards, kickers used to make twenty-eight percent. Now? Sixty-four. Teams went from trying five kicks of fifty-eight yards or more a season, to fifty last year.
+Kickers' range is growing about point four yards every single year. Is the model honest? I tested it on every kick from sixty yards or more. It predicted fifty-four makes. There were fifty-three.
+So I played out the future one hundred thousand times, season by season, kick by kick.
+Someone breaks Cam Little's sixty-eight yard record around twenty thirty. The first seventy yarder: twenty thirty-two. Seventy-five: twenty forty-four. Eighty yards: twenty fifty-six.
+And one hundred? In the average future, twenty one oh seven. Even in the luckiest futures, it almost never happens before twenty ninety. Your grandkids might see it.
+But here's the catch. The longest kick ever caught on video is eighty-one yards, in a college practice with nobody rushing. The model assumes kickers keep getting better forever. If humans hit a ceiling first, the answer is never.
+So will a human ever make a one hundred yarder? Or is eighty the limit? Let me know.
