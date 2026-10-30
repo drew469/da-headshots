@@ -193,3 +193,9 @@ logo: nfl mia
 logo: nfl ari
 logo: nfl cin
 logo: nfl buf
+logo: nfl jax
+nfl: Cam Little Jaguars | commons:Cam Little Jaguars
+nfl: Justin Tucker Ravens | commons:Justin Tucker kick
+nfl: Brandon Aubrey Cowboys | commons:Brandon Aubrey
+nfl: Tom Dempsey Saints | commons:Tom Dempsey kicker
+nfl: Harrison Butker Chiefs | commons:Harrison Butker kick
