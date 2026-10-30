@@ -5,6 +5,7 @@ Usage:
   python3 vo_pipeline.py vo_raw.mp3 script_spoken.txt [--fmt fmt.json] [--gap 0.2]
 
   script_spoken.txt : the exact words the voice reads (numbers spelled the way they're spoken).
+  subs.json         : optional {"fairleigh": "fairly"} sound-alikes for words the aligner does not know
   fmt.json          : optional {"one hundred thousand": "100,000", "six percent": "6%"} display swaps for captions.
 
 Writes (in cwd): vo.wav (every pause cut to <= --gap s), sil.txt, words.json, cues.json, timing.js
@@ -16,7 +17,7 @@ import numpy as np
 
 ap = argparse.ArgumentParser()
 ap.add_argument('vo'); ap.add_argument('script')
-ap.add_argument('--fmt'); ap.add_argument('--gap', type=float, default=0.2)
+ap.add_argument('--fmt'); ap.add_argument('--subs'); ap.add_argument('--gap', type=float, default=0.2); ap.add_argument('--tempo', type=float, default=1.0)
 ap.add_argument('--db', default='-35dB'); ap.add_argument('--min', type=float, default=0.12)
 a = ap.parse_args()
 SR = 48000
@@ -28,6 +29,8 @@ def silences(path):
     en = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', out)]
     return list(zip(st, en))
 
+if a.tempo != 1.0:   # speed the read up without changing pitch
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', a.vo, '-af', f'atempo={a.tempo}', '_tempo.wav'], check=True); a.vo = '_tempo.wav'
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', a.vo, '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'],
                      capture_output=True, check=True).stdout
 x = np.frombuffer(raw, np.float32)
@@ -54,39 +57,63 @@ for s, e in sil2:
     cur = e
 if DUR - cur > 0.05: segs.append((cur, DUR))
 maxgap = max([e - s for s, e in sil2] + [0])
-# 3) DP-align punctuation-bounded word blocks to segments
+# 3) forced alignment (pocketsphinx, bundled English model: pip install pocketsphinx)
+from pocketsphinx import Decoder
 W = open(a.script).read().split()
-cost = [len(re.sub(r'[^A-Za-z0-9]', '', w)) + 1.2 for w in W]
-pref = [0]
-for c in cost: pref.append(pref[-1] + c)
-rate = pref[-1] / sum(q - p for p, q in segs)
-brk = [i + 1 for i, w in enumerate(W) if re.search(r'[,.?!:;]$', w)]
-if len(W) not in brk: brk.append(len(W))
-idx = [0] + brk; INF = float('inf'); m = len(segs)
-dp = [[INF] * len(idx) for _ in range(m + 1)]; bk = [[-1] * len(idx) for _ in range(m + 1)]; dp[0][0] = 0
-for j in range(1, m + 1):
-    d = segs[j - 1][1] - segs[j - 1][0]
-    for k in range(1, len(idx)):
-        for q in range(k - 1, max(-1, k - 14), -1):
-            if dp[j - 1][q] == INF: continue
-            est = (pref[idx[k]] - pref[idx[q]]) / rate
-            c = dp[j - 1][q] + (d - est) ** 2 / max(d, .3)
-            if c < dp[j][k]: dp[j][k], bk[j][k] = c, q
-k = len(idx) - 1; blocks = []
-for j in range(m, 0, -1):
-    q = bk[j][k]; blocks.append((idx[q], idx[k])); k = q
-blocks.reverse()
-words, cues = [], []
+pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', 'vo.wav', '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
+                     capture_output=True, check=True).stdout
+dec = Decoder(samprate=16000, bestpath=False, loglevel='ERROR')
+SUBS = json.load(open(a.subs)) if a.subs else {}
+SUBS.setdefault('umbc', 'u m b c')
+toks, own = [], []
+for i, w in enumerate(W):
+    for p in re.sub(r"[^a-z' -]", '', w.lower().replace('-', ' ')).split():
+        p = p.strip("'")
+        if not p: continue
+        parts = [p] if dec.lookup_word(p) is not None else SUBS.get(p, '').split()
+        if not parts:   # out-of-vocabulary: spell it with letters
+            parts = [ch for ch in p if dec.lookup_word(ch) is not None] or ['the']
+            print('OOV ->', p, parts)
+        for q in parts: toks.append(q); own.append(i)
+dec.set_align_text(' '.join(toks))
+dec.start_utt(); dec.process_raw(pcm, full_utt=True); dec.end_utt()
+dec.set_alignment(); dec.start_utt(); dec.process_raw(pcm, full_utt=True); dec.end_utt()
+al = [(x.start / 100, (x.start + x.duration) / 100) for x in dec.get_alignment() if x.name not in ('<sil>', '<s>', '</s>', '(NULL)')]
+assert len(al) == len(toks), (len(al), len(toks))
+span = {}
+for (p, q), i in zip(al, own):
+    s0, e0 = span.get(i, (p, q)); span[i] = (min(s0, p), max(e0, q))
+words = [dict(w=W[i], a=round(span[i][0], 3), b=round(span[i][1], 3)) for i in range(len(W))]
+# 4) caption cues. Display swaps (fmt) are matched on the whole script first so a cue never splits "one hundred | thousand".
 fmt = json.load(open(a.fmt)) if a.fmt else {}
-for (p, q), (wa, wb) in zip(segs, blocks):
-    tot = pref[wb] - pref[wa]; t = p
-    for i in range(wa, wb):
-        dt = (q - p) * cost[i] / tot
-        words.append(dict(w=W[i], a=round(t, 3), b=round(t + dt, 3))); t += dt
-    text = ' '.join(W[wa:wb])
-    for k2, v in sorted(fmt.items(), key=lambda kv: -len(kv[0])):
-        text = re.sub(re.escape(k2), v, text, flags=re.I)
-    cues.append(dict(a=round(p, 3), b=round(q, 3), text=text))
+starts, pos = [], 0
+full = ' '.join(W)
+for w in W: starts.append(pos); pos += len(w) + 1
+glue = set()          # word i is glued to word i+1
+for k2 in sorted(fmt, key=len, reverse=True):
+    for mt in re.finditer(r'(?<![\w-])' + re.escape(k2) + r'(?![\w-])', full):
+        ws = [i for i, s0 in enumerate(starts) if mt.start() <= s0 < mt.end()]
+        glue.update(ws[:-1])
+hard = [i for i, w in enumerate(W) if re.search(r'[.?!:]$', w)]
+blocks, s0 = [], 0
+for h in hard + ([len(W) - 1] if not hard or hard[-1] != len(W) - 1 else []):
+    blocks.append(list(range(s0, h + 1))); s0 = h + 1
+def split(b):
+    if len(b) <= 8: return [b]
+    best = None
+    for k in range(3, len(b) - 2):          # cut after b[k-1]
+        if b[k - 1] in glue: continue
+        score = abs(k - len(b) / 2) - (3 if W[b[k - 1]].endswith(',') else 0)
+        if best is None or score < best[0]: best = (score, k)
+    if best is None: return [b]
+    return split(b[:best[1]]) + split(b[best[1]:])
+cues = []
+for b in blocks:
+    for c in split(b):
+        text = ' '.join(W[j] for j in c)
+        for k2, v in sorted(fmt.items(), key=lambda kv: -len(kv[0])):
+            text = re.sub(r'(?<![\w-])' + re.escape(k2) + r'(?![\w-])', v, text)
+        cues.append(dict(a=words[c[0]]['a'], b=words[c[-1]]['b'], text=text))
 json.dump(words, open('words.json', 'w')); json.dump(cues, open('cues.json', 'w'))
 open('timing.js', 'w').write('window.CUES=' + json.dumps(cues) + ';\nwindow.WORDS=' + json.dumps(words) + ';\n')
 for c in cues: print(f"{c['a']:7.2f}-{c['b']:7.2f}  {c['text']}")
