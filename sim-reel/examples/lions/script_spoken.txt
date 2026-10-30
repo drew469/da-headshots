@@ -1,0 +1,9 @@
+The Detroit Lions have never played in a Super Bowl. Not once in sixty seasons. I simulated their entire history one hundred thousand times to find out if they're cursed. In almost four out of ten, they still never make one. So no, they're not cursed. Except for one thing. Let me show you how this works.
+First, every team gets a score. It's called Elo, like a chess rating. Win, it goes up. Lose, it goes down. The Lions bottomed out in two thousand nine, right after going oh and sixteen. They peaked in twenty twenty-four.
+Then I replayed every Lions game since nineteen sixty-six at its real odds, and sent them to the playoffs whenever they'd have qualified under that year's rules.
+Is the model honest? I checked it on over fourteen thousand games. When it gave a team a sixty-five percent chance, they won sixty-five percent of the time.
+So I ran sixty seasons, one hundred thousand times. On average, the Lions made the playoffs thirteen or fourteen times. In real life? Fourteen. Right on schedule.
+Super Bowls? The average Lions history gets less than one. Almost four in ten get zero. For a team this mediocre for this long, never making one isn't a curse. It's math.
+Their best shot was twenty twenty-four: fifteen and two, the number one seed. Eighteen percent to make the Super Bowl. They lost at home to Washington as eighty percent favorites.
+And that's where the curse is real. Based on the odds of the seventeen playoff games they actually played, the Lions should have won about seven of them. They won three. A team is that unlucky only about two percent of the time.
+So the Lions aren't cursed for missing Super Bowls. They're cursed in January. Bad luck, or just the Lions? Let me know.
