@@ -216,7 +216,18 @@ def main():
     existing = {os.path.splitext(f)[0] for f in os.listdir(OUT)}
     lines = [l.strip() for l in open(os.path.join(ROOT, 'players.txt')) if l.strip() and not l.startswith('#')]
     found, missing, skipped = [], [], []
+    os.makedirs(os.path.join(ROOT, 'logos'), exist_ok=True)
     for line in lines:
+        if line.startswith('logo:'):   # "logo: nfl ne"  -> logos/nfl-ne.png (ESPN team logo, transparent PNG)
+            lg, ab = line.split(':', 1)[1].split()
+            dst = os.path.join(ROOT, 'logos', f'{lg}-{ab.lower()}.png')
+            if os.path.exists(dst): skipped.append(line); continue
+            r = get(f'https://a.espncdn.com/i/teamlogos/{lg}/500/{ab.lower()}.png')
+            if r and len(r[0]) > 2000:
+                open(dst, 'wb').write(r[0]); found.append(f'logo {lg} {ab}'); print('OK logo', ab)
+            else:
+                missing.append(f'logo {lg} {ab}')
+            continue
         league, name = [x.strip() for x in line.split(':', 1)]
         override = None
         if '|' in name:  # optional exact Wikipedia title: "nfl: Larry Johnson | Larry Johnson (running back)"

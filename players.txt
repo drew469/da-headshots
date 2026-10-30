@@ -115,3 +115,27 @@ nfl: Tom Brady Patriots | commons:Tom Brady Patriots
 nfl: Tom Brady Patriots B | commons:Tom Brady 2011 New England
 nfl: Tom Brady Patriots C | commons:Brady Patriots quarterback game
 nfl: Tom Brady Bucs | commons:Tom Brady Buccaneers 2021
+
+# Brady sim v2: full-body photos + logos
+nfl: Tom Brady Full A | commons:Tom Brady Super Bowl
+nfl: Tom Brady Full B | commons:Tom Brady throwing pass Patriots
+nfl: Tom Brady Full C | commons:Tom Brady 2007 Patriots
+nfl: Tom Brady Full D | commons:Tom Brady Buccaneers Super Bowl LV
+nfl: Tom Brady Young | commons:Tom Brady 2004
+nfl: Bill Belichick | commons:Bill Belichick Patriots
+nfl: Eli Manning
+nfl: Kurt Warner
+nfl: Patrick Mahomes
+logo: nfl ne
+logo: nfl tb
+logo: nfl lar
+logo: nfl nyg
+logo: nfl kc
+logo: nfl no
+logo: nfl gb
+logo: nfl sea
+logo: nfl atl
+logo: nfl phi
+logo: nfl nyj
+logo: nfl pit
+logo: nfl gb
