@@ -71,6 +71,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Barry_Sanders"
  },
+ "bill-belichick": {
+  "league": "nfl",
+  "name": "Bill Belichick",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ABill_Belichick_2019_crop.jpg"
+ },
  "bill-russell": {
   "league": "nba",
   "name": "Bill Russell",
@@ -148,6 +154,12 @@
   "name": "Dominique Wilkins Prime",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADominique_Wilkins_2022.jpg"
+ },
+ "eli-manning": {
+  "league": "nfl",
+  "name": "Eli Manning",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/5526.png"
  },
  "emmitt-smith": {
   "league": "nfl",
@@ -311,6 +323,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/3102531.png"
  },
+ "kurt-warner": {
+  "league": "nfl",
+  "name": "Kurt Warner",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Kurt_Warner"
+ },
  "kyle-pitts": {
   "league": "nfl",
   "name": "Kyle Pitts",
@@ -461,6 +479,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16733.png"
  },
+ "patrick-mahomes": {
+  "league": "nfl",
+  "name": "Patrick Mahomes",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png"
+ },
  "patrick-willis": {
   "league": "nfl",
   "name": "Patrick Willis",
@@ -551,6 +575,24 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_WFT-Buccaneers_NOV2021_%28cropped%29.jpg"
  },
+ "tom-brady-full-a": {
+  "league": "nfl",
+  "name": "Tom Brady Full A",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ASuper_Bowl-22_-_Tom_Brady_%286833641647%29.jpg"
+ },
+ "tom-brady-full-b": {
+  "league": "nfl",
+  "name": "Tom Brady Full B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AColts_vs_Patriots_2011_01.jpg"
+ },
+ "tom-brady-full-c": {
+  "league": "nfl",
+  "name": "Tom Brady Full C",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATomBrady.jpg"
+ },
  "tom-brady-patriots": {
   "league": "nfl",
   "name": "Tom Brady Patriots",
@@ -568,6 +610,12 @@
   "name": "Tom Brady Patriots C",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2016.JPG"
+ },
+ "tom-brady-young": {
+  "league": "nfl",
+  "name": "Tom Brady Young",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AMuseum_of_Childhood_%286952323531%29.jpg"
  },
  "tony-gonzalez": {
   "league": "nfl",

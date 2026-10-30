@@ -1,18 +1,36 @@
 # Last run
 
-Fetched 5 · already had 102 · missing 0
+Fetched 20 · already had 108 · missing 1
 
 ## Missing (add manually to headshots/<slug>.jpg)
+- Tom Brady Full D (nfl)
 
 ## Fetched
-- Tom Brady — Wikipedia
-- Tom Brady Patriots — Commons
-- Tom Brady Patriots B — Commons
-- Tom Brady Patriots C — Commons
-- Tom Brady Bucs — Commons
+- Tom Brady Full A — Commons
+- Tom Brady Full B — Commons
+- Tom Brady Full C — Commons
+- Tom Brady Young — Commons
+- Bill Belichick — Commons
+- Eli Manning — ESPN
+- Kurt Warner — Wikipedia
+- Patrick Mahomes — ESPN
+- logo nfl ne
+- logo nfl tb
+- logo nfl lar
+- logo nfl nyg
+- logo nfl kc
+- logo nfl no
+- logo nfl gb
+- logo nfl sea
+- logo nfl atl
+- logo nfl phi
+- logo nfl nyj
+- logo nfl pit
 
 ## Debug (missing only)
-- Tom Brady Patriots: commons search [Tom Brady Patriots] -> File:Tom Brady Patriots at Broncos.jpg | File:Tom Brady 2017.JPG | File:Tom Brady 2016.JPG | File:Tom Brady 2019.jpg | File:Tom Brady In 2019.jpg | File:Tom Brady 8-28-09 Patriots-vs-Redskins.jpg
-- Tom Brady Patriots B: commons search [Tom Brady 2011 New England] -> File:Tom Brady 2011.JPG | File:Tom Brady - Denver 2011.jpg | File:Tom Brady 2011 (cropped).JPG | File:Tom Brady Gillette Stadium 2011.jpg | File:Tom Brady (a).jpg | File:Tom Brady and his offensive line.jpg
-- Tom Brady Patriots C: commons search [Brady Patriots quarterback game] -> File:Tom Brady 2016.JPG | File:Tom Brady 2015.JPG | File:Tom Brady 2019.jpg | File:Tom Brady In 2019.jpg | File:Tom Brady vs. Vikings 2014.jpg | File:Tom Brady 2011.JPG
-- Tom Brady Bucs: commons search [Tom Brady Buccaneers 2021] -> File:Tom Brady WFT-Buccaneers NOV2021 (cropped).jpg | File:Buccaneers Tom Brady Becomes All Time Completions Leader Against Bills 2021.jpg | File:Tom Brady WFT-Buccaneers NOV2021.jpg | File:Tom Brady 2020 playoffs.jpg | File:Brady TB vs WFT 2021.jpg | File:Tom Brady (50831667973).jpg
+- Tom Brady Full A: commons search [Tom Brady Super Bowl] -> File:Tom Brady Super Bowl LII 85F9D5D.jpg | File:Super Bowl-22 - Tom Brady (6833641647).jpg | File:Tom Brady Super Bowl 50.jpg | File:Tom Brady and Desmond Howard Super Bowl 50 (25016489125).jpg | File:Tom Brady, Franco Harris, Mark Rypein at Super Bowl 50 (24923173311).jpg | File:Tom Brady blocked. (6837565229).jpg
+- Tom Brady Full B: commons search [Tom Brady throwing pass Patriots] -> File:Colts vs Patriots 2011 01.jpg | File:Rob Gronkowski 2011.jpg
+- Tom Brady Full C: commons search [Tom Brady 2007 Patriots] -> File:TomBrady.jpg | File:TomBrady (cropped).jpg | File:Patriotsgiants 031.jpg | File:Pro Football Hall of Fame (27033840159).jpg | File:Patriotsgiants 031a.jpg
+- Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
+- Tom Brady Young: commons search [Tom Brady 2004] -> File:Patriots n bush.jpg | File:Museum of Childhood (6952323531).jpg | File:FEMA - 21319 - Photograph by Bob McMillan taken on 01-15-2006 in Oklahoma.jpg | File:FEMA - 21322 - Photograph by Bob McMillan taken on 01-15-2006 in Oklahoma.jpg | File:FEMA - 21310 - Photograph by Bob McMillan taken on 01-15-2006 in Oklahoma.jpg
+- Bill Belichick: commons search [Bill Belichick Patriots] -> File:Bill Belichick 2019 crop.jpg | File:Bill Belichick 8-28-09 Patriots-vs-Redskins.jpg | File:Bill Belichick 2012 Shankbone.JPG | File:Bill Belichick at Patriots at Raiders 12-14-08 2.JPG | File:Bill Belichick 2019 (cropped).jpg | File:Bill Belichick 2019.jpg
