@@ -174,3 +174,13 @@ mens-college-basketball: Cooper Flagg Duke | commons:Cooper Flagg Duke
 mens-college-basketball: UMBC Retrievers 2018 | commons:UMBC Retrievers basketball
 mens-college-basketball: Cooper Flagg Dunk | commons:File:Duke and Wake Forest basketball game, 2025-03-03 Wake Forest Cooper Flagg dunking C (cropped).jpg
 mens-college-basketball: Zach Edey B | commons:File:Zach Edey.jpg
+logo: nfl det
+logo: nfl chi
+logo: nfl min
+logo: nfl sf
+nfl: Jared Goff Lions | commons:Jared Goff Lions
+nfl: Barry Sanders Lions | commons:Barry Sanders Detroit Lions
+nfl: Calvin Johnson Lions | commons:Calvin Johnson Detroit Lions
+nfl: Dan Campbell Lions | commons:Dan Campbell Detroit Lions coach
+nfl: Amon-Ra St. Brown Lions | commons:Amon-Ra St. Brown
+nfl: Aidan Hutchinson Lions | commons:Aidan Hutchinson Lions
