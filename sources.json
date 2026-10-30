@@ -107,6 +107,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Bo_Jackson"
  },
+ "brandon-aubrey-cowboys": {
+  "league": "nfl",
+  "name": "Brandon Aubrey Cowboys",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ACINvBST_2018-06-13_-_Brandon_Aubrey_%2843565763110%29_%28cropped%29.jpg"
+ },
  "calvin-johnson": {
   "league": "nfl",
   "name": "Calvin Johnson",
@@ -239,6 +245,12 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AHakeem_Olajuwon-Bill_Fitch-Ralph_Sampson.jpg"
  },
+ "harrison-butker-chiefs": {
+  "league": "nfl",
+  "name": "Harrison Butker Chiefs",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AHarrison_Butker_kick_%2815976939851%29.jpg"
+ },
  "j-j-watt": {
   "league": "nfl",
   "name": "J.J. Watt",
@@ -334,6 +346,12 @@
   "name": "Justin Jefferson",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4262921.png"
+ },
+ "justin-tucker-ravens": {
+  "league": "nfl",
+  "name": "Justin Tucker Ravens",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJustin_Tucker_kicks_field_goal_in_Super_Bowl_XLVII.jpg"
  },
  "kareem-abdul-jabbar": {
   "league": "nba",
