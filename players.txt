@@ -184,3 +184,7 @@ nfl: Calvin Johnson Lions | commons:Calvin Johnson Detroit Lions
 nfl: Dan Campbell Lions | commons:Dan Campbell Detroit Lions coach
 nfl: Amon-Ra St. Brown Lions | commons:Amon-Ra St. Brown
 nfl: Aidan Hutchinson Lions | commons:Aidan Hutchinson Lions
+nfl: Goff Swift Lions crop | commons:File:Jared Goff & D'Andre Swift Commanders vs Lions SEP2022 (cropped).jpg
+nfl: St Brown Lions action | commons:File:Amon-Ra St. Brown vs. Commanders 2022 (cropped).jpg
+nfl: Lions Commanders 1 | commons:File:Commanders at Lions (52377911697).jpg
+nfl: Lions Commanders 2 | commons:File:Commanders at Lions (52379164259).jpg
