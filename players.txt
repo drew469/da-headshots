@@ -139,3 +139,15 @@ logo: nfl phi
 logo: nfl nyj
 logo: nfl pit
 logo: nfl gb
+
+logo: nfl ten
+logo: nfl ind
+logo: nfl car
+logo: nfl jax
+logo: nfl den
+logo: nfl lac
+logo: nfl bal
+logo: nfl hou
+logo: nfl lv
+logo: nfl wsh
+logo: nfl dal
