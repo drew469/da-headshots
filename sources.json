@@ -221,6 +221,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8479.png"
  },
+ "goff-swift-lions-crop": {
+  "league": "nfl",
+  "name": "Goff Swift Lions crop",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJared_Goff_%26_D%27Andre_Swift_Commanders_vs_Lions_SEP2022_%28cropped%29.jpg"
+ },
  "hakeem-olajuwon": {
   "league": "nba",
   "name": "Hakeem Olajuwon",
@@ -455,6 +461,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12514.png"
  },
+ "lions-commanders-1": {
+  "league": "nfl",
+  "name": "Lions Commanders 1",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ACommanders_at_Lions_%2852377911697%29.jpg"
+ },
+ "lions-commanders-2": {
+  "league": "nfl",
+  "name": "Lions Commanders 2",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ACommanders_at_Lions_%2852379164259%29.jpg"
+ },
  "luke-kuechly": {
   "league": "nfl",
   "name": "Luke Kuechly",
@@ -604,6 +622,12 @@
   "name": "Shaquille O'Neal",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/614.png"
+ },
+ "st-brown-lions-action": {
+  "league": "nfl",
+  "name": "St Brown Lions action",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAmon-Ra_St._Brown_vs._Commanders_2022_%28cropped%29.jpg"
  },
  "terrell-suggs": {
   "league": "nfl",
