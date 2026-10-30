@@ -166,3 +166,9 @@ logo: ncaa 12
 logo: ncaa 248
 logo: ncaa 2
 logo: ncaa 2561
+mens-college-basketball: Jairus Lyles UMBC | commons:Jairus Lyles
+mens-college-basketball: UMBC Virginia 2018 | 2018 UMBC vs. Virginia men's basketball game
+mens-college-basketball: FDU 2023 Team | 2022–23 Fairleigh Dickinson Knights men's basketball team
+mens-college-basketball: Zach Edey Purdue | commons:Zach Edey Purdue
+mens-college-basketball: Cooper Flagg Duke | commons:Cooper Flagg Duke
+mens-college-basketball: UMBC Retrievers 2018 | commons:UMBC Retrievers basketball
