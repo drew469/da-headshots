@@ -113,6 +113,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12438.png"
  },
+ "cooper-flagg-duke": {
+  "league": "mens-college-basketball",
+  "name": "Cooper Flagg Duke",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADuke_and_Wake_Forest_basketball_game%2C_2025-03-03_Wake_Forest_Cooper_Flagg_dunking_B.jpg"
+ },
  "dan-marino": {
   "league": "nfl",
   "name": "Dan Marino",
@@ -167,6 +173,12 @@
   "source": "Wikipedia",
   "url": "https://commons.wikimedia.org/wiki/File:EmmittSmith2007.jpg"
  },
+ "fdu-2023-team": {
+  "league": "mens-college-basketball",
+  "name": "FDU 2023 Team",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Fairleigh_Dickinson_Knights_men's_basketball_team"
+ },
  "frank-gore": {
   "league": "nfl",
   "name": "Frank Gore",
@@ -202,6 +214,12 @@
   "name": "Ja Morant",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4279888.png"
+ },
+ "jairus-lyles-umbc": {
+  "league": "mens-college-basketball",
+  "name": "Jairus Lyles UMBC",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJairus_Lyles_umbc.jpg"
  },
  "james-worthy": {
   "league": "nba",
@@ -653,6 +671,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4431678.png"
  },
+ "umbc-retrievers-2018": {
+  "league": "mens-college-basketball",
+  "name": "UMBC Retrievers 2018",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AUMBC_Reception_%2840347966504%29.jpg"
+ },
+ "umbc-virginia-2018": {
+  "league": "mens-college-basketball",
+  "name": "UMBC Virginia 2018",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/2018_UMBC_vs._Virginia_men's_basketball_game"
+ },
  "von-miller": {
   "league": "nfl",
   "name": "Von Miller",
@@ -682,6 +712,12 @@
   "name": "Yao Ming",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/1722.png"
+ },
+ "zach-edey-purdue": {
+  "league": "mens-college-basketball",
+  "name": "Zach Edey Purdue",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AZach_Edey_defending_Jonathan_Baehre.jpg"
  },
  "zion-williamson": {
   "league": "nba",
