@@ -188,3 +188,8 @@ nfl: Goff Swift Lions crop | commons:File:Jared Goff & D'Andre Swift Commanders 
 nfl: St Brown Lions action | commons:File:Amon-Ra St. Brown vs. Commanders 2022 (cropped).jpg
 nfl: Lions Commanders 1 | commons:File:Commanders at Lions (52377911697).jpg
 nfl: Lions Commanders 2 | commons:File:Commanders at Lions (52379164259).jpg
+logo: nfl cle
+logo: nfl mia
+logo: nfl ari
+logo: nfl cin
+logo: nfl buf
