@@ -199,3 +199,6 @@ nfl: Justin Tucker Ravens | commons:Justin Tucker kick
 nfl: Brandon Aubrey Cowboys | commons:Brandon Aubrey
 nfl: Tom Dempsey Saints | commons:Tom Dempsey kicker
 nfl: Harrison Butker Chiefs | commons:Harrison Butker kick
+nfl: Peyton Manning Colts | commons:Peyton Manning Colts
+nfl: Peyton Manning Broncos | commons:Peyton Manning Broncos
+nfl: Peyton Manning Throw | commons:Peyton Manning throwing
