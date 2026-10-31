@@ -605,6 +605,24 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1428.png"
  },
+ "peyton-manning-broncos": {
+  "league": "nfl",
+  "name": "Peyton Manning Broncos",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APeyton_Manning_Broncos_2012.JPG"
+ },
+ "peyton-manning-colts": {
+  "league": "nfl",
+  "name": "Peyton Manning Colts",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APeyton_Manning_passing.jpg"
+ },
+ "peyton-manning-throw": {
+  "league": "nfl",
+  "name": "Peyton Manning Throw",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APeyton_Manning_Throwing_TD509.png"
+ },
  "randy-moss": {
   "league": "nfl",
   "name": "Randy Moss",
