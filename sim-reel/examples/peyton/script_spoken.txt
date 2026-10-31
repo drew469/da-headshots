@@ -1,0 +1,9 @@
+Peyton Manning. Five MVPs. Two rings. I simulated his career one hundred thousand times. The average Peyton wins one and a half. So was he unlucky? Not even close. Let me show you how this works.
+First, every team gets a score. It's called Elo, like a chess rating. Win, it goes up. Lose, it goes down.
+Then you compare the two scores. The bigger the gap, the bigger the chance. Home field adds a little extra.
+Then I replayed every playoff run Peyton ever had. Fifteen trips, twenty-seven games. When he lost, I kept him going against the teams that actually advanced.
+Is the model honest? I checked it on two hundred seventy real playoff games. When it gave a team a sixty-five percent chance, they won sixty-five percent of the time.
+So I ran his career one hundred thousand times. The most common result? One ring. One in five Peytons win zero. Only about one in five win three or more.
+He did lose eight playoff games as the favorite, and nine times he was one and done. But his best shot at a title in any single year was just twenty-one percent. That was two thousand five, and they lost at home to Pittsburgh.
+Add it all up and the model says Peyton should have won about fifteen playoff games. He won fourteen. Almost exactly what his teams earned.
+Now compare that to Brady. The model said Brady should have about four rings. He got seven. Peyton ending up with seven? About one in five thousand. So, Peyton or Brady? Let me know.
