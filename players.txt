@@ -234,3 +234,4 @@ logo: nba min
 logo: nba orl
 nba: Jalen Williams Photo | commons:Jalen Williams basketball
 nba: Paolo Banchero Photo | commons:Paolo Banchero
+nba: Jalen Williams Cup | commons:File:Jalen Williams OKCThunder 2025 NBA Cup (cropped) (cropped).jpg
