@@ -70,7 +70,7 @@ for i, w in enumerate(W):
     for p in re.sub(r"[^a-z' -]", '', w.lower().replace('-', ' ')).split():
         p = p.strip("'")
         if not p: continue
-        parts = [p] if dec.lookup_word(p) is not None else SUBS.get(p, '').split()
+        parts = [p] if dec.lookup_word(p) is not None else [q for q in SUBS.get(p, '').split() if dec.lookup_word(q) is not None]
         if not parts:   # out-of-vocabulary: spell it with letters
             parts = [ch for ch in p if dec.lookup_word(ch) is not None] or ['the']
             print('OOV ->', p, parts)
