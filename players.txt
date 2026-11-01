@@ -202,3 +202,25 @@ nfl: Harrison Butker Chiefs | commons:Harrison Butker kick
 nfl: Peyton Manning Colts | commons:Peyton Manning Colts
 nfl: Peyton Manning Broncos | commons:Peyton Manning Broncos
 nfl: Peyton Manning Throw | commons:Peyton Manning throwing
+nba: Tyrese Haliburton
+nba: Ja Morant
+nba: Giannis Antetokounmpo
+nba: Chet Holmgren
+nba: Stephen Curry
+nba: Jayson Tatum
+nba: Victor Wembanyama
+nba: Kareem Abdul-Jabbar | commons:Kareem Abdul-Jabbar Lakers
+nba: Michael Jordan Bulls | commons:Michael Jordan Bulls
+nba: Giannis Full | commons:Giannis Antetokounmpo Bucks
+nba: Ja Morant Full | commons:Ja Morant Grizzlies
+nba: Stephen Curry Full | commons:Stephen Curry Warriors
+nba: Tyrese Haliburton Full | commons:Tyrese Haliburton Pacers
+nba: Chet Holmgren Full | commons:Chet Holmgren Thunder
+logo: nba ind
+logo: nba mem
+logo: nba mil
+logo: nba okc
+logo: nba bos
+logo: nba gs
+logo: nba lal
+logo: nba chi
