@@ -71,6 +71,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4594268.png"
  },
+ "anthony-edwards-full": {
+  "league": "nba",
+  "name": "Anthony Edwards Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAnthony_Edwards_Kentavious_Caldwell-Pope_%2851734745028%29.jpg"
+ },
  "baker-mayfield": {
   "league": "nfl",
   "name": "Baker Mayfield",
@@ -304,6 +310,12 @@
   "name": "Jairus Lyles UMBC",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AJairus_Lyles_umbc.jpg"
+ },
+ "jalen-williams": {
+  "league": "nba",
+  "name": "Jalen Williams",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4593803.png"
  },
  "james-worthy": {
   "league": "nba",
@@ -616,6 +628,12 @@
   "name": "Odell Beckham Jr.",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16733.png"
+ },
+ "paolo-banchero": {
+  "league": "nba",
+  "name": "Paolo Banchero",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4432573.png"
  },
  "patrick-mahomes": {
   "league": "nfl",
