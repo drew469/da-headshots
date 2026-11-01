@@ -317,6 +317,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4593803.png"
  },
+ "jalen-williams-photo": {
+  "league": "nba",
+  "name": "Jalen Williams Photo",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATerrance_Williams_Jalen_Moore.jpg"
+ },
  "james-worthy": {
   "league": "nba",
   "name": "James Worthy",
@@ -634,6 +640,12 @@
   "name": "Paolo Banchero",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4432573.png"
+ },
+ "paolo-banchero-photo": {
+  "league": "nba",
+  "name": "Paolo Banchero Photo",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APaolo_Banchero.png"
  },
  "patrick-mahomes": {
   "league": "nfl",

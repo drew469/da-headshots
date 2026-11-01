@@ -1,6 +1,6 @@
 # Last run
 
-Fetched 5 · already had 209 · missing 7
+Fetched 2 · already had 214 · missing 7
 
 ## Missing (add manually to headshots/<slug>.jpg)
 - Tom Brady Full D (nfl)
@@ -12,11 +12,8 @@ Fetched 5 · already had 209 · missing 7
 - Paolo Banchero Full (nba)
 
 ## Fetched
-- Jalen Williams — ESPN
-- Paolo Banchero — ESPN
-- Anthony Edwards Full — Commons
-- logo nba min
-- logo nba orl
+- Jalen Williams Photo — Commons
+- Paolo Banchero Photo — Commons
 
 ## Debug (missing only)
 - Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
@@ -24,6 +21,7 @@ Fetched 5 · already had 209 · missing 7
 - Cam Little Jaguars: commons search [Cam Little Jaguars] -> 
 - Tom Dempsey Saints: commons search [Tom Dempsey kicker] -> 
 - Chet Holmgren Full: commons search [Chet Holmgren Thunder] -> 
-- Anthony Edwards Full: commons search [Anthony Edwards Timberwolves] -> File:Anthony Edwards Kentavious Caldwell-Pope (51734745028).jpg | File:Anthony Edwards Kentavious Caldwell-Pope (51734745028) (cropped) (cropped).jpg | File:Anthony Edwards Kentavious Caldwell-Pope (51734745028) (cropped).jpg | File:Anthony Edwards Kentavious Caldwell-Pope (51734745028) (cropped) (cropped)2.jpg
 - Jalen Williams Full: commons search [Jalen Williams Thunder] -> 
 - Paolo Banchero Full: commons search [Paolo Banchero Magic] -> 
+- Jalen Williams Photo: commons search [Jalen Williams basketball] -> File:Terrance Williams Jalen Moore.jpg | File:Jalen Rose Knicks.jpg | File:20150221 Jalen Brunson short j against D. J. Williams.JPG | File:Jalen Williams OKCThunder 2025 NBA Cup.jpg | File:Mo Williams free throw.jpg | File:Jalen Williams OKCThunder 2025 NBA Cup (cropped) (cropped).jpg
+- Paolo Banchero Photo: commons search [Paolo Banchero] -> File:Paolo Banchero.png | File:Paolo Banchero Dominating in High School.jpg | File:Paolo Banchero Dunk.jpg | File:Paolo Banchero Dunk 2020.jpg | File:Paolo Banchero Playing Basketball.jpg | File:Paolo Banchero Dunking in High School.jpg
