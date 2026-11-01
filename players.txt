@@ -224,3 +224,11 @@ logo: nba bos
 logo: nba gs
 logo: nba lal
 logo: nba chi
+nba: Anthony Edwards
+nba: Jalen Williams
+nba: Paolo Banchero
+nba: Anthony Edwards Full | commons:Anthony Edwards Timberwolves
+nba: Jalen Williams Full | commons:Jalen Williams Thunder
+nba: Paolo Banchero Full | commons:Paolo Banchero Magic
+logo: nba min
+logo: nba orl
