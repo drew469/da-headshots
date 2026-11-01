@@ -137,6 +137,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4241389.png"
  },
+ "chet-holmgren": {
+  "league": "nba",
+  "name": "Chet Holmgren",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4433255.png"
+ },
  "clay-matthews": {
   "league": "nfl",
   "name": "Clay Matthews",
@@ -227,6 +233,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8479.png"
  },
+ "giannis-antetokounmpo": {
+  "league": "nba",
+  "name": "Giannis Antetokounmpo",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3032977.png"
+ },
+ "giannis-full": {
+  "league": "nba",
+  "name": "Giannis Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AGiannis_Antetokounmpo_%2824845003687%29_%28cropped%29.jpg"
+ },
  "goff-swift-lions-crop": {
   "league": "nfl",
   "name": "Goff Swift Lions crop",
@@ -269,6 +287,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4279888.png"
  },
+ "ja-morant-full": {
+  "league": "nba",
+  "name": "Ja Morant Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJa_Morant_%2851664118932%29.jpg"
+ },
  "jairus-lyles": {
   "league": "mens-college-basketball",
   "name": "Jairus Lyles",
@@ -298,6 +322,12 @@
   "name": "Jared Goff Lions",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AJared_Goff_%26_D%27Andre_Swift_Commanders_vs_Lions_SEP2022.jpg"
+ },
+ "jayson-tatum": {
+  "league": "nba",
+  "name": "Jayson Tatum",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png"
  },
  "jerry-rice": {
   "league": "nfl",
@@ -545,6 +575,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Michael_Jordan"
  },
+ "michael-jordan-bulls": {
+  "league": "nba",
+  "name": "Michael Jordan Bulls",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AMichael_Jordan_holds_up_his_Chicago_Bulls_jersey_on_September_12%2C_1984.jpg"
+ },
  "michael-jordan-prime": {
   "league": "nba",
   "name": "Michael Jordan Prime",
@@ -671,6 +707,18 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAmon-Ra_St._Brown_vs._Commanders_2022_%28cropped%29.jpg"
  },
+ "stephen-curry": {
+  "league": "nba",
+  "name": "Stephen Curry",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/3975.png"
+ },
+ "stephen-curry-full": {
+  "league": "nba",
+  "name": "Stephen Curry Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AStephen_Curry_close_up.jpg"
+ },
  "terrell-suggs": {
   "league": "nfl",
   "name": "Terrell Suggs",
@@ -773,6 +821,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4396993.png"
  },
+ "tyrese-haliburton-full": {
+  "league": "nba",
+  "name": "Tyrese Haliburton Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3A1_tyrese_haliburton_2025.jpg"
+ },
  "tyrese-maxey": {
   "league": "nba",
   "name": "Tyrese Maxey",
@@ -790,6 +844,12 @@
   "name": "UMBC Virginia 2018",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/2018_UMBC_vs._Virginia_men's_basketball_game"
+ },
+ "victor-wembanyama": {
+  "league": "nba",
+  "name": "Victor Wembanyama",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/5104157.png"
  },
  "von-miller": {
   "league": "nfl",
