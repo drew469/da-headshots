@@ -232,3 +232,5 @@ nba: Jalen Williams Full | commons:Jalen Williams Thunder
 nba: Paolo Banchero Full | commons:Paolo Banchero Magic
 logo: nba min
 logo: nba orl
+nba: Jalen Williams Photo | commons:Jalen Williams basketball
+nba: Paolo Banchero Photo | commons:Paolo Banchero
