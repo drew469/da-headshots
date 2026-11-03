@@ -243,3 +243,8 @@ nfl: Tony Romo
 nfl: Tony Romo Full | commons:Tony Romo quarterback
 nfl: Jerry Jones | commons:Jerry Jones
 nfl: Jerry Jones B | commons:Jerry Jones Dallas
+# NFL — 28-3 Super Bowl LI simulation
+nfl: Matt Ryan
+nfl: Matt Ryan Falcons | commons:Matt Ryan Falcons
+nfl: Matt Ryan Falcons B | commons:Matt Ryan quarterback Atlanta
+nfl: Julian Edelman Full | commons:Julian Edelman Patriots
