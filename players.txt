@@ -235,3 +235,12 @@ logo: nba orl
 nba: Jalen Williams Photo | commons:Jalen Williams basketball
 nba: Paolo Banchero Photo | commons:Paolo Banchero
 nba: Jalen Williams Cup | commons:File:Jalen Williams OKCThunder 2025 NBA Cup (cropped) (cropped).jpg
+# NFL — Cowboys 100,000 seasons simulation
+nfl: Dak Prescott
+nfl: Dak Prescott Full | commons:Dak Prescott Cowboys
+nfl: Dak Prescott Full B | commons:Dak Prescott 2023
+nfl: Tony Romo
+nfl: Tony Romo Full | commons:Tony Romo Cowboys
+nfl: Troy Aikman Full | commons:Troy Aikman Cowboys
+nfl: Jerry Jones | commons:Jerry Jones Cowboys owner
+nfl: Jerry Jones B | commons:Jerry Jones 2017
