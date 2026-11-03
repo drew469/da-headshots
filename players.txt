@@ -240,7 +240,6 @@ nfl: Dak Prescott
 nfl: Dak Prescott Full | commons:Dak Prescott Cowboys
 nfl: Dak Prescott Full B | commons:Dak Prescott 2023
 nfl: Tony Romo
-nfl: Tony Romo Full | commons:Tony Romo Cowboys
-nfl: Troy Aikman Full | commons:Troy Aikman Cowboys
-nfl: Jerry Jones | commons:Jerry Jones Cowboys owner
-nfl: Jerry Jones B | commons:Jerry Jones 2017
+nfl: Tony Romo Full | commons:Tony Romo quarterback
+nfl: Jerry Jones | commons:Jerry Jones
+nfl: Jerry Jones B | commons:Jerry Jones Dallas
