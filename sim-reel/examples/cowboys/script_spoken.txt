@@ -1,0 +1,9 @@
+The Dallas Cowboys haven't played in an NFC Championship Game in thirty years. I simulated those thirty seasons one hundred thousand times. Only two point six percent of them end like this. So are they cursed, or just bad? Let me show you how this works.
+First, every team gets a score. It's called Elo, like a chess rating. Win, it goes up. Lose, it goes down. The Cowboys bottomed out in two thousand two. They peaked in two thousand nine with Tony Romo.
+Then I replayed every Cowboys game since nineteen ninety-six at its real odds, and sent them to the playoffs whenever they'd have qualified under that year's rules.
+Is the model honest? I tested it on over fourteen thousand games. When it gave a team a sixty-five percent chance, they won sixty-four percent of the time.
+So I ran thirty seasons, one hundred thousand times. On average, the Cowboys made the playoffs about fifteen times. In real life? Thirteen. Pretty close.
+NFC title games? The average Cowboys history gets three. Only two point six percent get zero. That's about one in thirty-eight.
+Here's where it breaks. In those thirty years, the Cowboys played eighteen playoff games. The odds said they should win nine or ten. They won five.
+And the divisional round? They're oh and seven. The model expected three wins. Going oh and seven happens about one percent of the time. And in twenty twenty-three, they never even got there: twelve and five, at home, seventy-two percent favorites against a seven seed. They gave up forty-eight.
+So the Cowboys aren't just bad. They keep getting close, then losing the one game that matters. Bad luck, or just the Cowboys? Let me know.
