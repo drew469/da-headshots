@@ -1,6 +1,6 @@
 # Last run
 
-Fetched 4 · already had 217 · missing 11
+Fetched 3 · already had 221 · missing 7
 
 ## Missing (add manually to headshots/<slug>.jpg)
 - Tom Brady Full D (nfl)
@@ -10,16 +10,11 @@ Fetched 4 · already had 217 · missing 11
 - Chet Holmgren Full (nba)
 - Jalen Williams Full (nba)
 - Paolo Banchero Full (nba)
-- Tony Romo Full (nfl)
-- Troy Aikman Full (nfl)
-- Jerry Jones (nfl)
-- Jerry Jones B (nfl)
 
 ## Fetched
-- Dak Prescott — ESPN
-- Dak Prescott Full — Commons
-- Dak Prescott Full B — Commons
-- Tony Romo — Wikipedia
+- Tony Romo Full — Commons
+- Jerry Jones — Commons
+- Jerry Jones B — Commons
 
 ## Debug (missing only)
 - Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
@@ -29,9 +24,6 @@ Fetched 4 · already had 217 · missing 11
 - Chet Holmgren Full: commons search [Chet Holmgren Thunder] -> 
 - Jalen Williams Full: commons search [Jalen Williams Thunder] -> 
 - Paolo Banchero Full: commons search [Paolo Banchero Magic] -> 
-- Dak Prescott Full: commons search [Dak Prescott Cowboys] -> File:Dak Prescott WAS @ DAL 2021.jpg | File:Cowboys Dak Prescott (50121510011).jpg | File:Dak Prescott WAS @ DAL 2021 (cropped).jpg | File:Dak Prescott.JPG | File:Dak prescott 2016.jpg | File:Dak Prescott vs Redskins 2017 (3).jpg
-- Dak Prescott Full B: commons search [Dak Prescott 2023] -> File:Dak Prescott by Gage Skidmore.jpg
-- Tony Romo Full: commons search [Tony Romo Cowboys] -> 
-- Troy Aikman Full: commons search [Troy Aikman Cowboys] -> 
-- Jerry Jones: commons search [Jerry Jones Cowboys owner] -> 
-- Jerry Jones B: commons search [Jerry Jones 2017] -> 
+- Tony Romo Full: commons search [Tony Romo quarterback] -> File:Tony Romo 2009.JPG | File:Tony Romo 2015.jpg | File:Tony Romo before 2008 Pro Bowl.JPEG | File:Tony Romo.jpg | File:Kowalyshen sacking Tony Romo.jpg | File:Tony Romo at 2009 AT&T National Earl D. Woods Memorial Pro-Am.JPG
+- Jerry Jones: commons search [Jerry Jones] -> File:Jerry Jones 2015 (2).jpg | File:Jerry Jones owner dallas cowboys 2008.jpg | File:Jerry Jones (24176024648) (cropped).jpg | File:Jerry Jones (24176024648).jpg | File:Jerry Jones 2015.jpg | File:President George H. W. Bush receives a Dallas Cowboys jacket and helmet from Jerry Jones, owner, in the Oval Office of the White House.jpg
+- Jerry Jones B: commons search [Jerry Jones Dallas] -> File:Jerry Jones owner dallas cowboys 2008.jpg | File:Jerry Jones 2015 (2).jpg | File:Jerry Jones (24176024648) (cropped).jpg | File:Jerry Jones (24176024648).jpg | File:Jerry Jones 2015.jpg | File:President George H. W. Bush receives a Dallas Cowboys jacket and helmet from Jerry Jones.jpg

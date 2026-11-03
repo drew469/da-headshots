@@ -371,6 +371,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png"
  },
+ "jerry-jones": {
+  "league": "nfl",
+  "name": "Jerry Jones",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJerry_Jones_2015_%282%29.jpg"
+ },
+ "jerry-jones-b": {
+  "league": "nfl",
+  "name": "Jerry Jones B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJerry_Jones_2015_%282%29.jpg"
+ },
  "jerry-rice": {
   "league": "nfl",
   "name": "Jerry Rice",
@@ -856,6 +868,12 @@
   "name": "Tony Romo",
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Tony_Romo"
+ },
+ "tony-romo-full": {
+  "league": "nfl",
+  "name": "Tony Romo Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATony_Romo_2009.JPG"
  },
  "trevor-lawrence": {
   "league": "nfl",
