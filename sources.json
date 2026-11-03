@@ -413,6 +413,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png"
  },
+ "julian-edelman-full": {
+  "league": "nfl",
+  "name": "Julian Edelman Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJulian_Edelman_In_2019.jpg"
+ },
  "julio-jones": {
   "league": "nfl",
   "name": "Julio Jones",
@@ -610,6 +616,24 @@
   "name": "Marshawn Lynch",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10456.png"
+ },
+ "matt-ryan": {
+  "league": "nfl",
+  "name": "Matt Ryan",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Matt_Ryan_(American_football)"
+ },
+ "matt-ryan-falcons": {
+  "league": "nfl",
+  "name": "Matt Ryan Falcons",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AMatt_Ryan_Falcons_vs_Giants_SEP2021.png"
+ },
+ "matt-ryan-falcons-b": {
+  "league": "nfl",
+  "name": "Matt Ryan Falcons B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AMatt_ryan_2019.jpg"
  },
  "matthew-stafford": {
   "league": "nfl",
