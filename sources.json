@@ -167,6 +167,24 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADuke_and_Wake_Forest_basketball_game%2C_2025-03-03_Wake_Forest_Cooper_Flagg_dunking_C_%28cropped%29.jpg"
  },
+ "dak-prescott": {
+  "league": "nfl",
+  "name": "Dak Prescott",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/2577417.png"
+ },
+ "dak-prescott-full": {
+  "league": "nfl",
+  "name": "Dak Prescott Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADak_Prescott_WAS_%40_DAL_2021.jpg"
+ },
+ "dak-prescott-full-b": {
+  "league": "nfl",
+  "name": "Dak Prescott Full B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADak_Prescott_by_Gage_Skidmore.jpg"
+ },
  "dan-campbell-lions": {
   "league": "nfl",
   "name": "Dan Campbell Lions",
@@ -832,6 +850,12 @@
   "name": "Tony Gonzalez",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/1231.png"
+ },
+ "tony-romo": {
+  "league": "nfl",
+  "name": "Tony Romo",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Tony_Romo"
  },
  "trevor-lawrence": {
   "league": "nfl",
