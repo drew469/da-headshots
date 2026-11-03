@@ -1,0 +1,9 @@
+Was twenty-eight to three the greatest comeback ever, or the biggest choke? I simulated it one hundred thousand times to settle it. The Patriots win just one point eight percent of them. About one in fifty-five. Let me show you how this works.
+First, I pulled every NFL drive since two thousand nine. More than one hundred thousand of them. Each one is sorted by the score, the clock, and where it started.
+Then I adjusted for the two teams. The Falcons had the best offense in football that year. The Patriots allowed the fewest points.
+Is the model honest? I tested it on three thousand real game situations. When it gave a team an eighty percent chance, they won eighty-two percent of the time.
+So I started at twenty-eight to three, eight thirty-one left in the third, and played out the rest of the game one hundred thousand times. The Patriots won eighteen hundred thirty-four. With two average teams, it's only point six percent.
+And real history agrees. Since two thousand nine, teams have trailed by twenty-five or more in the second half seven hundred thirty times. Three came back.
+So who made it happen? The Patriots scored twenty-five straight to force overtime. Only six percent of simulations have them scoring that much. The Falcons scored zero the rest of regulation. That happens thirteen percent of the time.
+The killer moment came with four forty left. Atlanta was up eight, at the Patriots' twenty-two, with a ninety-three percent chance to win. Then a sack, a holding penalty, and a punt. Brady drove ninety-one yards to tie it, won the coin toss, and never gave the ball back.
+So the Patriots' half was twice as rare as the Falcons' collapse. It's the greatest comeback ever, and Atlanta held the door open. Comeback or choke? Let me know.
