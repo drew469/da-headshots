@@ -1,6 +1,6 @@
 # Last run
 
-Fetched 3 · already had 247 · missing 7
+Fetched 1 · already had 250 · missing 7
 
 ## Missing (add manually to headshots/<slug>.jpg)
 - Tom Brady Full D (nfl)
@@ -12,9 +12,7 @@ Fetched 3 · already had 247 · missing 7
 - Paolo Banchero Full (nba)
 
 ## Fetched
-- Henry Ruggs Camp A — Commons
-- Henry Ruggs Camp B — Commons
-- Henry Ruggs Camp C — Commons
+- Henry Ruggs III — ESPN
 
 ## Debug (missing only)
 - Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
