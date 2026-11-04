@@ -248,3 +248,13 @@ nfl: Matt Ryan
 nfl: Matt Ryan Falcons | commons:Matt Ryan Falcons
 nfl: Matt Ryan Falcons B | commons:Matt Ryan quarterback Atlanta
 nfl: Julian Edelman Full | commons:Julian Edelman Patriots
+# NFL — Aaron Hernandez career simulation
+nfl: Aaron Hernandez | commons:Aaron Hernandez Patriots
+nfl: Aaron Hernandez Full | commons:Aaron Hernandez football
+nfl: Aaron Hernandez Full B | commons:Aaron Hernandez Florida Gators
+nfl: Rob Gronkowski
+nfl: Jason Witten
+nfl: Antonio Gates
+nfl: Travis Kelce
+nfl: Jermichael Finley
+nfl: Jordan Reed
