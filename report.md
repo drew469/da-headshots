@@ -1,6 +1,6 @@
 # Last run
 
-Fetched 8 · already had 239 · missing 7
+Fetched 3 · already had 247 · missing 7
 
 ## Missing (add manually to headshots/<slug>.jpg)
 - Tom Brady Full D (nfl)
@@ -12,14 +12,9 @@ Fetched 8 · already had 239 · missing 7
 - Paolo Banchero Full (nba)
 
 ## Fetched
-- Henry Ruggs — Commons
-- Henry Ruggs Full — Commons
-- Henry Ruggs Raiders — Commons
-- Jerry Jeudy — ESPN
-- Demaryius Thomas — ESPN
-- Reggie Wayne — ESPN
-- Justin Blackmon — ESPN
-- Corey Coleman — ESPN
+- Henry Ruggs Camp A — Commons
+- Henry Ruggs Camp B — Commons
+- Henry Ruggs Camp C — Commons
 
 ## Debug (missing only)
 - Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
@@ -29,6 +24,3 @@ Fetched 8 · already had 239 · missing 7
 - Chet Holmgren Full: commons search [Chet Holmgren Thunder] -> 
 - Jalen Williams Full: commons search [Jalen Williams Thunder] -> 
 - Paolo Banchero Full: commons search [Paolo Banchero Magic] -> 
-- Henry Ruggs: commons search [Henry Ruggs] -> File:Henry Ruggs III (51249109907).jpg | File:Henry Ruggs III Mugshot.jpg | File:Henry Ruggs III (51249109907) (cropped).jpg | File:Henry Ruggs.png | File:Henry Ruggs III (51250864314).jpg | File:Henry Ruggs III (51250108513).jpg
-- Henry Ruggs Full: commons search [Henry Ruggs Alabama] -> File:Alabama Alum Jarvis Landry Charity Softball Game.jpg | File:Irv Smith Landry Charity Softball Game (cropped).jpg
-- Henry Ruggs Raiders: commons search [Henry Ruggs Raiders] -> File:Henry Ruggs.png
