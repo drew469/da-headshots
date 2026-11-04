@@ -1,0 +1,213 @@
+/* ===================== chapters (Henry Ruggs · the career he didn't play) ===================== */
+const CI=s=>{const i=CUES.findIndex(c=>c.text.toLowerCase().includes(s.toLowerCase())); if(i<0)throw new Error('cue not found: '+s); return i;};
+const CT=s=>C(CI(s));
+const WTs=(w,after,alt)=>{const f=x=>WORDS.find(y=>y.w.toLowerCase().replace(/[^a-z0-9]/g,'').startsWith(x.toLowerCase())&&y.a>=after); const r=f(w)||(alt&&f(alt)); return r?r.a:after;};
+const NL=ab=>`logos/nfl-${ab.toLowerCase()}.png`;
+const nlH=(ab,sz)=>`<img class="lg" src="${NL(ab)}" style="width:${sz}px;height:${sz}px">`;
+const SIL='#A5ACAF';
+const K={ended:CT('His career ended at'), sim:CT('I simulated the rest'), zero:CT('matches Jefferson'), show:CT('Let me show'),
+  c1:CT('Ruggs ran'), first:CT('the first receiver'), nov:CT('His career ended in November'), rel:CT('released him'),
+  c2:CT('In two seasons'), jj:CT('Jefferson had'),
+  c3:CT('So I found'), stars:CT('Stars like'), busts:CT('and busts like'), every:CT('Every simulated'),
+  c4:CT('Is it honest'), pred:CT('I predicted'), twenty:CT('20 landed'), close:CT('Close to what'),
+  cta:CT('If you want more'), fol:CT('follow Daily'),
+  c6:CT('So I ran his'), typ:CT('His typical'), half:CT('He has at least'),
+  c7:CT('Now the draft class'), jeudy:CT('Jeudy'), lamb:CT('Lamb\'s'), jjz:CT('Justin Jefferson\'s'), notone:CT('Not one of'),
+  c8:CT('So the speed'), solid:CT('Solid, not special'), poll:CT('Was Ruggs')};
+const CUT=[0,K.c1-.05,K.c2-.05,K.c3-.05,K.c4-.05,K.cta-.05,K.c6-.05,K.c7-.05,K.c8-.05];
+const END=CUES[CUES.length-1].b+1.1;
+const T={end:END};
+const HDR=[null,
+ ['01','The career that stopped.','Las Vegas Raiders · 2020–2021'],
+ ['02','Two seasons in.','receiving yards · first two NFL seasons'],
+ ['03','36 real careers.','first-round WRs since 1999 who started most like him'],
+ ['04','Is it honest?','predicting each of the 36 from the other 35'],
+ null,
+ ['05','100,000 careers.','receiving yards · first five NFL seasons'],
+ ['06','The draft class.','first five seasons · 2020 first-round WRs'],
+ ['07','The verdict.','']];
+const chs=document.getElementById('chs');
+const prg=document.getElementById('prog'); for(let i=0;i<7;i++){const x=document.createElement('i');prg.appendChild(x);}
+const CH=[]; for(let i=0;i<CUT.length;i++){const d=div('ch','',chs);CH.push(d);
+  if(HDR[i]){const h=div('hdr',`<div class="n">${HDR[i][0]}</div><div class="t">${HDR[i][1]}</div><div class="s">${HDR[i][2]}</div>`,d);d._h=h;}
+  const s=sv('svg',{width:1080,height:1920,viewBox:'0 0 1080 1920',style:'position:absolute;left:0;top:0'});d.appendChild(s);d._svg=s;}
+CUT.slice(1).forEach(c=>{sfx(c-.18,'whip',.55);});
+const hdrIn=(k,t)=>fadeUp(CH[k]._h,t,CUT[k]+.05,.3);
+const face=(img,sz,ring)=>`<span style="display:inline-block;width:${sz}px;height:${sz}px;border-radius:50%;overflow:hidden;border:5px solid ${ring};background:#1A1A20;vertical-align:middle"><img src="img/${img}" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></span>`;
+function football(parent,x,y,s=1,fill='#7A4A22'){const g=sv('g',{transform:`translate(${x} ${y}) scale(${s})`},parent);
+  const b=sv('ellipse',{rx:38,ry:22,fill,stroke:'#050506','stroke-width':3},g);
+  sv('line',{x1:-14,x2:14,y1:0,y2:0,stroke:'#fff','stroke-width':3},g);
+  for(let i=-2;i<=2;i++)sv('line',{x1:i*6,x2:i*6,y1:-6,y2:6,stroke:'#fff','stroke-width':2.5},g);
+  g._b=b; return g;}
+
+/* ---------- 0 HOOK ---------- */
+const H=CH[0];
+const hCirc=div('abs','',H,{left:'330px',top:'760px',width:'640px',height:'640px',borderRadius:'50%',background:'#16161B',boxShadow:`inset 0 0 0 12px ${SIL}`});
+const hWm=div('abs','',H,{left:'440px',top:'870px',width:'420px',height:'420px',background:`url(${NL('lv')}) center/contain no-repeat`,opacity:.16});
+const hSt=div('abs','',H,{left:'360px',top:'790px',width:'580px',height:'580px',borderRadius:'50%',background:'url(img/henry-ruggs-iii.png) 50% 30%/cover no-repeat #1A1A20'});
+const h1=div('abs big','HENRY RUGGS:<br><span class="cy">PICKED BEFORE<br>JEFFERSON.</span>',H,{left:'54px',top:'292px',fontSize:'100px'});
+const hBd=div('abs','',H,{left:'50px',top:'640px',width:'320px'});
+hBd.innerHTML='<div class="osw mut" style="font-size:22px;letter-spacing:2px;margin-bottom:6px">2020 DRAFT</div>'+[['#12','RUGGS','lv',1],['#17','LAMB','dal',0],['#22','JEFFERSON','min',0]].map(([p,n,ab,me])=>`<div class="bd" style="display:flex;align-items:center;gap:10px;margin-top:10px">${nlH(ab,58)}<span class="big" style="font-size:38px;white-space:nowrap;${me?'color:#0CF5F9':''}">${p} ${n}</span></div>`).join('');
+const BD=[...hBd.querySelectorAll('.bd')];
+const hEnd=div('pill','CAREER OVER AT 22',H,{left:'50px',top:'1180px',background:'var(--rd)',color:'#fff',fontSize:'40px'});
+const hB=div('abs big','I SIMULATED<br>THE REST OF IT<br><span class="cy">100,000 TIMES.</span>',H,{left:'54px',top:'292px',fontSize:'112px'});
+const hC=div('abs big rd','0',H,{left:'54px',top:'280px',fontSize:'340px'});
+const hCs=div('abs osw','times he matches <span class="cy">Justin Jefferson’s</span><br>first 5 seasons',H,{left:'330px',top:'360px',fontSize:'44px'});
+const hJJ=div('abs','',H,{left:'60px',top:'720px',width:'960px'}); hJJ.innerHTML=`<div style="display:flex;align-items:center;gap:22px">${face('justin-jefferson.png',170,'#0CF5F9')}<div><div class="osw mut" style="font-size:26px;letter-spacing:2px">JEFFERSON · FIRST 5 SEASONS</div><div class="big cy" style="font-size:110px">7,432 YDS</div></div></div>`;
+const hRg=div('abs','',H,{left:'60px',top:'960px',width:'960px'}); hRg.innerHTML=`<div style="display:flex;align-items:center;gap:22px">${face('henry-ruggs-iii.png',170,SIL)}<div><div class="osw mut" style="font-size:26px;letter-spacing:2px">RUGGS · BEST SIMULATED RUN</div><div class="big" style="font-size:110px">NOT CLOSE</div></div></div>`;
+function rHook(t){
+  const a=t<K.sim-.05; show([h1,hBd,hEnd],a); show([hCirc,hWm,hSt],t<K.zero-.05);
+  {const pc=back(prog(t,.02,.42)); hCirc.style.transform=`scale(${Math.max(0,pc)})`; hWm.style.transform=hCirc.style.transform; hWm.style.opacity=.16*prog(t,.2,.5);
+    const ps=eOut(prog(t,.12,.6)); hSt.style.transform=`scale(${Math.max(0,back(prog(t,.12,.5)))*(1+t*.006)})`; hSt.style.opacity=ps>0?1:0;}
+  if(a){fadeUp(h1,t,.05,.3,40); BD.forEach((b,i)=>popIn(b,t,.5+i*.35,{from:.5,y:20})); show([hEnd],t>=K.ended-.05); popIn(hEnd,t,K.ended-.05,{from:1.5});}
+  const b=t>=K.sim-.05&&t<K.zero-.05; show([hB],b); if(b)fadeUp(hB,t,K.sim-.05,.3);
+  const c=t>=K.zero-.05; show([hC,hCs,hJJ,hRg],c);
+  if(c){popIn(hC,t,K.zero-.05,{from:1.6}); fadeUp(hCs,t,K.zero+.2); popIn(hJJ,t,K.zero+.4,{from:.6}); popIn(hRg,t,K.zero+.9,{from:.6});
+    H.style.transform=`scale(${1+Math.max(0,t-K.show)*.005})`;}
+}
+sfx(.05,'whoosh',.5); sfx(.25,'thump',.6); for(let i=0;i<3;i++)sfx(.5+i*.35,'pop',.4); sfx(K.ended-.05,'thump',.75);
+sfx(K.sim-.05,'whoosh',.5); sfx(K.zero-.05,'thump',.9); sfx(K.zero+.4,'pop',.4); sfx(K.zero+.9,'pop',.4); sfx(K.show,'riser',.25,1.2);
+
+/* ---------- 1 STOPPED ---------- */
+const E1=CH[1], S1=E1._svg;
+const rg1=div('abs','',E1,{left:'60px',top:'520px'}); rg1.innerHTML=`<div style="display:flex;align-items:center;gap:16px">${nlH('lv',90)}<div><div class="big" style="font-size:56px">HENRY RUGGS · WR</div><div class="osw mut" style="font-size:26px">ALABAMA · 2020 FIRST ROUND</div></div></div>`;
+const chip=(txt,sub,x)=>{const d=div('card','',E1,{left:x+'px',top:'660px',width:'300px',background:'#101014',border:'4px solid #0CF5F9',textAlign:'center'}); d.innerHTML=`<div class="big cy" style="font-size:90px">${txt}</div><div class="osw" style="font-size:24px">${sub}</div>`; return d;};
+const c40=chip('4.27','40-YARD DASH',60), c12=chip('#12','OVERALL PICK',390), cWR=chip('WR1','FIRST RECEIVER TAKEN',720);
+const yrs=[2020,2021,2022,2023,2024,2025,2026];
+const tx0=120,tw=120,ty0=1240,th=230,ymx=700;
+const BAR1=yrs.map((y,i)=>{const s=DATA.seasons.find(x=>x[0]==y); const r=sv('rect',{x:tx0+i*tw+12,width:tw-24,y:ty0,height:0,rx:8,fill:s?'#0CF5F9':'none',stroke:s?'none':'#3A3A44','stroke-width':3,'stroke-dasharray':s?'':'8 7'},S1);
+  const l=sv('text',{x:tx0+i*tw+tw/2,y:ty0+38,'text-anchor':'middle','font-size':24,fill:'#6A6A72'},S1); l.textContent="’"+String(y).slice(2);
+  const v=sv('text',{x:tx0+i*tw+tw/2,y:ty0-14,'text-anchor':'middle','font-size':28,fill:s?'#fff':'#55555F'},S1); v.textContent=s?s[1]:'?'; return {r,v,s,i};});
+const stamp1=div('abs big rd','CAREER ENDED<br>NOV 2021',E1,{left:'440px',top:'1000px',fontSize:'64px',border:'6px solid #FF4B3E',padding:'6px 18px',borderRadius:'12px',background:'rgba(5,5,6,.88)',textAlign:'center'});
+const rel1=div('pill','RELEASED THE NEXT DAY',E1,{left:'60px',top:'900px',background:'#fff',color:'#050506',fontSize:'36px'});
+function rStop(t){hdrIn(1,t); fadeUp(rg1,t,CUT[1]+.15);
+  [[c40,WTs('four',K.c1)],[c12,WTs('twelfth',K.c1)],[cWR,K.first]].forEach(([d,t0])=>{show([d],t>=t0-.05); popIn(d,t,t0-.05,{from:1.3});});
+  const bOn=K.nov-.05;
+  BAR1.forEach(b=>{if(b.s){const g=eOut(prog(t,bOn+b.i*.15,bOn+.4+b.i*.15)); const h=b.s[1]/ymx*th*g; set(b.r,{y:ty0-h,height:h}); set(b.v,{y:ty0-h-14,opacity:g});}
+    else{const on=t>=bOn+.8+(b.i-2)*.08; const h=th*.6; set(b.r,{y:ty0-h,height:h,opacity:on?1:0}); set(b.v,{y:ty0-h-14,opacity:on?1:0});}});
+  show([stamp1],t>=WTs('las',K.nov)-.05); popIn(stamp1,t,WTs('las',K.nov)-.05,{from:1.5}); stamp1.style.transform+=' rotate(-5deg)';
+  show([rel1],t>=K.rel-.05); popIn(rel1,t,K.rel-.05,{from:1.3});
+  E1.style.transform=`scale(${1+(t-CUT[1])*.0015})`;}
+sfx(WTs('four',K.c1)-.05,'thump',.6); sfx(WTs('twelfth',K.c1)-.05,'pop',.5); sfx(K.first-.05,'pop',.5); sfx(WTs('las',K.nov)-.05,'thump',.8); sfx(K.rel-.05,'pop',.4);
+
+/* ---------- 2 TWO SEASONS ---------- */
+const E2=CH[2];
+const FC={'Henry Ruggs':'henry-ruggs-iii.png','Justin Jefferson':'justin-jefferson.png','CeeDee Lamb':'ceedee-lamb.png','Jerry Jeudy':'jerry-jeudy.png'};
+const LB=DATA.two.map(([n,y,ab],i)=>{const me=n=='Henry Ruggs', jj=n=='Justin Jefferson';
+  const d=div('abs','',E2,{left:'60px',top:(560+i*175)+'px',width:'960px'});
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:16px">${face(FC[n],100,me?SIL:jj?'#0CF5F9':'#3A3A44')}<div style="flex:1"><div class="osw" style="font-size:30px;${me?'color:#fff':jj?'color:#0CF5F9':'color:#8E8E96'}">${n.toUpperCase()} ${nlH(ab,36)}</div><div style="display:flex;align-items:center;gap:14px"><span class="bar" style="height:44px;border-radius:8px;display:inline-block;background:${me?'#FF4B3E':jj?'#0CF5F9':'#3A3A44'}"></span><span class="big" style="font-size:50px">${y.toLocaleString('en-US')}</span></div></div></div>`; d._b=d.querySelector('.bar'); d._y=y; d._me=me; d._jj=jj; return d;});
+function rTwo(t){hdrIn(2,t);
+  LB.forEach((d,i)=>{const t0=i==0?K.c2+.3:i==1?K.jj-.05:K.jj+.5+(i-2)*.25; show([d],t>=t0); fadeUp(d,t,t0,.3,20); d._b.style.width=(620*d._y/3100*eOut(prog(t,t0,t0+.6)))+'px';});
+  E2.style.transform=`scale(${1+(t-CUT[2])*.002})`;}
+sfx(K.c2+.3,'pop',.4); sfx(K.jj-.05,'thump',.7); sfx(K.jj+.5,'pop',.3); sfx(K.jj+.75,'pop',.3);
+
+/* ---------- 3 COMPS ---------- */
+const E3=CH[3];
+const FACE3={'Demaryius Thomas':'demaryius-thomas.png','Reggie Wayne':'reggie-wayne.png','Justin Blackmon':'justin-blackmon.png','Corey Coleman':'corey-coleman.png'};
+const STAR=['Demaryius Thomas','Reggie Wayne'], BUST=['Justin Blackmon','Corey Coleman'];
+const CMP=DATA.comps.map((c,i)=>{const n=c[0], ab=c[6]; const d=div('abs','',E3,{left:(60+(i%6)*161)+'px',top:(540+Math.floor(i/6)*126)+'px',width:'152px',height:'116px',borderRadius:'14px',background:'#101014',boxSizing:'border-box',border:'3px solid #26262C',textAlign:'center',paddingTop:'6px'});
+  d.innerHTML=(FACE3[n]?face(FACE3[n],62,'#26262C'):nlH(ab,56))+`<div class="big" style="font-size:24px;line-height:1.1;margin-top:4px;white-space:nowrap">${n.split(' ').slice(-1)[0].toUpperCase().replace("'","")}</div>`; d._n=n; return d;});
+const pathL=div('abs','',E3,{left:'60px',top:'1300px',width:'960px'}); pathL.innerHTML='<div class="osw" style="font-size:30px;text-align:center">EACH SIM = ONE OF THESE <span class="cy">REAL CAREER PATHS</span>,<br>ADJUSTED TO HIS LEVEL</div>';
+function rCmp(t){hdrIn(3,t);
+  CMP.forEach((d,i)=>{const t0=CUT[3]+.2+i*.045; show([d],t>=t0); popIn(d,t,t0,{from:.5});
+    const st=STAR.indexOf(d._n), bs=BUST.indexOf(d._n);
+    const on=(st>=0&&t>=WTs(st?'reggie':'demaryius',K.stars,st?'reggie':'de')-.05)||(bs>=0&&t>=WTs(bs?'corey':'justin',K.busts)-.05);
+    d.style.borderColor=on?(st>=0?'#0CF5F9':'#FF4B3E'):'#26262C'; d.style.opacity=1;
+    if(t>=K.every){const R=rng(Math.floor((t-K.every)*3)); d.style.opacity=R()<.3?1:.35;}});
+  show([pathL],t>=K.every); fadeUp(pathL,t,K.every);
+  E3.style.transform=`scale(${1+(t-CUT[3])*.001})`;}
+for(let i=0;i<36;i++)sfx(CUT[3]+.2+i*.045,'click',.12); sfx(WTs('demaryius',K.stars,'de')-.05,'pop',.4); sfx(WTs('reggie',K.stars)-.05,'pop',.4); sfx(WTs('justin',K.busts)-.05,'thump',.45); sfx(WTs('corey',K.busts)-.05,'thump',.45); sfx(K.every,'whoosh',.35);
+
+/* ---------- 4 HONEST ---------- */
+const E4=CH[4], S4=E4._svg;
+const hx0=110,hx1=970,hy=1000; const hx=p=>hx0+p*(hx1-hx0);
+sv('rect',{x:hx(.25),y:hy-150,width:hx(.75)-hx(.25),height:300,rx:14,fill:'rgba(12,245,249,.10)',stroke:'#0CF5F9','stroke-width':3,'stroke-dasharray':'10 8'},S4);
+sv('line',{x1:hx0,x2:hx1,y1:hy,y2:hy,stroke:'#3A3A44','stroke-width':4},S4);
+[['0%',0],['25%',.25],['50%',.5],['75%',.75],['100%',1]].forEach(([s,p])=>{const a=sv('text',{x:hx(p),y:hy+200,'text-anchor':'middle','font-size':24,fill:'#6A6A72'},S4);a.textContent=s;});
+const mh=sv('text',{x:hx(.5),y:hy-170,'text-anchor':'middle','font-size':28,fill:'#0CF5F9'},S4); mh.textContent='MIDDLE HALF OF THE FORECAST';
+const xl4=sv('text',{x:hx1,y:hy+240,'text-anchor':'end','font-size':24,fill:'#8E8E96'},S4); xl4.textContent='WHERE THE REAL CAREER LANDED →';
+const DT=DATA.pct.map((p,i)=>{const inn=p>.25&&p<.75; const c=sv('circle',{cx:hx(p),cy:hy+((i%6)-2.5)*44,r:0,fill:inn?'#0CF5F9':'#8E8E96',stroke:'#050506','stroke-width':3},S4); return {c,inn};});
+const n4=div('abs','',E4,{left:'60px',top:'540px'}); n4.innerHTML='<div class="big cy" style="font-size:120px">20 <span class="mut" style="font-size:60px">OF 36</span></div><div class="osw mut" style="font-size:26px;letter-spacing:2px">LANDED IN THE MIDDLE HALF</div>';
+const ex4=div('pill','EXPECTED: ~18 ✓',E4,{left:'620px',top:'1300px',background:'#fff',color:'#050506',fontSize:'40px'});
+function rHon(t){hdrIn(4,t);
+  DT.forEach((d,i)=>{const p=back(prog(t,K.pred+.3+i*.05,K.pred+.6+i*.05)); set(d.c,{r:Math.max(0,p)*16, opacity:t>=K.twenty&&!d.inn?.35:1});});
+  show([n4],t>=K.twenty-.05); popIn(n4,t,K.twenty-.05,{from:1.3});
+  show([ex4],t>=K.close-.05); popIn(ex4,t,K.close-.05,{from:1.4});
+  E4.style.transform=`scale(${1+(t-CUT[4])*.0015})`;}
+for(let i=0;i<36;i++)sfx(K.pred+.3+i*.05,'click',.12); sfx(K.twenty-.05,'thump',.7); sfx(K.close-.05,'ding',.4);
+
+/* ---------- CTA (follow) ---------- */
+const ECT=CH[5]; const tapT=K.fol+.3;
+const ph=div('abs','',ECT,{left:'200px',top:'290px',width:'680px',height:'990px',background:'#111',borderRadius:'70px',border:'12px solid #2A2A31',boxSizing:'border-box',overflow:'hidden'});
+const GRID='<div style="width:656px;height:199px;background:url(profile.png) 0 -263px/656px auto no-repeat;background-color:#fff"></div>';
+ph.innerHTML=`<div class="scr" style="position:absolute;left:0;top:0;width:656px;background:#fff">
+  <div style="height:70px;background:#fff"></div>
+  <div style="position:relative;width:656px;height:266px;background:url(profile.png) -301px -35px/1247px auto no-repeat;background-color:#fff"></div>
+  ${GRID.repeat(6)}</div>
+  <div class="fbtn" style="position:absolute;left:19px;top:291px;width:225px;height:39px;border-radius:9px;background:#EFEFEF;color:#111;display:none;align-items:center;justify-content:center;font:700 22px Osw">FOLLOWING ✓</div>`;
+const scr=ph.querySelector('.scr'), fbtn=ph.querySelector('.fbtn');
+const fing=div('abs','',ECT,{left:'0',top:'0',width:'120px',height:'120px',fontSize:'110px',lineHeight:'1'}); fing.textContent='👆';
+const ctaT=div('abs big','HIT <span class="cy">FOLLOW</span>',ECT,{left:'0',right:'0',top:'1300px',textAlign:'center',fontSize:'100px',display:'none'});
+const ripple=div('abs','',ECT,{width:'120px',height:'120px',borderRadius:'50%',border:'8px solid #0CF5F9',display:'none'});
+function rCta(t){const t0=CUT[5]; popIn(ph,t,t0+.05,{from:.85});
+  const sc=prog(t,t0+.2,tapT-.25); const off=-Math.sin(sc*Math.PI)*300; scr.style.transform=`translateY(${off}px)`;
+  const bx=200+12+19+112, by=290+12+291+20;
+  const fp=eOut(prog(t,K.fol-.6,tapT)); const fx=lerp(860,bx,fp), fy=lerp(1250,by,fp)+(t>=tapT&&t<tapT+.15?10:0);
+  fing.style.left=(fx-35)+'px'; fing.style.top=(fy-10)+'px'; fing.style.display=t>=K.fol-.6?'block':'none';
+  fbtn.style.display=t>=tapT+.08?'flex':'none';
+  ripple.style.display=t>=tapT&&t<tapT+.5?'block':'none'; const rp=prog(t,tapT,tapT+.5); ripple.style.left=(bx-60)+'px'; ripple.style.top=(by-60)+'px'; ripple.style.transform=`scale(${.4+rp*1.4})`; ripple.style.opacity=1-rp;
+  show([ctaT],t>=tapT); popIn(ctaT,t,tapT,{from:1.3});
+  ECT.style.transform=`scale(${1+(t-t0)*.004})`;}
+sfx(CUT[5]+.05,'whoosh',.45); sfx(tapT,'click',.7); sfx(tapT+.05,'ding',.45); sfx(tapT+.1,'sparkle',.35);
+
+/* ---------- 5 / 6 HISTOGRAM ---------- */
+function mkHist(S){const HB=DATA.hist, mx=Math.max(...HB), x0=100,x1=990,y0=1200,h=440, bw=(x1-x0)/HB.length;  // bins of 500 yds, 0-9000
+  const B=HB.map((v,i)=>({v,i,r:sv('rect',{x:x0+i*bw+2,width:bw-4,y:y0,height:0,rx:4,fill:'#3A3A44'},S)}));
+  const ax=sv('g',{},S); [0,2000,4000,6000,8000].forEach(k=>{const a=sv('text',{x:x0+k/500*bw,y:y0+38,'text-anchor':'middle','font-size':24,fill:'#6A6A72'},ax);a.textContent=k?k/1000+'K':'0';});
+  const xl=sv('text',{x:x1,y:y0+76,'text-anchor':'end','font-size':24,fill:'#8E8E96'},ax); xl.textContent='YARDS IN FIRST 5 SEASONS →';
+  return {B,x0,bw,y0,h,mx,X:v=>x0+v/500*bw,draw(p,col){B.forEach(b=>{const hh=b.v/mx*h*p; set(b.r,{y:y0-hh,height:hh,fill:col(b.i)});});}};}
+const E5=CH[6], S5=E5._svg; const H5=mkHist(S5);
+const cnt5=div('abs','',E5,{left:'60px',top:'540px'}); cnt5.innerHTML='<div class="big" style="font-size:80px">0</div><div class="osw mut" style="font-size:24px;letter-spacing:2px">SIMULATED CAREERS</div>';
+const typ5=div('abs','',E5,{left:'470px',top:'540px',width:'550px',textAlign:'right'}); typ5.innerHTML='<div class="osw mut" style="font-size:24px;letter-spacing:2px">TYPICAL FIRST 5 SEASONS</div><div class="big cy" style="font-size:90px">~3,000 YDS</div>';
+const mline=sv('line',{x1:H5.X(DATA.f5),x2:H5.X(DATA.f5),y1:H5.y0,y2:H5.y0-H5.h-30,stroke:'#0CF5F9','stroke-width':5,'stroke-dasharray':'12 8'},S5);
+const k5=div('pill','1,000-YARD SEASON: ~HALF OF CAREERS',E5,{left:'140px',top:'1320px',background:'var(--cy)',color:'#050506',fontSize:'38px'});
+function rRun(t){hdrIn(6,t);
+  const g=eOut(prog(t,K.c6+.3,K.typ)); H5.draw(g,()=> '#3A3A44'); cnt5.querySelector('.big').textContent=Math.round(1e5*g).toLocaleString('en-US'); fadeUp(cnt5,t,CUT[6]+.2);
+  show([typ5],t>=K.typ+.3); popIn(typ5,t,K.typ+.3,{from:1.2}); mline.style.display=t>=K.typ+.3?'inline':'none';
+  show([k5],t>=K.half-.05); popIn(k5,t,K.half-.05,{from:1.3});
+  E5.style.transform=`scale(${1+(t-CUT[6])*.0015})`;}
+sfx(K.c6+.3,'riser',.3,1.6); for(let i=0;i<14;i++)sfx(K.c6+.3+i*.12,'click',.12); sfx(K.typ+.3,'thump',.7); sfx(K.half-.05,'ding',.35);
+
+const E6=CH[7], S6=E6._svg; const H6=mkHist(S6);
+const MK=[['Jerry Jeudy',4282,'jerry-jeudy.png','15%',K.jeudy],['CeeDee Lamb',6339,'ceedee-lamb.png','1 IN 800',K.lamb],['Justin Jefferson',7432,'justin-jefferson.png','0',K.jjz]].map(([n,v,img,p,t0],i)=>{
+  const x=H6.X(v); const ln=sv('line',{x1:x,x2:x,y1:H6.y0,y2:H6.y0-H6.h-20-i*0,stroke:i==2?'#0CF5F9':'#fff','stroke-width':5},S6);
+  const lab=div('abs','',E6,{left:(60+i*330)+'px',top:'520px',width:'300px',textAlign:'center'});
+  lab.innerHTML=`${face(img,84,i==2?'#0CF5F9':'#fff')}<div class="osw" style="font-size:22px">${n.split(' ')[1].toUpperCase()} · ${v.toLocaleString('en-US')}</div><div class="big ${i==2?'rd':'cy'}" style="font-size:${i==2?96:64}px">${p}</div>`;
+  return {ln,lab,t0,i,v};});
+const no6=div('card','',E6,{left:'60px',top:'1300px',width:'960px',height:'124px',padding:'0 24px',background:'#101014',border:'4px solid #FF4B3E'});
+no6.innerHTML='<div style="display:flex;align-items:center;height:100%" class="osw"><span style="font-size:30px">NONE OF THE <span class="cy">36 COMPS</span> EVER HAD A 5-YEAR RUN LIKE JEFFERSON’S</span></div>';
+function rClass(t){hdrIn(7,t);
+  H6.draw(eOut(prog(t,CUT[7]+.1,CUT[7]+.6)),i=>{const tl=MK[0].t0; return t>=tl-.05&&i*500>=4282?'#5A5A66':'#3A3A44';});
+  MK.forEach(m=>{const on=t>=m.t0-.05; m.ln.style.display=on?'inline':'none'; show([m.lab],on); popIn(m.lab,t,m.t0-.05,{from:1.3});
+    if(on&&m.i<2)m.lab.style.opacity=t>=MK[m.i+1].t0-.05?.55:1;});
+  show([no6],t>=K.notone-.05); popIn(no6,t,K.notone-.05,{from:.7});
+  E6.style.transform=`scale(${1+(t-CUT[7])*.0012})`;}
+MK.forEach((m,i)=>sfx(m.t0-.05,i==2?'thump':'pop',i==2?.9:.5)); sfx(K.notone-.05,'whoosh',.35);
+
+/* ---------- 8 VERDICT ---------- */
+const E8=CH[8];
+const v1=div('abs','',E8,{left:'60px',top:'540px',width:'960px'}); v1.innerHTML='<div class="osw mut" style="font-size:28px;letter-spacing:2px">THE SPEED</div><div class="big cy" style="font-size:96px">REAL. ✓</div>';
+const v2=div('abs','',E8,{left:'60px',top:'740px',width:'960px'}); v2.innerHTML='<div class="osw mut" style="font-size:28px;letter-spacing:2px">THE PICK OVER JEFFERSON</div><div class="big rd" style="font-size:96px">A MISS. ✕</div>';
+const v3=div('abs','',E8,{left:'60px',top:'940px',width:'600px'}); v3.innerHTML='<div class="osw mut" style="font-size:28px;letter-spacing:2px">THE CAREER</div><div class="big" style="font-size:96px">SOLID,<br>NOT SPECIAL.</div>';
+const rg8=div('abs','',E8,{left:'680px',top:'990px',width:'340px',height:'340px',borderRadius:'50%',border:'8px solid #A5ACAF',boxSizing:'border-box',background:'url(img/henry-ruggs-iii.png) 50% 30%/cover no-repeat #1A1A20'});
+const poll=div('card','',E8,{left:'140px',top:'560px',width:'800px',background:'#0E0E12',border:'4px solid #26262C',padding:'40px 40px'});
+poll.innerHTML=`<div style="text-align:center">${nlH('lv',150)}</div><div class="osw mut" style="font-size:28px;letter-spacing:3px;text-align:center;margin-top:10px">YOUR CALL · COMMENT BELOW</div>`+['BUST ANYWAY','NEVER GOT THE CHANCE'].map((s,i)=>`<div class="opt big" style="margin-top:24px;font-size:${i?58:70}px;text-align:center;border-radius:60px;padding:12px 0;${i===0?'background:var(--cy);color:#050506':'border:4px solid #fff'}">${s}</div>`).join('');
+const OPT=[...poll.querySelectorAll('.opt')];
+function rVer(t){hdrIn(8,t);
+  const a=t<K.poll-.05; show([v1,v2,v3,rg8],a); E8._h.style.display=a?'block':'none';
+  if(a){fadeUp(v1,t,K.c8); const tp=WTs('pick',K.c8); show([v2],t>=tp-.05); popIn(v2,t,tp-.05,{from:1.2}); show([v3],t>=K.solid-.05); popIn(v3,t,K.solid-.05,{from:1.15});
+    {const p=eOut(prog(t,K.c8+.2,K.c8+.6)); rg8.style.transform=`translateX(${(1-p)*480}px)`;}}
+  show([poll],!a); if(!a){popIn(poll,t,K.poll-.05,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,[WTs('bust',K.poll),WTs('never',K.poll)][i]-.05,{from:.4})); poll.style.transform+=` scale(${1+(t-K.poll)*.006})`;}
+  E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
+sfx(K.c8,'whoosh',.3); sfx(WTs('pick',K.c8)-.05,'thump',.6); sfx(K.solid-.05,'thump',.7); sfx(K.poll-.05,'whoosh',.5); sfx(WTs('bust',K.poll)-.05,'pop',.5); sfx(WTs('never',K.poll)-.05,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
+const RF=[rHook,rStop,rTwo,rCmp,rHon,rCta,rRun,rClass,rVer];
