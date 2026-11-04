@@ -191,6 +191,12 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADuke_and_Wake_Forest_basketball_game%2C_2025-03-03_Wake_Forest_Cooper_Flagg_dunking_C_%28cropped%29.jpg"
  },
+ "corey-coleman": {
+  "league": "nfl",
+  "name": "Corey Coleman",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/2978929.png"
+ },
  "dak-prescott": {
   "league": "nfl",
   "name": "Dak Prescott",
@@ -238,6 +244,12 @@
   "name": "DeMarcus Ware",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/8426.png"
+ },
+ "demaryius-thomas": {
+  "league": "nfl",
+  "name": "Demaryius Thomas",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13216.png"
  },
  "devin-booker": {
   "league": "nba",
@@ -316,6 +328,24 @@
   "name": "Harrison Butker Chiefs",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AHarrison_Butker_kick_%2815976939851%29.jpg"
+ },
+ "henry-ruggs": {
+  "league": "nfl",
+  "name": "Henry Ruggs",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AHenry_Ruggs_III_%2851249109907%29.jpg"
+ },
+ "henry-ruggs-full": {
+  "league": "nfl",
+  "name": "Henry Ruggs Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAlabama_Alum_Jarvis_Landry_Charity_Softball_Game.jpg"
+ },
+ "henry-ruggs-raiders": {
+  "league": "nfl",
+  "name": "Henry Ruggs Raiders",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AHenry_Ruggs.png"
  },
  "j-j-watt": {
   "league": "nfl",
@@ -407,6 +437,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/11325.png"
  },
+ "jerry-jeudy": {
+  "league": "nfl",
+  "name": "Jerry Jeudy",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4241463.png"
+ },
  "jerry-jones": {
   "league": "nfl",
   "name": "Jerry Jones",
@@ -466,6 +502,12 @@
   "name": "Julio Jones",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13982.png"
+ },
+ "justin-blackmon": {
+  "league": "nfl",
+  "name": "Justin Blackmon",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14907.png"
  },
  "justin-herbert": {
   "league": "nfl",
@@ -802,6 +844,12 @@
   "name": "Ray Lewis",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/964.png"
+ },
+ "reggie-wayne": {
+  "league": "nfl",
+  "name": "Reggie Wayne",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/2578.png"
  },
  "rob-gronkowski": {
   "league": "nfl",

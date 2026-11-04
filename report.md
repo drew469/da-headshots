@@ -1,6 +1,6 @@
 # Last run
 
-Fetched 9 · already had 228 · missing 7
+Fetched 8 · already had 239 · missing 7
 
 ## Missing (add manually to headshots/<slug>.jpg)
 - Tom Brady Full D (nfl)
@@ -12,15 +12,14 @@ Fetched 9 · already had 228 · missing 7
 - Paolo Banchero Full (nba)
 
 ## Fetched
-- Aaron Hernandez — Commons
-- Aaron Hernandez Full — Commons
-- Aaron Hernandez Full B — Commons
-- Rob Gronkowski — ESPN
-- Jason Witten — ESPN
-- Antonio Gates — ESPN
-- Travis Kelce — ESPN
-- Jermichael Finley — ESPN
-- Jordan Reed — Wikipedia
+- Henry Ruggs — Commons
+- Henry Ruggs Full — Commons
+- Henry Ruggs Raiders — Commons
+- Jerry Jeudy — ESPN
+- Demaryius Thomas — ESPN
+- Reggie Wayne — ESPN
+- Justin Blackmon — ESPN
+- Corey Coleman — ESPN
 
 ## Debug (missing only)
 - Tom Brady Full D: commons search [Tom Brady Buccaneers Super Bowl LV] -> 
@@ -30,6 +29,6 @@ Fetched 9 · already had 228 · missing 7
 - Chet Holmgren Full: commons search [Chet Holmgren Thunder] -> 
 - Jalen Williams Full: commons search [Jalen Williams Thunder] -> 
 - Paolo Banchero Full: commons search [Paolo Banchero Magic] -> 
-- Aaron Hernandez: commons search [Aaron Hernandez Patriots] -> File:Aaron Hernandez cropped.jpg | File:Aaron Hernandez.JPG
-- Aaron Hernandez Full: commons search [Aaron Hernandez football] -> File:Aaron Hernandez.JPG | File:Aaron Hernandez cropped.jpg | File:Aaron Hernandez (October 4, 2008).jpg | File:Florida Gators incomplete pass in end zone against Razorbacks (October 4, 2008).jpg | File:End of game handshake, UF at Arkansas.jpg
-- Aaron Hernandez Full B: commons search [Aaron Hernandez Florida Gators] -> File:Aaron Hernandez (October 4, 2008).jpg | File:Florida Gators incomplete pass in end zone against Razorbacks (October 4, 2008).jpg | File:End of game handshake, UF at Arkansas.jpg
+- Henry Ruggs: commons search [Henry Ruggs] -> File:Henry Ruggs III (51249109907).jpg | File:Henry Ruggs III Mugshot.jpg | File:Henry Ruggs III (51249109907) (cropped).jpg | File:Henry Ruggs.png | File:Henry Ruggs III (51250864314).jpg | File:Henry Ruggs III (51250108513).jpg
+- Henry Ruggs Full: commons search [Henry Ruggs Alabama] -> File:Alabama Alum Jarvis Landry Charity Softball Game.jpg | File:Irv Smith Landry Charity Softball Game (cropped).jpg
+- Henry Ruggs Raiders: commons search [Henry Ruggs Raiders] -> File:Henry Ruggs.png
