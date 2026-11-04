@@ -258,3 +258,14 @@ nfl: Antonio Gates
 nfl: Travis Kelce
 nfl: Jermichael Finley
 nfl: Jordan Reed
+# NFL — Henry Ruggs career simulation
+nfl: Henry Ruggs | commons:Henry Ruggs
+nfl: Henry Ruggs Full | commons:Henry Ruggs Alabama
+nfl: Henry Ruggs Raiders | commons:Henry Ruggs Raiders
+nfl: Justin Jefferson
+nfl: CeeDee Lamb
+nfl: Jerry Jeudy
+nfl: Demaryius Thomas
+nfl: Reggie Wayne
+nfl: Justin Blackmon
+nfl: Corey Coleman
