@@ -5,6 +5,24 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/16716.png"
  },
+ "aaron-hernandez": {
+  "league": "nfl",
+  "name": "Aaron Hernandez",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAaron_Hernandez_cropped.jpg"
+ },
+ "aaron-hernandez-full": {
+  "league": "nfl",
+  "name": "Aaron Hernandez Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAaron_Hernandez.JPG"
+ },
+ "aaron-hernandez-full-b": {
+  "league": "nfl",
+  "name": "Aaron Hernandez Full B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAaron_Hernandez_%28October_4%2C_2008%29.jpg"
+ },
  "aaron-rodgers": {
   "league": "nfl",
   "name": "Aaron Rodgers",
@@ -76,6 +94,12 @@
   "name": "Anthony Edwards Full",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAnthony_Edwards_Kentavious_Caldwell-Pope_%2851734745028%29.jpg"
+ },
+ "antonio-gates": {
+  "league": "nfl",
+  "name": "Antonio Gates",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/5362.png"
  },
  "baker-mayfield": {
   "league": "nfl",
@@ -365,11 +389,23 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AJared_Goff_%26_D%27Andre_Swift_Commanders_vs_Lions_SEP2022.jpg"
  },
+ "jason-witten": {
+  "league": "nfl",
+  "name": "Jason Witten",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/4527.png"
+ },
  "jayson-tatum": {
   "league": "nba",
   "name": "Jayson Tatum",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png"
+ },
+ "jermichael-finley": {
+  "league": "nfl",
+  "name": "Jermichael Finley",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/11325.png"
  },
  "jerry-jones": {
   "league": "nfl",
@@ -406,6 +442,12 @@
   "name": "Joe Burrow",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3915511.png"
+ },
+ "jordan-reed": {
+  "league": "nfl",
+  "name": "Jordan Reed",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Jordan_Reed"
  },
  "josh-allen": {
   "league": "nfl",
@@ -761,6 +803,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/964.png"
  },
+ "rob-gronkowski": {
+  "league": "nfl",
+  "name": "Rob Gronkowski",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13229.png"
+ },
  "robert-griffin-iii": {
   "league": "nfl",
   "name": "Robert Griffin III",
@@ -898,6 +946,12 @@
   "name": "Tony Romo Full",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ATony_Romo_2009.JPG"
+ },
+ "travis-kelce": {
+  "league": "nfl",
+  "name": "Travis Kelce",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/15847.png"
  },
  "trevor-lawrence": {
   "league": "nfl",
