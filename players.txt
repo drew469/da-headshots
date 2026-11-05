@@ -296,3 +296,8 @@ logo: nfl pit
 logo: nfl tb
 nfl: Antonio Brown NFL A | url:https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/f_auto/league/pvjospkarn17wuc9u5sw.jpg
 nfl: Antonio Brown NFL B | url:https://res.cloudinary.com/nflleague/image/private/t_editorial_landscape_12_desktop/league/jgzqcxvd7pimh3s0bqlg
+nfl: Antonio Brown C1 | commons:File:Antonio Brown vs Redskins 2016.jpg
+nfl: Antonio Brown C2 | commons:File:Antonio brown vs coty sensabaugh.jpg
+nfl: Antonio Brown C3 | commons:File:Antonio Brown 2015.jpg
+nfl: Antonio Brown C4 | commons:File:Cleveland Browns vs. Pittsburgh Steelers (15344207578).jpg
+nfl: Antonio Brown C5 | commons:File:Antonio Brown 2018.png
