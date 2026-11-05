@@ -113,11 +113,29 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13934.png"
  },
+ "antonio-brown-c5": {
+  "league": "nfl",
+  "name": "Antonio Brown C5",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_2018.png"
+ },
  "antonio-brown-hq-a": {
   "league": "nfl",
   "name": "Antonio Brown HQ A",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_2018.png"
+ },
+ "antonio-brown-nfl-a": {
+  "league": "nfl",
+  "name": "Antonio Brown NFL A",
+  "source": "URL",
+  "url": "https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/f_auto/league/pvjospkarn17wuc9u5sw.jpg"
+ },
+ "antonio-brown-nfl-b": {
+  "league": "nfl",
+  "name": "Antonio Brown NFL B",
+  "source": "URL",
+  "url": "https://res.cloudinary.com/nflleague/image/private/t_editorial_landscape_12_desktop/league/jgzqcxvd7pimh3s0bqlg"
  },
  "antonio-gates": {
   "league": "nfl",
