@@ -107,6 +107,18 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAnthony_Edwards_Kentavious_Caldwell-Pope_%2851734745028%29.jpg"
  },
+ "antonio-brown": {
+  "league": "nfl",
+  "name": "Antonio Brown",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13934.png"
+ },
+ "antonio-brown-hq-a": {
+  "league": "nfl",
+  "name": "Antonio Brown HQ A",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_2018.png"
+ },
  "antonio-gates": {
   "league": "nfl",
   "name": "Antonio Gates",
@@ -503,6 +515,12 @@
   "source": "Wikipedia",
   "url": "https://en.wikipedia.org/wiki/Jerry_Rice"
  },
+ "jerry-rice-hq": {
+  "league": "nfl",
+  "name": "Jerry Rice HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJerry_Rice_jersey.jpg"
+ },
  "jimmy-butler": {
   "league": "nba",
   "name": "Jimmy Butler",
@@ -670,6 +688,12 @@
   "name": "Larry Bird Prime",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ALarry_Bird_Lipofsky.jpg"
+ },
+ "larry-fitzgerald": {
+  "league": "nfl",
+  "name": "Larry Fitzgerald",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/5528.png"
  },
  "larry-johnson": {
   "league": "nfl",
