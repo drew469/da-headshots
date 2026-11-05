@@ -74,8 +74,8 @@ function rHook(t){
   const p0=eOut(prog(t,.05,.6)); hHero.style.transform=`translateY(${(1-p0)*260}px) scale(${1.04+t*.006})`; hHero.style.opacity=Math.min(1,p0*1.5);
   hRing.style.transform=`scale(${.6+.4*back(prog(t,.1,.6))}) rotate(${t*6}deg)`; hWm.style.transform=`scale(${1+t*.01})`;
   show([h1],t<hOff-.05); fadeUp(h1,t,.05,.35,40);
-  show([h2],t>=hOff-.05&&t<K.sim-.05); popIn(h2,t,hOff-.05,{from:1.12});
-  show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.12});
+  show([h2],t>=hOff-.05&&t<K.sim-.05); popIn(h2,t,hOff-.05,{from:1.04});
+  show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.04});
   show([hTag],t>=.8&&t<K.sim-.05); fadeUp(hTag,t,.8,.3,20);
   show([halo],t>=K.best-.1); if(t>=K.best-.1){const p=back(prog(t,K.best-.1,K.best+.3)); halo.style.transform=`translateY(${(1-p)*-120+Math.sin(t*3)*6}px) scale(${Math.max(.2,p)}) rotate(-6deg)`; halo.style.opacity=Math.min(1,p);}
   H.style.transform=`scale(${1+t*.004})`;}
@@ -218,7 +218,7 @@ poll.innerHTML=`<div style="text-align:center">${face('antonio-brown.png',150,GO
 const OPT=[...poll.querySelectorAll('.opt')];
 function rVer(t){hdrIn(8,t);
   const a=t<K.poll-.05; show([v1,v2,ab8],a); E8._h.style.display=a?'block':'none';
-  if(a){fadeUp(v1,t,K.c8); show([v2],t>=K.beh-.05); popIn(v2,t,K.beh-.05,{from:1.15}); {const p=eOut(prog(t,K.c8+.2,K.c8+.7)); ab8.style.transform=`translateY(${(1-p)*400}px)`; ab8.style.opacity=p;}}
+  if(a){fadeUp(v1,t,K.c8); show([v2],t>=K.beh-.05); popIn(v2,t,K.beh-.05,{from:1.04}); {const p=eOut(prog(t,K.c8+.2,K.c8+.7)); ab8.style.transform=`translateY(${(1-p)*400}px)`; ab8.style.opacity=p;}}
   show([poll],!a); if(!a){popIn(poll,t,K.poll-.05,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,K.poll+.3+i*.35,{from:.4})); poll.style.transform+=` scale(${1+(t-K.poll)*.005})`;}
   E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
 sfx(K.c8,'whoosh',.3); sfx(K.beh-.05,'thump',.75); sfx(K.poll-.05,'whoosh',.5); sfx(K.poll+.3,'pop',.5); sfx(K.poll+.65,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
