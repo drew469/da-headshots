@@ -156,7 +156,7 @@ def try_wikidata(name, league):
             fname = ent['entities'][e['id']]['claims']['P18'][0]['mainsnak']['datavalue']['value']
         except Exception:
             continue
-        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fname.replace(' ', '_')) + '?width=800'
+        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fname.replace(' ', '_')) + '?width=2400'
         r = get(url)
         if r and len(r[0]) > 3000:
             return r[0], ('png' if fname.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(fname.replace(' ', '_'))
@@ -175,7 +175,7 @@ def try_commons(name, query):
         DEBUG.append(f'{name}: commons search [{query}] -> ' + ' | '.join(files[:6]))
     for f in files[:3]:
         fn = f.split(':', 1)[1]
-        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fn.replace(' ', '_')) + '?width=900'
+        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fn.replace(' ', '_')) + '?width=2400'
         r = get(url)
         if r and len(r[0]) > 3000:
             return r[0], ('png' if fn.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/' + urllib.parse.quote(f.replace(' ', '_'))
@@ -236,6 +236,17 @@ def main():
         if s in existing:
             skipped.append(name); continue
         res = None
+        if override and override.startswith('url:'):  # "nfl: Antonio Brown HQ | url:https://example.com/photo.jpg" (never Getty)
+            u = override.split(':', 1)[1].strip()
+            if 'getty' in u.lower():
+                missing.append(f'{name} (Getty URL refused)'); print('REFUSED getty', name); continue
+            r = get(u)
+            if not r or len(r[0]) < 5000:
+                missing.append(f'{name} ({league})'); print('MISSING', name); continue
+            ext = 'png' if r[0][:4] == b'\x89PNG' else 'webp' if r[0][8:12] == b'WEBP' else 'jpg'
+            open(os.path.join(OUT, f'{s}.{ext}'), 'wb').write(r[0])
+            sources[s] = {'name': name, 'league': league, 'source': 'URL', 'url': u}
+            found.append(f'{name} — URL'); print('OK', name, 'URL'); continue
         if override and override.startswith('commons:'):  # "nba: LeBron James Rookie | commons:LeBron James Cavaliers 2004"
             res = try_commons(name, override.split(':', 1)[1].strip()); origin = 'Commons'
             if not res:

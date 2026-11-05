@@ -283,3 +283,14 @@ nfl: Drew Brees
 nfl: Cam Newton
 nfl: Sam Bradford
 nfl: Peyton Manning
+# NFL — Antonio Brown career simulation (full-res sources)
+nfl: Antonio Brown | espn:13934
+nfl: Antonio Brown HQ A | commons:Antonio Brown Steelers
+nfl: Antonio Brown HQ B | commons:Antonio Brown wide receiver Pittsburgh
+nfl: Antonio Brown HQ C | commons:Antonio Brown 2014
+nfl: Jerry Rice HQ | commons:Jerry Rice 49ers
+nfl: Larry Fitzgerald
+nfl: Julio Jones
+nfl: Calvin Johnson
+logo: nfl pit
+logo: nfl tb
