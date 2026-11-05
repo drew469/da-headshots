@@ -294,3 +294,5 @@ nfl: Julio Jones
 nfl: Calvin Johnson
 logo: nfl pit
 logo: nfl tb
+nfl: Antonio Brown NFL A | url:https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/f_auto/league/pvjospkarn17wuc9u5sw.jpg
+nfl: Antonio Brown NFL B | url:https://res.cloudinary.com/nflleague/image/private/t_editorial_landscape_12_desktop/league/jgzqcxvd7pimh3s0bqlg
