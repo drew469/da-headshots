@@ -1,0 +1,225 @@
+/* ===================== chapters (Antonio Brown · best behavior) — premium v2 ===================== */
+const CI=s=>{const i=CUES.findIndex(c=>c.text.toLowerCase().includes(s.toLowerCase())); if(i<0)throw new Error('cue not found: '+s); return i;};
+const CT=s=>C(CI(s));
+const WTs=(w,after,alt)=>{const f=x=>WORDS.find(y=>y.w.toLowerCase().replace(/[^a-z0-9]/g,'').startsWith(x.toLowerCase())&&y.a>=after); const r=f(w)||(alt&&f(alt)); return r?r.a:after;};
+const NL=ab=>`logos/nfl-${ab.toLowerCase()}.png`;
+const nlH=(ab,sz)=>`<img class="lg" src="${NL(ab)}" style="width:${sz}px;height:${sz}px">`;
+const GOLD='#FFB612';
+const K={sim:CT('I simulated his career'),
+  c1:CT('Through age 30'), six:CT('6 straight'), nobody:CT('Nobody else'),
+  c2:CT('Then it came apart'), trade:CT('A trade'), rel:CT('Released by'), ne:CT('1 game in'), sus:CT('2 suspensions'), jan:CT('And in January'), never:CT('He never played'),
+  c3:CT('So I found'), names:CT('Julio'), every:CT('Every simulated'),
+  c4:CT('Is it honest'), pred:CT('I predicted'), seventeen:CT('17 landed'), target:CT('Right on target'),
+  cta:CT('If you want more'), fol:CT('follow Daily'),
+  c6:CT('The typical'), beats:CT('He beats'),
+  c7:CT('the ceiling is wild'), clears:CT('In more than'), only5:CT('Only 5 receivers'), fitz:CT('In about 1 in 10'), rice:CT('Jerry Rice?'),
+  c8:CT('So the talent'), beh:CT('The behavior'), poll:CT('Would a well-behaved')};
+K.best=WTs('best',K.sim); K.walk=WTs('walked',K.jan);
+const CUT=[0,K.c1-.05,K.c2-.05,K.c3-.05,K.c4-.05,K.cta-.05,K.c6-.05,K.c7-.05,K.c8-.05];
+const END=CUES[CUES.length-1].b+1.1;
+const T={end:END};
+const HDR=[null,
+ ['01','The prime.','Pittsburgh Steelers · 2010–2018'],
+ ['02','Then it came apart.','2019–2022'],
+ ['03','34 real careers.','WRs since 1999 who looked most like him at 30'],
+ ['04','Is it honest?','predicting each of the 34 from the other 33'],
+ null,
+ ['05','100,000 careers.','career receiving yards · best behavior'],
+ ['06','The ceiling.','the 15,000-yard club'],
+ ['07','The verdict.','']];
+/* accent per chapter: [glow rgba, glow color for drop-shadows, accent] */
+const ACC=[[ 'rgba(255,182,18,.42)','rgba(255,182,18,.55)',GOLD],[ 'rgba(255,182,18,.36)','rgba(255,182,18,.5)',GOLD],[ 'rgba(255,75,62,.34)','rgba(255,75,62,.5)','#FF4B3E'],
+ [ 'rgba(12,245,249,.22)','rgba(12,245,249,.45)','#0CF5F9'],[ 'rgba(12,245,249,.22)','rgba(12,245,249,.45)','#0CF5F9'],[ 'rgba(12,245,249,.18)','rgba(12,245,249,.4)','#0CF5F9'],
+ [ 'rgba(255,182,18,.30)','rgba(255,182,18,.5)',GOLD],[ 'rgba(255,182,18,.40)','rgba(255,182,18,.55)',GOLD],[ 'rgba(255,182,18,.36)','rgba(255,182,18,.5)',GOLD]];
+/* ---------- premium background ---------- */
+const stage=document.getElementById('stage');
+const BG=document.createElement('div'); BG.id='bg'; stage.insertBefore(BG,stage.firstChild);
+BG.innerHTML='<div class="base"></div><div class="glowA"></div><div class="glowB"></div>';
+const BEAMS=[0,1,2].map(i=>{const b=div('beam','',BG,{left:[90,520,860][i]+'px'});return b;});
+const gridS=sv('svg',{class:'grid',width:1080,height:1920,viewBox:'0 0 1080 1920'}); BG.appendChild(gridS);
+for(let i=0;i<=12;i++){const x=-600+i*190; sv('line',{x1:540,y1:1040,x2:x,y2:1920,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS);}
+const HL=[]; for(let j=0;j<8;j++){HL.push(sv('line',{x1:0,x2:1080,y1:0,y2:0,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS));}
+const DUST=[]; {const R=rng(7); for(let i=0;i<26;i++){const d=div('dust','',BG,{}); DUST.push({d,x:R()*1080,y:R()*1920,s:1.5+R()*3.5,v:6+R()*18,o:.08+R()*.22});}}
+const sweep=div('','',stage); sweep.id='sweep';
+const rootS=document.documentElement.style;
+function bgfx(t,k){const a=ACC[k]; rootS.setProperty('--acc-a',a[0]); rootS.setProperty('--acc-g',a[1]); rootS.setProperty('--acc',a[2]);
+  BEAMS.forEach((b,i)=>{b.style.transform=`rotate(${[-24,8,30][i]+Math.sin(t*.35+i*2)*6}deg)`; b.style.opacity=.55+.45*Math.sin(t*.5+i);});
+  HL.forEach((l,j)=>{const q=((j/8)+(t*.05))%1, y=1040+Math.pow(q,2.2)*900; set(l,{y1:y,y2:y,opacity:q});});
+  DUST.forEach(p=>{const y=(p.y-t*p.v)%1920; p.d.style.left=(p.x+Math.sin(t*.4+p.y)*12)+'px'; p.d.style.top=(y<0?y+1920:y)+'px'; p.d.style.width=p.d.style.height=p.s+'px'; p.d.style.opacity=p.o;});
+  BG.querySelector('.glowA').style.transform=`translate(${Math.sin(t*.2)*40}px,${Math.cos(t*.17)*30}px)`;
+  let sw=-1; CUT.slice(1).forEach(c=>{if(t>=c-.2&&t<c+.25)sw=(t-c+.2)/.45;}); sweep.style.display=sw>=0?'block':'none'; if(sw>=0)sweep.style.left=(-500+sw*1900)+'px';}
+
+const chs=document.getElementById('chs');
+const prg=document.getElementById('prog'); for(let i=0;i<7;i++){const x=document.createElement('i');prg.appendChild(x);}
+const CH=[]; for(let i=0;i<CUT.length;i++){const d=div('ch','',chs);CH.push(d);
+  if(HDR[i]){const h=div('hdr',`<div class="n">${HDR[i][0]}</div><div class="t">${HDR[i][1]}</div><div class="s">${HDR[i][2]}</div>`,d);d._h=h;}
+  const s=sv('svg',{width:1080,height:1920,viewBox:'0 0 1080 1920',style:'position:absolute;left:0;top:0'});d.appendChild(s);d._svg=s;}
+CUT.slice(1).forEach(c=>{sfx(c-.18,'whip',.55);});
+const hdrIn=(k,t)=>fadeUp(CH[k]._h,t,CUT[k]+.05,.3);
+const face=(img,sz,ring)=>`<span style="display:inline-block;width:${sz}px;height:${sz}px;border-radius:50%;overflow:hidden;border:4px solid ${ring};background:#1A1A20;vertical-align:middle;box-shadow:0 8px 24px rgba(0,0,0,.5)"><img src="img/${img}" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></span>`;
+const glass=(parent,st)=>{const d=div('glass abs','',parent,st);return d;};
+
+/* ---------- 0 HOOK ---------- */
+const H=CH[0];
+const hWm=div('abs','',H,{left:'160px',top:'640px',width:'760px',height:'760px',background:`url(${NL('pit')}) center/contain no-repeat`,opacity:.10,filter:'grayscale(.2)'});
+const hRing=div('abs','',H,{left:'190px',top:'700px',width:'700px',height:'700px',borderRadius:'50%',border:'3px solid rgba(255,182,18,.35)',boxShadow:'0 0 80px rgba(255,182,18,.25), inset 0 0 80px rgba(255,182,18,.12)'});
+const hHero=div('hero','',H,{left:'40px',top:'640px',width:'1000px',height:'830px',backgroundImage:'url(img/ab_hero.png)'});
+const halo=div('halo','',H,{left:'365px',top:'628px',width:'230px',height:'62px',display:'none'});
+const h1=div('abs big','HOW GOOD WOULD<br><span class="gold">ANTONIO BROWN</span><br>HAVE BEEN…',H,{left:'54px',top:'280px',fontSize:'104px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const h2=div('abs big','WITH NO<br><span class="gold">OFF-FIELD ISSUES?</span>',H,{left:'54px',top:'280px',fontSize:'118px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const h3=div('abs big','100,000 CAREERS.<br><span class="gold">BEST BEHAVIOR.</span>',H,{left:'54px',top:'280px',fontSize:'110px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const hTag=glass(H,{left:'54px',top:'1350px',padding:'12px 22px'}); hTag.innerHTML=`<div style="display:flex;align-items:center;gap:14px">${nlH('pit',54)}<span class="osw" style="font-size:30px;letter-spacing:2px">WR · #84 · 2010–2021</span></div>`;
+const hOff=CI('with no off-field')>=0?WTs('with',.3):1.6;
+function rHook(t){
+  const p0=eOut(prog(t,.05,.6)); hHero.style.transform=`translateY(${(1-p0)*260}px) scale(${1.04+t*.006})`; hHero.style.opacity=Math.min(1,p0*1.5);
+  hRing.style.transform=`scale(${.6+.4*back(prog(t,.1,.6))}) rotate(${t*6}deg)`; hWm.style.transform=`scale(${1+t*.01})`;
+  show([h1],t<hOff-.05); fadeUp(h1,t,.05,.35,40);
+  show([h2],t>=hOff-.05&&t<K.sim-.05); popIn(h2,t,hOff-.05,{from:1.12});
+  show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.12});
+  show([hTag],t>=.8&&t<K.sim-.05); fadeUp(hTag,t,.8,.3,20);
+  show([halo],t>=K.best-.1); if(t>=K.best-.1){const p=back(prog(t,K.best-.1,K.best+.3)); halo.style.transform=`translateY(${(1-p)*-120+Math.sin(t*3)*6}px) scale(${Math.max(.2,p)}) rotate(-6deg)`; halo.style.opacity=Math.min(1,p);}
+  H.style.transform=`scale(${1+t*.004})`;}
+sfx(.05,'whoosh',.5); sfx(.3,'thump',.7); sfx(.8,'pop',.35); sfx(hOff-.05,'thump',.6); sfx(K.sim-.05,'thump',.75); sfx(K.best-.1,'sparkle',.6); sfx(K.best,'ding',.4);
+
+/* ---------- 1 PRIME ---------- */
+const E1=CH[1], S1=E1._svg;
+const k1=glass(E1,{left:'54px',top:'520px',width:'972px',padding:'26px 30px'}); k1.classList.add('kpi');
+k1.innerHTML=`<div style="display:flex;align-items:center;gap:26px">${face('antonio-brown.png',120,GOLD)}<div><div class="osw mut" style="font-size:26px;letter-spacing:2px">REC YARDS THROUGH AGE 30</div><div class="big gold" style="font-size:120px;line-height:1">0</div></div></div>`;
+const bx0=110,bw=150,by0=1290,bh=300,bmx=140;
+const B1=DATA.catches.map(([y,c],i)=>{const g=sv('g',{},S1);
+  const r=sv('rect',{x:bx0+i*bw+14,width:bw-28,y:by0,height:0,rx:14,fill:'url(#gg)'},g);
+  const v=sv('text',{x:bx0+i*bw+bw/2,y:by0,'text-anchor':'middle','font-size':40,fill:'#fff',style:'font-family:Anton'},g); v.textContent=c;
+  const l=sv('text',{x:bx0+i*bw+bw/2,y:by0+42,'text-anchor':'middle','font-size':26,fill:'#8E8E96'},g); l.textContent="’"+String(y).slice(2); return {r,v,c,i};});
+const defs=sv('defs',{},S1); const lg=sv('linearGradient',{id:'gg',x1:0,y1:0,x2:0,y2:1},defs); sv('stop',{offset:0,'stop-color':'#FFD45A'},lg); sv('stop',{offset:1,'stop-color':'#C98A00'},lg);
+const line100=sv('line',{x1:bx0,x2:bx0+6*bw,y1:by0-100/bmx*bh,y2:by0-100/bmx*bh,stroke:'rgba(255,255,255,.55)','stroke-width':3,'stroke-dasharray':'10 8'},S1);
+const l100=sv('text',{x:bx0+6*bw,y:by0-100/bmx*bh-14,'text-anchor':'end','font-size':24,fill:'rgba(255,255,255,.7)'},S1); l100.textContent='';
+const cap1=div('abs osw','',E1,{left:'54px',top:'790px',fontSize:'34px',letterSpacing:'1px'}); cap1.innerHTML='CATCHES PER SEASON · <span class="gold">6 STRAIGHT 100+</span>';
+const rec1=div('pill','ONLY PLAYER EVER',E1,{left:'640px',top:'785px',background:GOLD,color:'#050506',fontSize:'34px',boxShadow:'0 0 40px rgba(255,182,18,.5)'});
+function rPrime(t){hdrIn(1,t); popIn(k1,t,CUT[1]+.15,{from:.9}); k1.querySelector('.big').textContent=Math.round(11207*eOut(prog(t,CUT[1]+.3,CUT[1]+1.6))).toLocaleString('en-US');
+  const t6=K.six-.05; show([cap1],t>=t6); fadeUp(cap1,t,t6);
+  B1.forEach(b=>{const g=eOut(prog(t,t6+.1+b.i*.12,t6+.55+b.i*.12)); const h=b.c/bmx*bh*g; set(b.r,{y:by0-h,height:h}); set(b.v,{y:by0-h-14,opacity:g});});
+  set(line100,{opacity:prog(t,t6+.8,t6+1.1)}); set(l100,{opacity:prog(t,t6+.8,t6+1.1)});
+  show([rec1],t>=K.nobody-.05); popIn(rec1,t,K.nobody-.05,{from:1.4});
+  E1.style.transform=`scale(${1+(t-CUT[1])*.0015})`;}
+sfx(CUT[1]+.3,'riser',.25,1.2); for(let i=0;i<6;i++)sfx(K.six+.05+i*.12,'pop',.3); sfx(K.nobody-.05,'thump',.75);
+
+/* ---------- 2 CAME APART ---------- */
+const E2=CH[2];
+const EV=[['2019','TRADED','out of Pittsburgh','pit',K.trade],['2019','RELEASED','by the Raiders · 0 games','lv',K.rel],['2019','1 GAME','in New England','ne',K.ne],['2020–21','2 SUSPENSIONS','11 games total','',K.sus],['JAN 2022','WALKED OFF','mid-game vs. the Jets','tb',K.walk]];
+const EVD=EV.map(([y,a,b,ab,t0],i)=>{const d=glass(E2,{left:'54px',top:(520+i*150)+'px',width:'972px',height:'132px',padding:'0 28px',boxSizing:'border-box'});
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%"><div class="osw mut" style="font-size:26px;width:150px">${y}</div>${ab?nlH(ab,78):'<span class="big rd" style="font-size:70px;width:78px;text-align:center">!</span>'}<div><div class="big" style="font-size:54px">${a}</div><div class="osw mut" style="font-size:24px">${b.toUpperCase()}</div></div></div>`; d._t=t0; return d;});
+const nv2=div('abs big rd','NEVER PLAYED AGAIN.',E2,{left:'54px',top:'1290px',fontSize:'92px',textShadow:'0 0 40px rgba(255,75,62,.45)'});
+function rApart(t){hdrIn(2,t);
+  EVD.forEach((d,i)=>{show([d],t>=d._t-.05); popIn(d,t,d._t-.05,{from:.85,y:30}); d.classList.toggle('cold',i==4&&t>=d._t); if(t>=K.never-.05&&i<4)d.style.opacity=.55;});
+  show([nv2],t>=K.never-.05); popIn(nv2,t,K.never-.05,{from:1.25});
+  E2.style.transform=`scale(${1+(t-CUT[2])*.0012})`;}
+EV.forEach(e=>sfx(e[4]-.05,'thump',.45)); sfx(K.never-.05,'thump',.9);
+
+/* ---------- 3 COMPS ---------- */
+const E3=CH[3];
+const FACE={'Julio Jones':'julio-jones.png','Andre Johnson':'andre-johnson.jpg','Calvin Johnson':'calvin-johnson.jpg','Larry Fitzgerald':'larry-fitzgerald.png'};
+const STW={'Julio Jones':'julio','Andre Johnson':'andre','Calvin Johnson':'calvin','Larry Fitzgerald':'larry'};
+const CMP=DATA.comps.map(([n,ab],i)=>{const d=glass(E3,{left:(54+(i%5)*196)+'px',top:(520+Math.floor(i/5)*112)+'px',width:'184px',height:'100px',boxSizing:'border-box',textAlign:'center',paddingTop:'8px'});
+  d.innerHTML=(FACE[n]?face(FACE[n],52,'rgba(255,255,255,.3)'):nlH(ab,46))+`<div class="big" style="font-size:22px;margin-top:4px;white-space:nowrap">${n.split(' ').slice(-1)[0].toUpperCase()}</div>`; d._n=n; return d;});
+const pathL=div('abs osw','EACH SIM = ONE OF THESE <span class="cy">REAL CAREER PATHS</span>, SCALED TO HIS LEVEL',E3,{left:'54px',right:'54px',top:'1330px',fontSize:'28px',textAlign:'center'});
+function rCmp(t){hdrIn(3,t);
+  CMP.forEach((d,i)=>{const t0=CUT[3]+.2+i*.04; show([d],t>=t0); popIn(d,t,t0,{from:.6});
+    const w=STW[d._n]; d.classList.toggle('hot',!!w&&t>=WTs(w,K.names)-.05); d.style.opacity=1;
+    if(t>=K.every){const R=rng(Math.floor((t-K.every)*3)+11); d.style.opacity=R()<.3?1:.3;}});
+  show([pathL],t>=K.every); fadeUp(pathL,t,K.every);
+  E3.style.transform=`scale(${1+(t-CUT[3])*.001})`;}
+for(let i=0;i<34;i++)sfx(CUT[3]+.2+i*.04,'click',.1); Object.values(STW).forEach(w=>sfx(WTs(w,K.names)-.05,'pop',.35)); sfx(K.every,'whoosh',.35);
+
+/* ---------- 4 HONEST ---------- */
+const E4=CH[4], S4=E4._svg;
+const hx0=110,hx1=970,hy=1010; const hx=p=>hx0+p*(hx1-hx0);
+sv('rect',{x:hx(.25),y:hy-160,width:hx(.75)-hx(.25),height:320,rx:18,fill:'rgba(12,245,249,.08)',stroke:'#0CF5F9','stroke-width':3,'stroke-dasharray':'10 8'},S4);
+sv('line',{x1:hx0,x2:hx1,y1:hy,y2:hy,stroke:'rgba(255,255,255,.18)','stroke-width':4},S4);
+[['0%',0],['25%',.25],['50%',.5],['75%',.75],['100%',1]].forEach(([s,p])=>{const a=sv('text',{x:hx(p),y:hy+210,'text-anchor':'middle','font-size':24,fill:'#6A6A72'},S4);a.textContent=s;});
+const mh=sv('text',{x:hx(.5),y:hy-180,'text-anchor':'middle','font-size':28,fill:'#0CF5F9'},S4); mh.textContent='MIDDLE HALF OF THE FORECAST';
+const xl4=sv('text',{x:hx1,y:hy+250,'text-anchor':'end','font-size':24,fill:'#8E8E96'},S4); xl4.textContent='WHERE THE REAL CAREER LANDED →';
+const DT=DATA.pct.map((p,i)=>{const inn=p>.25&&p<.75; const c=sv('circle',{cx:hx(Math.min(.99,Math.max(.01,p))),cy:hy+((i%7)-3)*42,r:0,fill:inn?'#0CF5F9':'#8E8E96',stroke:'#050506','stroke-width':3},S4); return {c,inn};});
+const n4=div('abs','',E4,{left:'54px',top:'540px'}); n4.innerHTML='<div class="big cy num-glow" style="font-size:130px">17 <span class="mut" style="font-size:64px">OF 34</span></div><div class="osw mut" style="font-size:26px;letter-spacing:2px">LANDED IN THE MIDDLE HALF</div>';
+const ex4=div('pill','RIGHT ON TARGET ✓',E4,{left:'560px',top:'1310px',background:'#fff',color:'#050506',fontSize:'38px'});
+function rHon(t){hdrIn(4,t);
+  DT.forEach((d,i)=>{const p=back(prog(t,K.pred+.3+i*.05,K.pred+.6+i*.05)); set(d.c,{r:Math.max(0,p)*16, opacity:t>=K.seventeen&&!d.inn?.35:1});});
+  show([n4],t>=K.seventeen-.05); popIn(n4,t,K.seventeen-.05,{from:1.3});
+  show([ex4],t>=K.target-.05); popIn(ex4,t,K.target-.05,{from:1.4});
+  E4.style.transform=`scale(${1+(t-CUT[4])*.0015})`;}
+for(let i=0;i<34;i++)sfx(K.pred+.3+i*.05,'click',.1); sfx(K.seventeen-.05,'thump',.7); sfx(K.target-.05,'ding',.4);
+/* ---------- CTA (follow) ---------- */
+const ECT=CH[5]; const tapT=K.fol+.3;
+const ph=div('abs','',ECT,{left:'200px',top:'290px',width:'680px',height:'990px',background:'#111',borderRadius:'70px',border:'12px solid #2A2A31',boxSizing:'border-box',overflow:'hidden'});
+const GRID='<div style="width:656px;height:199px;background:url(profile.png) 0 -263px/656px auto no-repeat;background-color:#fff"></div>';
+ph.innerHTML=`<div class="scr" style="position:absolute;left:0;top:0;width:656px;background:#fff">
+  <div style="height:70px;background:#fff"></div>
+  <div style="position:relative;width:656px;height:266px;background:url(profile.png) -301px -35px/1247px auto no-repeat;background-color:#fff"></div>
+  ${GRID.repeat(6)}</div>
+  <div class="fbtn" style="position:absolute;left:19px;top:291px;width:225px;height:39px;border-radius:9px;background:#EFEFEF;color:#111;display:none;align-items:center;justify-content:center;font:700 22px Osw">FOLLOWING ✓</div>`;
+const scr=ph.querySelector('.scr'), fbtn=ph.querySelector('.fbtn');
+const fing=div('abs','',ECT,{left:'0',top:'0',width:'120px',height:'120px',fontSize:'110px',lineHeight:'1'}); fing.textContent='👆';
+const ctaT=div('abs big','HIT <span class="cy">FOLLOW</span>',ECT,{left:'0',right:'0',top:'1300px',textAlign:'center',fontSize:'100px',display:'none'});
+const ripple=div('abs','',ECT,{width:'120px',height:'120px',borderRadius:'50%',border:'8px solid #0CF5F9',display:'none'});
+function rCta(t){const t0=CUT[5]; popIn(ph,t,t0+.05,{from:.85});
+  const sc=prog(t,t0+.2,tapT-.25); const off=-Math.sin(sc*Math.PI)*300; scr.style.transform=`translateY(${off}px)`;
+  const bx=200+12+19+112, by=290+12+291+20;
+  const fp=eOut(prog(t,K.fol-.6,tapT)); const fx=lerp(860,bx,fp), fy=lerp(1250,by,fp)+(t>=tapT&&t<tapT+.15?10:0);
+  fing.style.left=(fx-35)+'px'; fing.style.top=(fy-10)+'px'; fing.style.display=t>=K.fol-.6?'block':'none';
+  fbtn.style.display=t>=tapT+.08?'flex':'none';
+  ripple.style.display=t>=tapT&&t<tapT+.5?'block':'none'; const rp=prog(t,tapT,tapT+.5); ripple.style.left=(bx-60)+'px'; ripple.style.top=(by-60)+'px'; ripple.style.transform=`scale(${.4+rp*1.4})`; ripple.style.opacity=1-rp;
+  show([ctaT],t>=tapT); popIn(ctaT,t,tapT,{from:1.3});
+  ECT.style.transform=`scale(${1+(t-t0)*.004})`;}
+sfx(CUT[5]+.05,'whoosh',.45); sfx(tapT,'click',.7); sfx(tapT+.05,'ding',.45); sfx(tapT+.1,'sparkle',.35);
+
+/* ---------- 6 RESULTS ---------- */
+function mkHist(S){const HB=DATA.hist, mx=Math.max(...HB), x0=100,x1=990,y0=1230,h=430, bw=(x1-x0)/HB.length; const X=v=>x0+(v-11000)/500*bw;
+  const defs=sv('defs',{},S); const g1=sv('linearGradient',{id:'hg'+S.id,x1:0,y1:0,x2:0,y2:1},defs); sv('stop',{offset:0,'stop-color':'#FFD45A'},g1); sv('stop',{offset:1,'stop-color':'#B57A00'},g1);
+  const B=HB.map((v,i)=>({v,i,r:sv('rect',{x:x0+i*bw+3,width:bw-6,y:y0,height:0,rx:6,fill:'rgba(255,255,255,.14)'},S)}));
+  const ax=sv('g',{},S); [11000,13000,15000,17000,19000].forEach(k=>{const a=sv('text',{x:X(k),y:y0+38,'text-anchor':'middle','font-size':24,fill:'#6A6A72'},ax);a.textContent=(k/1000)+'K';});
+  const xl=sv('text',{x:x1,y:y0+76,'text-anchor':'end','font-size':24,fill:'#8E8E96'},ax); xl.textContent='CAREER RECEIVING YARDS →';
+  return {B,X,y0,h,mx,draw(p,hot){B.forEach(b=>{const hh=b.v/mx*h*p; set(b.r,{y:y0-hh,height:hh,fill:hot(b.i)?`url(#hg${S.id})`:'rgba(255,255,255,.14)'});});}};}
+const E6=CH[6], S6=E6._svg; S6.id='s6'; const H6=mkHist(S6);
+const typ6=glass(E6,{left:'54px',top:'520px',width:'972px',padding:'22px 28px'}); typ6.classList.add('kpi');
+typ6.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="osw mut" style="font-size:24px;letter-spacing:2px">TYPICAL BEST-BEHAVIOR CAREER</div><div class="big gold" style="font-size:96px;line-height:1">~13,700 YDS</div></div><div class="big" style="font-size:64px">88 TD</div></div>`;
+const real6=sv('g',{},S6); const rx=H6.X(12291); sv('line',{x1:rx,x2:rx,y1:H6.y0,y2:H6.y0-H6.h-40,stroke:'#FF4B3E','stroke-width':5},real6);
+const realT=div('abs','',E6,{left:(rx-10)+'px',top:'760px'}); realT.innerHTML='<div class="osw rd" style="font-size:24px">← HIS REAL CAREER · 12,291</div>';
+const beat6=div('pill','BEATS IT IN 86% OF CAREERS',E6,{left:'200px',top:'1320px',background:GOLD,color:'#050506',fontSize:'40px',boxShadow:'0 0 40px rgba(255,182,18,.5)'});
+function rRun(t){hdrIn(6,t);
+  const g=eOut(prog(t,CUT[6]+.2,CUT[6]+1.2)); H6.draw(g,i=>t>=K.beats-.05&&11000+i*500>=12291);
+  popIn(typ6,t,CUT[6]+.3,{from:.9});
+  const on=t>=K.beats-.05; real6.style.display=on?'inline':'none'; show([realT],on); fadeUp(realT,t,K.beats-.05);
+  show([beat6],t>=K.beats+.6); popIn(beat6,t,K.beats+.6,{from:1.3});
+  E6.style.transform=`scale(${1+(t-CUT[6])*.0015})`;}
+sfx(CUT[6]+.2,'riser',.3,1); sfx(CUT[6]+.3,'pop',.4); sfx(K.beats-.05,'thump',.6); sfx(K.beats+.6,'ding',.4);
+
+/* ---------- 7 CEILING ---------- */
+const E7=CH[7];
+const club=DATA.club.map(([n,y,ab],i)=>{const d=glass(E7,{left:'54px',top:(520+i*108)+'px',width:'972px',height:'96px',padding:'0 24px',boxSizing:'border-box'});
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:20px;height:100%"><span class="big mut" style="font-size:40px;width:44px">${i+1}</span>${nlH(ab,60)}<span class="big" style="font-size:44px;flex:1">${n.toUpperCase()}</span><span class="big" style="font-size:44px">${y.toLocaleString('en-US')}</span></div>`; return d;});
+const abRow=glass(E7,{left:'54px',top:'1080px',width:'972px',height:'110px',padding:'0 24px',boxSizing:'border-box'}); abRow.classList.add('hot');
+abRow.innerHTML=`<div style="display:flex;align-items:center;gap:20px;height:100%">${face('antonio-brown.png',80,GOLD)}<div style="flex:1"><div class="big gold" style="font-size:44px">A.B. · BEST BEHAVIOR</div><div class="osw mut" style="font-size:22px">CHANCE TO JOIN THE 15,000 CLUB</div></div><span class="big gold" style="font-size:64px">1 IN 4+</span></div>`;
+const fz7=glass(E7,{left:'54px',top:'1210px',width:'472px',height:'200px',padding:'18px 22px',boxSizing:'border-box'}); fz7.innerHTML=`<div class="osw mut" style="font-size:22px">PASSES FITZGERALD · #2</div><div class="big gold" style="font-size:84px">1 IN 10</div>`;
+const rc7=glass(E7,{left:'554px',top:'1210px',width:'472px',height:'200px',padding:'18px 22px',boxSizing:'border-box'}); rc7.innerHTML=`<div class="osw mut" style="font-size:22px">PASSES JERRY RICE · #1</div><div class="big rd" style="font-size:84px">2 / 100K</div>`;
+function rCeil(t){hdrIn(7,t);
+  const tc=K.clears; show([abRow],t>=tc-.05); popIn(abRow,t,tc-.05,{from:.9});
+  club.forEach((d,i)=>{const t0=CUT[7]+.25+i*.12; show([d],t>=t0); popIn(d,t,t0,{from:.85}); d.classList.toggle('hot',i==1&&t>=K.fitz-.05);});
+  show([fz7],t>=K.fitz-.05); popIn(fz7,t,K.fitz-.05,{from:1.2});
+  show([rc7],t>=K.rice-.05); popIn(rc7,t,K.rice-.05,{from:1.2});
+  E7.style.transform=`scale(${1+(t-CUT[7])*.0012})`;}
+sfx(K.clears-.05,'thump',.6); for(let i=0;i<5;i++)sfx(CUT[7]+.25+i*.12,'pop',.3); sfx(K.only5-.05,'ding',.4); sfx(K.fitz-.05,'thump',.7); sfx(K.rice-.05,'thump',.7);
+
+/* ---------- 8 VERDICT ---------- */
+const E8=CH[8];
+const v1=div('abs','',E8,{left:'54px',top:'540px',width:'972px'}); v1.innerHTML='<div class="osw mut" style="font-size:28px;letter-spacing:2px">THE TALENT</div><div class="big gold" style="font-size:100px">ALL-TIME GREAT.</div>';
+const v2=div('abs','',E8,{left:'54px',top:'760px',width:'640px'}); v2.innerHTML='<div class="osw mut" style="font-size:28px;letter-spacing:2px">THE BEHAVIOR</div><div class="big rd" style="font-size:84px">COST HIM THE RECORD BOOK.</div>';
+const ab8=div('hero','',E8,{left:'420px',top:'900px',width:'700px',height:'560px',backgroundImage:'url(img/ab_hero.png)'});
+const poll=glass(E8,{left:'110px',top:'560px',width:'860px',padding:'40px'});
+poll.innerHTML=`<div style="text-align:center">${face('antonio-brown.png',150,GOLD)}</div><div class="osw mut" style="font-size:28px;letter-spacing:3px;text-align:center;margin-top:14px">WELL-BEHAVED A.B. · COMMENT BELOW</div>`+['#2 RECEIVER EVER','NOT EVEN CLOSE'].map((s,i)=>`<div class="opt big" style="margin-top:24px;font-size:64px;text-align:center;border-radius:60px;padding:12px 0;${i===0?`background:${GOLD};color:#050506;box-shadow:0 0 40px rgba(255,182,18,.5)`:'border:4px solid #fff'}">${s}</div>`).join('');
+const OPT=[...poll.querySelectorAll('.opt')];
+function rVer(t){hdrIn(8,t);
+  const a=t<K.poll-.05; show([v1,v2,ab8],a); E8._h.style.display=a?'block':'none';
+  if(a){fadeUp(v1,t,K.c8); show([v2],t>=K.beh-.05); popIn(v2,t,K.beh-.05,{from:1.15}); {const p=eOut(prog(t,K.c8+.2,K.c8+.7)); ab8.style.transform=`translateY(${(1-p)*400}px)`; ab8.style.opacity=p;}}
+  show([poll],!a); if(!a){popIn(poll,t,K.poll-.05,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,K.poll+.3+i*.35,{from:.4})); poll.style.transform+=` scale(${1+(t-K.poll)*.005})`;}
+  E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
+sfx(K.c8,'whoosh',.3); sfx(K.beh-.05,'thump',.75); sfx(K.poll-.05,'whoosh',.5); sfx(K.poll+.3,'pop',.5); sfx(K.poll+.65,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
+const RF=[rHook,rPrime,rApart,rCmp,rHon,rCta,rRun,rCeil,rVer];
