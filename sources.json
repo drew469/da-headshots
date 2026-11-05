@@ -83,6 +83,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14874.png"
  },
+ "andrew-luck-full": {
+  "league": "nfl",
+  "name": "Andrew Luck Full",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAndrew_Luck_vs_Browns_2014.jpg"
+ },
+ "andrew-luck-full-b": {
+  "league": "nfl",
+  "name": "Andrew Luck Full B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAndrew_Luck_vs._Redskins_2018.jpg"
+ },
  "anthony-edwards": {
   "league": "nba",
   "name": "Anthony Edwards",
@@ -268,6 +280,12 @@
   "name": "Dominique Wilkins Prime",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADominique_Wilkins_2022.jpg"
+ },
+ "drew-brees": {
+  "league": "nfl",
+  "name": "Drew Brees",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/2580.png"
  },
  "eli-manning": {
   "league": "nfl",
@@ -898,6 +916,12 @@
   "name": "Russell Wilson",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/14881.png"
+ },
+ "sam-bradford": {
+  "league": "nfl",
+  "name": "Sam Bradford",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Sam_Bradford"
  },
  "saquon-barkley": {
   "league": "nfl",
