@@ -301,3 +301,7 @@ nfl: Antonio Brown C2 | commons:File:Antonio brown vs coty sensabaugh.jpg
 nfl: Antonio Brown C3 | commons:File:Antonio Brown 2015.jpg
 nfl: Antonio Brown C4 | commons:File:Cleveland Browns vs. Pittsburgh Steelers (15344207578).jpg
 nfl: Antonio Brown C5 | commons:File:Antonio Brown 2018.png
+nfl: Andre Johnson
+nfl: Terrell Owens
+nfl: Randy Moss
+nfl: Isaac Bruce
