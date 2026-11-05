@@ -273,3 +273,13 @@ nfl: Henry Ruggs Camp A | commons:File:Henry Ruggs III (51249109907).jpg
 nfl: Henry Ruggs Camp B | commons:File:Henry Ruggs III (51250864314).jpg
 nfl: Henry Ruggs Camp C | commons:File:Henry Ruggs III (51250108513).jpg
 nfl: Henry Ruggs III
+# NFL — Andrew Luck career simulation
+nfl: Andrew Luck
+nfl: Andrew Luck Full | commons:Andrew Luck Colts
+nfl: Andrew Luck Full B | commons:Andrew Luck 2018
+nfl: Matthew Stafford
+nfl: Aaron Rodgers
+nfl: Drew Brees
+nfl: Cam Newton
+nfl: Sam Bradford
+nfl: Peyton Manning
