@@ -353,3 +353,8 @@ logo: nba sea
 logo: nba utah
 logo: nba det
 logo: nba mia
+nba: Michael Jordan Lipofsky | commons:Jordan Lipofsky
+nba: Michael Jordan Lipofsky B | commons:Michael Jordan Lipofsky Bulls
+nba: Michael Jordan 1987 | commons:File:Michael Jordan in 1987.jpg
+nba: Scottie Pippen Lipofsky | commons:Scottie Pippen Lipofsky
+nba: Dennis Rodman Bulls | commons:Dennis Rodman Lipofsky
