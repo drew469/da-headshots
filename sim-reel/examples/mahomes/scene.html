@@ -193,9 +193,9 @@ const pmH=div('hero','',H,{left:'-40px',top:'660px',width:'620px',height:'860px'
 const tbH=div('hero','',H,{left:'520px',top:'800px',width:'600px',height:'680px',backgroundImage:'url(img/tb_hero.png)'});
 const h1=div('abs big','WILL <span class="gold">PATRICK MAHOMES</span><br>EVER CATCH<br><span style="color:'+LGC+'">TOM BRADY’S 7 RINGS?</span>',H,{left:'54px',top:'270px',fontSize:'100px',lineHeight:'1.02',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
 const h3=div('abs big','100,000 SIMULATIONS.<br><span style="color:'+LGC+'">THE REST OF HIS CAREER.</span>',H,{left:'54px',top:'270px',fontSize:'92px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
-const tagP=glass(H,{left:'54px',top:'1300px',padding:'12px 22px'}); tagP.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('kc',50)}<span class="big" style="font-size:40px">3 RINGS</span></div>`;
-const tagB=glass(H,{left:'720px',top:'1300px',padding:'12px 22px'}); tagB.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('ne',44)}${nlH('tb',44)}<span class="big" style="font-size:40px;color:${LGC}">7 RINGS</span></div>`;
-const vs0=div('abs big','VS',H,{left:'500px',top:'1310px',fontSize:'56px',color:'#fff',textShadow:'0 0 30px rgba(255,255,255,.5)'});
+const tagP=div('abs','',H,{zIndex:5,background:'rgba(8,8,12,.9)',border:'1.5px solid rgba(255,255,255,.2)',borderRadius:'22px',boxShadow:'0 18px 50px rgba(0,0,0,.6)',left:'54px',top:'1300px',padding:'12px 22px'}); tagP.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('kc',50)}<span class="big" style="font-size:40px">3 RINGS</span></div>`;
+const tagB=div('abs','',H,{zIndex:5,background:'rgba(8,8,12,.9)',border:'1.5px solid rgba(255,255,255,.2)',borderRadius:'22px',boxShadow:'0 18px 50px rgba(0,0,0,.6)',left:'720px',top:'1300px',padding:'12px 22px'}); tagB.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('ne',44)}${nlH('tb',44)}<span class="big" style="font-size:40px;color:${LGC}">7 RINGS</span></div>`;
+const vs0=div('abs big','VS',H,{zIndex:5,left:'500px',top:'1310px',fontSize:'56px',color:'#fff',textShadow:'0 0 30px rgba(255,255,255,.5)'});
 function rHook(t){
   const p0=eOut(prog(t,.05,.6)), p1=eOut(prog(t,.25,.8));
   pmH.style.transform=`translateX(${-(1-p0)*320}px) scale(${1.02+t*.006})`; pmH.style.opacity=Math.min(1,p0*1.5);
@@ -243,12 +243,12 @@ const TRR=TR.map(([a,b,p,t0],i)=>{const d=glass(E2,{left:'54px',top:(790+i*140)+
   d.innerHTML=`<div style="display:flex;align-items:center;height:100%;gap:20px"><span class="big" style="font-size:44px;width:230px">${a}</span><div style="flex:1;height:34px;border-radius:17px;background:rgba(255,255,255,.06);overflow:hidden"><div class="bar" style="height:100%;width:0;border-radius:17px;background:${i?'rgba(255,255,255,.45)':'linear-gradient(90deg,#0CF5F9,#7FFBFD)'};box-shadow:${i?'none':'0 0 24px rgba(12,245,249,.6)'}"></div></div><span class="big" style="font-size:54px;width:230px;text-align:right;${i?'':'color:#0CF5F9'}">${b}</span></div>`;
   d._b=d.querySelector('.bar'); d._p=p; d._t=t0; return d;});
 function rTier(t){hdrIn(2,t);
-  show([rkL],t>=K.ranked-.05); fadeUp(rkL,t,K.ranked-.05);
-  RKC.forEach((d,i)=>{const t0=K.ranked+.1+i*.12; show([d],t>=t0); popIn(d,t,t0,{from:.8}); d.classList.toggle('hot',d._top&&t>=K.top3);});
+  const rk0=Math.min(K.ranked,CUT[2]+.6); show([rkL],t>=rk0-.05); fadeUp(rkL,t,rk0-.05);
+  RKC.forEach((d,i)=>{const t0=rk0+.1+i*.12; show([d],t>=t0); popIn(d,t,t0,{from:.8}); d.classList.toggle('hot',d._top&&t>=K.top3);});
   show([trL],t>=K.top3-.05); fadeUp(trL,t,K.top3-.05);
   TRR.forEach((d,i)=>{show([d],t>=d._t-.05); popIn(d,t,d._t-.05,{from:.9,y:20}); d._b.style.width=(eOut(prog(t,d._t+.1,d._t+.8))*d._p/.111*100)+'%'; d.classList.toggle('hot',i===0&&t>=K.top3+.6);});
   E2.style.transform=`scale(${1+(t-CUT[2])*.0012})`;}
-RK.forEach((_,i)=>sfx(K.ranked+.1+i*.12,'click',.25)); TR.forEach(r=>sfx(r[3]-.05,'pop',.4)); sfx(K.top3+.6,'ding',.35);
+RK.forEach((_,i)=>sfx(Math.min(K.ranked,CUT[2]+.6)+.1+i*.12,'click',.25)); TR.forEach(r=>sfx(r[3]-.05,'pop',.4)); sfx(K.top3+.6,'ding',.35);
 
 /* ---------- 3 COMPS ---------- */
 const E3=CH[3];
