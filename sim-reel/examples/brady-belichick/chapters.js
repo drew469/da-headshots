@@ -1,0 +1,268 @@
+/* ===================== chapters (Antonio Brown · best behavior) — premium v2 ===================== */
+const CI=s=>{const i=CUES.findIndex(c=>c.text.toLowerCase().includes(s.toLowerCase())); if(i<0)throw new Error('cue not found: '+s); return i;};
+const CT=s=>C(CI(s));
+const WTs=(w,after,alt)=>{const f=x=>WORDS.find(y=>y.w.toLowerCase().replace(/[^a-z0-9]/g,'').startsWith(x.toLowerCase())&&y.a>=after); const r=f(w)||(alt&&f(alt)); return r?r.a:after;};
+const NL=ab=>`logos/nfl-${ab.toLowerCase()}.png`;
+const nlH=(ab,sz)=>`<img class="lg" src="${NL(ab)}" style="width:${sz}px;height:${sz}px">`;
+const GOLD='#FFB612';
+const NE_NAVY='#0B2A55', NER='#C60C30', LGC='#FFC93C';
+const LOGO=ab=>NL({WAS:'wsh',LA:'lar'}[ab]||ab);
+const K={sim:CT('I simulated his career'),
+  c1:CT("Here's the problem"), sep:CT('so nobody can separate'),
+  c2:CT('So I split'), qb:CT('the quarterback'), coach:CT('Coaching, defense'), bq:CT('Brady added'), rest:CT('But the rest'),
+  c3:CT('So I dropped Brady'), avg:CT('gave New England'), real:CT('Real schedules'),
+  c4:CT('Is it honest'), tested:CT('I tested it'), when:CT('When it gives'), both:CT('And with Brady and Belichick'), won6:CT('They won 6'), tough:CT('So if anything'),
+  cta:CT('If you want more'), fol:CT('follow Daily'),
+  c6:CT('Without Belichick, the typical'), never:CT('1 in 7'), r7:CT('7 rings?'), lands:CT('And where he lands'), rav:CT('On the Ravens'), bad:CT('On the Raiders'),
+  c7:CT("But here's the twist"), half:CT('Half the time'),
+  c8:CT('So Brady without Belichick is still'), barely:CT('Belichick without Brady is barely'), took:CT('But 7 rings?'), poll:CT('Who deserves')};
+const CUT=[0,K.c1-.05,K.c2-.05,K.c3-.05,K.c4-.05,K.cta-.05,K.c6-.05,K.c7-.05,K.c8-.05];
+const END=CUES[CUES.length-1].b+1.1;
+const T={end:END};
+const HDR=[null,
+ ['01','6 rings together.','Brady + Belichick · 2001–2019'],
+ ['02','Split the team.','points per game added vs. an average NFL team'],
+ ['03','The swap.','Brady on a random franchise · NE gets an average QB'],
+ ['04','Is it honest?','every NFL game since 2001'],
+ null,
+ ['05','100,000 careers.','Brady’s rings without Belichick'],
+ ['06','The twist.','Belichick without Brady'],
+ ['07','The verdict.','']];
+const AN=['rgba(198,12,48,.36)','rgba(198,12,48,.5)','#FF3A55'], AG=['rgba(255,184,28,.30)','rgba(255,184,28,.5)','#FFC93C'], AC=['rgba(12,245,249,.22)','rgba(12,245,249,.45)','#0CF5F9'];
+const ACC=[AN,AG,AC,AC,AC,AC,AG,AN,AG];
+/* ---------- premium background ---------- */
+const stage=document.getElementById('stage');
+const BG=document.createElement('div'); BG.id='bg'; stage.insertBefore(BG,stage.firstChild);
+BG.innerHTML='<div class="base"></div><div class="glowA"></div><div class="glowB"></div>';
+const BEAMS=[0,1,2].map(i=>{const b=div('beam','',BG,{left:[90,520,860][i]+'px'});return b;});
+const gridS=sv('svg',{class:'grid',width:1080,height:1920,viewBox:'0 0 1080 1920'}); BG.appendChild(gridS);
+for(let i=0;i<=12;i++){const x=-600+i*190; sv('line',{x1:540,y1:1040,x2:x,y2:1920,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS);}
+const HL=[]; for(let j=0;j<8;j++){HL.push(sv('line',{x1:0,x2:1080,y1:0,y2:0,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS));}
+const DUST=[]; {const R=rng(7); for(let i=0;i<26;i++){const d=div('dust','',BG,{}); DUST.push({d,x:R()*1080,y:R()*1920,s:1.5+R()*3.5,v:6+R()*18,o:.08+R()*.22});}}
+const sweep=div('','',stage); sweep.id='sweep';
+const rootS=document.documentElement.style;
+function bgfx(t,k){const a=ACC[k]; rootS.setProperty('--acc-a',a[0]); rootS.setProperty('--acc-g',a[1]); rootS.setProperty('--acc',a[2]);
+  BEAMS.forEach((b,i)=>{b.style.transform=`rotate(${[-24,8,30][i]+Math.sin(t*.35+i*2)*6}deg)`; b.style.opacity=.55+.45*Math.sin(t*.5+i);});
+  HL.forEach((l,j)=>{const q=((j/8)+(t*.05))%1, y=1040+Math.pow(q,2.2)*900; set(l,{y1:y,y2:y,opacity:q});});
+  DUST.forEach(p=>{const y=(p.y-t*p.v)%1920; p.d.style.left=(p.x+Math.sin(t*.4+p.y)*12)+'px'; p.d.style.top=(y<0?y+1920:y)+'px'; p.d.style.width=p.d.style.height=p.s+'px'; p.d.style.opacity=p.o;});
+  BG.querySelector('.glowA').style.transform=`translate(${Math.sin(t*.2)*40}px,${Math.cos(t*.17)*30}px)`;
+  let sw=-1; CUT.slice(1).forEach(c=>{if(t>=c-.2&&t<c+.25)sw=(t-c+.2)/.45;}); sweep.style.display=sw>=0?'block':'none'; if(sw>=0)sweep.style.left=(-500+sw*1900)+'px';}
+
+const chs=document.getElementById('chs');
+const prg=document.getElementById('prog'); for(let i=0;i<7;i++){const x=document.createElement('i');prg.appendChild(x);}
+const CH=[]; for(let i=0;i<CUT.length;i++){const d=div('ch','',chs);CH.push(d);
+  if(HDR[i]){const h=div('hdr',`<div class="n">${HDR[i][0]}</div><div class="t">${HDR[i][1]}</div><div class="s">${HDR[i][2]}</div>`,d);d._h=h;}
+  const s=sv('svg',{width:1080,height:1920,viewBox:'0 0 1080 1920',style:'position:absolute;left:0;top:0'});d.appendChild(s);d._svg=s;}
+CUT.slice(1).forEach(c=>{sfx(c-.18,'whip',.55);});
+const hdrIn=(k,t)=>fadeUp(CH[k]._h,t,CUT[k]+.05,.3);
+const face=(img,sz,ring)=>`<span style="display:inline-block;width:${sz}px;height:${sz}px;border-radius:50%;overflow:hidden;border:4px solid ${ring};background:#1A1A20;vertical-align:middle;box-shadow:0 8px 24px rgba(0,0,0,.5)"><img src="img/${img}" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></span>`;
+const glass=(parent,st)=>{const d=div('glass abs','',parent,st);return d;};
+
+
+function lomb(parent,x,y,s,mode){const g=sv('g',{transform:`translate(${x} ${y}) scale(${s})`},parent);
+  const gh=mode==='ghost', col=mode==='cy'?'#0CF5F9':LGC, f=gh?'rgba(255,255,255,.04)':col, st=gh?'rgba(255,255,255,.6)':'#7A5200', dash=gh?'6 5':'none';
+  sv('ellipse',{cx:0,cy:-44,rx:16,ry:25,transform:'rotate(-28 0 -44)',fill:f,stroke:st,'stroke-width':3,'stroke-dasharray':dash},g);
+  if(!gh)sv('path',{d:'M-6,-58 L6,-30',stroke:'#7A5200','stroke-width':2.5},g);
+  sv('path',{d:'M-5,-22 L5,-22 L13,38 L-13,38 Z',fill:f,stroke:st,'stroke-width':3,'stroke-dasharray':dash},g);
+  sv('rect',{x:-22,y:38,width:44,height:14,rx:3,fill:gh?f:'#2A2A31',stroke:st,'stroke-width':3,'stroke-dasharray':dash},g);
+  if(!gh)g.style.filter=`drop-shadow(0 0 12px ${mode==='cy'?'rgba(12,245,249,.6)':'rgba(255,201,60,.55)'})`;
+  return g;}
+const lpop=(g,t,t0,x,y,s)=>{const p=back(prog(t,t0,t0+.35)); set(g,{transform:`translate(${x} ${y}) scale(${Math.max(0,p)*s})`,opacity:t>=t0?1:0});};
+
+/* ---------- 0 HOOK ---------- */
+const H=CH[0];
+const hWm=div('abs','',H,{left:'150px',top:'640px',width:'780px',height:'780px',background:`url(${LOGO('ne')}) center/contain no-repeat`,opacity:.10});
+const bbH=div('hero','',H,{left:'-60px',top:'720px',width:'640px',height:'800px',backgroundImage:'url(img/bb_hero.png)'});
+const tbH=div('hero','',H,{left:'500px',top:'640px',width:'640px',height:'860px',backgroundImage:'url(img/tb_hero.png)'});
+const h1=div('abs big','WOULD <span style="color:#fff">TOM BRADY</span><br>HAVE WON <span style="color:'+LGC+'">7 RINGS</span><br><span class="gold">WITHOUT BELICHICK?</span>',H,{left:'54px',top:'270px',fontSize:'98px',lineHeight:'1.02',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const h3=div('abs big','100,000 CAREERS.<br><span style="color:'+LGC+'">ON A RANDOM TEAM.</span>',H,{left:'54px',top:'270px',fontSize:'100px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const tagStyle={zIndex:5,background:'rgba(8,8,12,.9)',border:'1.5px solid rgba(255,255,255,.2)',borderRadius:'22px',boxShadow:'0 18px 50px rgba(0,0,0,.6)',padding:'12px 22px'};
+const tagL=div('abs','',H,Object.assign({left:'54px',top:'1320px'},tagStyle)); tagL.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('ne',48)}<span class="big" style="font-size:38px">BELICHICK</span></div>`;
+const tagR=div('abs','',H,Object.assign({left:'690px',top:'1320px'},tagStyle)); tagR.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('ne',48)}<span class="big" style="font-size:38px">BRADY</span></div>`;
+const qm=div('abs big','?',H,{zIndex:5,left:'500px',top:'1080px',fontSize:'170px',color:LGC,textShadow:'0 0 40px rgba(255,201,60,.6)'});
+function rHook(t){
+  const p0=eOut(prog(t,.05,.6)), p1=eOut(prog(t,.25,.8));
+  bbH.style.transform=`translateX(${-(1-p0)*320}px) scale(${1.02+t*.006})`; bbH.style.opacity=Math.min(1,p0*1.5);
+  tbH.style.transform=`translateX(${(1-p1)*320}px) scale(${1.02+t*.006})`; tbH.style.opacity=Math.min(1,p1*1.5);
+  hWm.style.transform=`scale(${1+t*.01})`;
+  show([h1],t<K.sim-.05); fadeUp(h1,t,.05,.35,40);
+  show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.04});
+  show([tagL,tagR],t>=.9); popIn(tagL,t,.9,{from:.85}); popIn(tagR,t,1.1,{from:.85});
+  show([qm],t>=1.3&&t<K.sim-.05); popIn(qm,t,1.3,{from:1.3});
+  show([qm],t>=1.3); qm.style.opacity=t<K.sim-.05?1:0;
+  // at sim: Belichick slides out (random team)
+  if(t>=K.sim){const q=eOut(prog(t,K.sim,K.sim+.5)); bbH.style.opacity=1-q*.75; tagL.style.opacity=1-q; tagR.innerHTML=`<div style="display:flex;align-items:center;gap:12px"><span class="big" style="font-size:38px;color:${LGC}">BRADY → ???</span></div>`;}
+  else tagR.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('ne',48)}<span class="big" style="font-size:38px">BRADY</span></div>`;
+  H.style.transform=`scale(${1+t*.004})`;}
+sfx(.05,'whoosh',.5); sfx(.3,'thump',.7); sfx(.9,'pop',.4); sfx(1.1,'pop',.4); sfx(1.3,'thump',.5); sfx(K.sim-.05,'thump',.8);
+
+/* ---------- 1 TOGETHER ---------- */
+const E1=CH[1], S1=E1._svg;
+const RY=[2001,2003,2004,2014,2016,2018];
+const L1=RY.map((y,i)=>{const g=lomb(S1,160+i*152,880,1.25,'gold'); const tx=sv('text',{x:160+i*152,y:990,'text-anchor':'middle','font-size':30,fill:'#8E8E96',style:'font-family:Anton'},S1); tx.textContent="’"+String(y).slice(2); return [g,tx];});
+const dual=glass(E1,{left:'54px',top:'1060px',width:'972px',height:'190px',padding:'0 28px'});
+dual.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-around;height:100%">${face('tom-brady-patriots.jpg',120,LGC)}<span class="big" style="font-size:90px;color:${LGC}">+</span>${face('bill-belichick.jpg',120,'#FF3A55')}<span class="big" style="font-size:70px">= ?</span></div>`;
+const sepL=div('abs big','WHO GETS THE CREDIT?',E1,{left:'54px',right:'54px',top:'560px',fontSize:'64px',textAlign:'center'});
+function rTog(t){hdrIn(1,t); fadeUp(sepL,t,CUT[1]+.2);
+  L1.forEach(([g,tx],i)=>{const t0=CUT[1]+.3+i*.14; lpop(g,t,t0,160+i*152,880,1.25); set(tx,{opacity:t>=t0+.1?1:0});});
+  show([dual],t>=K.sep-.05); popIn(dual,t,K.sep-.05,{from:.9});
+  E1.style.transform=`scale(${1+(t-CUT[1])*.0015})`;}
+RY.forEach((_,i)=>sfx(CUT[1]+.3+i*.14,'ding',.25)); sfx(K.sep-.05,'thump',.6);
+
+/* ---------- 2 SPLIT ---------- */
+const E2=CH[2];
+const sp=div('abs','',E2,{left:'54px',top:'540px',width:'972px',height:'200px'});
+sp.innerHTML=`<div style="display:flex;gap:20px;height:100%"><div class="glass" style="flex:1;padding:24px;text-align:center"><div class="osw mut" style="font-size:26px;letter-spacing:2px">PART 1</div><div class="big" style="font-size:68px">THE QB</div></div><div class="glass" style="flex:1;padding:24px;text-align:center"><div class="osw mut" style="font-size:26px;letter-spacing:2px">PART 2</div><div class="big" style="font-size:52px;line-height:1.1">EVERYTHING<br>ELSE</div></div></div>`;
+const chips=['COACHING','DEFENSE','ROSTER'].map((s,i)=>div('pill',s,E2,{left:(560+i*0)+'px',top:(760+i*0)+'px',background:'rgba(255,255,255,.1)',color:'#fff',fontSize:'28px',border:'1.5px solid rgba(255,255,255,.25)'}));
+chips.forEach((c,i)=>{c.style.left=(560+[0,170,320][i])+'px';});
+const kB=glass(E2,{left:'54px',top:'860px',width:'972px',height:'200px',padding:'0 28px'}); kB.classList.add('kpi');
+kB.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%">${face('tom-brady-patriots.jpg',120,LGC)}<div style="flex:1"><div class="osw mut" style="font-size:26px;letter-spacing:1px">BRADY BY HIMSELF</div><div class="big" style="font-size:96px;line-height:1;color:${LGC}">+5.8 <span style="font-size:44px">PTS/GAME</span></div></div></div>`;
+const kR=glass(E2,{left:'54px',top:'1090px',width:'972px',height:'200px',padding:'0 28px'}); kR.classList.add('kpi');
+kR.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%">${nlH('ne',120)}<div style="flex:1"><div class="osw mut" style="font-size:26px;letter-spacing:1px">THE REST OF THE PATRIOTS</div><div class="big gold" style="font-size:96px;line-height:1">+3.7 <span style="font-size:44px">PTS/GAME</span></div></div><span class="pill" style="background:${LGC};color:#050506;font-size:34px">#2 IN NFL</span></div>`;
+function rSplit(t){hdrIn(2,t);
+  show([sp],t>=CUT[2]+.15); popIn(sp,t,CUT[2]+.15,{from:.9});
+  chips.forEach((c,i)=>{const t0=K.coach+i*.35; show([c],t>=t0); popIn(c,t,t0,{from:1.2});});
+  show([kB],t>=K.bq-.05); popIn(kB,t,K.bq-.05,{from:.9}); kB.classList.toggle('hot',t>=K.bq+.4&&t<K.rest);
+  show([kR],t>=K.rest-.05); popIn(kR,t,K.rest-.05,{from:.9}); kR.classList.toggle('hot',t>=K.rest+.4);
+  E2.style.transform=`scale(${1+(t-CUT[2])*.0012})`;}
+sfx(CUT[2]+.15,'pop',.4); [0,1,2].forEach(i=>sfx(K.coach+i*.35,'click',.3)); sfx(K.bq-.05,'thump',.6); sfx(K.rest-.05,'thump',.65);
+
+/* ---------- 3 SWAP ---------- */
+const E3=CH[3];
+const FR=['ARI','ATL','BAL','BUF','CAR','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC','LV','LAC','LA','MIA','MIN','NO','NYG','NYJ','PHI','PIT','SEA','SF','TB','TEN','WAS'];
+const TL=FR.map((ab,i)=>{const d=glass(E3,{left:(54+(i%7)*140)+'px',top:(530+Math.floor(i/7)*130)+'px',width:'128px',height:'118px',display:'flex',alignItems:'center',justifyContent:'center'}); d.innerHTML=`<img src="${LOGO(ab)}" style="width:84px;height:84px;object-fit:contain">`; return d;});
+const neAvg=glass(E3,{left:'54px',top:'1200px',width:'972px',height:'130px',padding:'0 28px'});
+neAvg.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${nlH('ne',90)}<span class="big" style="font-size:50px">GETS AN <span class="cy">AVERAGE QB</span></span></div>`;
+const realP=div('pill','2001–2019 · REAL SCHEDULES · REAL PLAYOFFS',E3,{left:'110px',top:'1360px',background:'#0CF5F9',color:'#050506',fontSize:'30px'});
+function rSwap(t){hdrIn(3,t);
+  const spin=t<K.avg-.1; const R=rng(Math.floor(t*14)+3);
+  TL.forEach((d,i)=>{const t0=CUT[3]+.15+i*.02; show([d],t>=t0); popIn(d,t,t0,{from:.6});
+    let on=false; if(t>=CUT[3]+.9){ if(spin){on=Math.floor(R()*31)===i;} else on=false; }
+    d.classList.toggle('hot',on); d.style.opacity=(!spin&&t>=K.avg-.1)?.45:1;});
+  show([neAvg],t>=K.avg-.05); popIn(neAvg,t,K.avg-.05,{from:.9});
+  show([realP],t>=K.real-.05); popIn(realP,t,K.real-.05,{from:1.2});
+  E3.style.transform=`scale(${1+(t-CUT[3])*.0012})`;}
+for(let i=0;i<31;i+=3)sfx(CUT[3]+.15+i*.02,'click',.15); for(let x=CUT[3]+.9;x<K.avg-.1;x+=1/7)sfx(x,'click',.12); sfx(K.avg-.05,'thump',.6); sfx(K.real-.05,'pop',.45);
+
+/* ---------- 4 HONEST ---------- */
+const E4=CH[4], S4=E4._svg;
+const CAL=[[55,56],[65,66],[75,75],[85,83],[93,95]];
+const cx0=130, cw=170, cy0=1010, chh=380;
+const CB=CAL.map(([p,a],i)=>{const x=cx0+i*cw;
+  const rp=sv('rect',{x:x+20,width:56,y:cy0,height:0,rx:6,fill:'rgba(255,255,255,.25)'},S4);
+  const ra=sv('rect',{x:x+82,width:56,y:cy0,height:0,rx:6,fill:'#0CF5F9'},S4);
+  const lb=sv('text',{x:x+79,y:cy0+40,'text-anchor':'middle','font-size':28,fill:'#fff',style:'font-family:Anton'},S4); lb.textContent=p+'%';
+  const va=sv('text',{x:x+110,y:cy0,'text-anchor':'middle','font-size':24,fill:'#0CF5F9',style:'font-family:Anton'},S4); va.textContent=a+'%';
+  return {rp,ra,va,p,a,i};});
+const leg4=div('abs osw','<span style="display:inline-block;width:20px;height:20px;background:rgba(255,255,255,.35);border-radius:4px"></span> MODEL SAID &nbsp;&nbsp; <span style="display:inline-block;width:20px;height:20px;background:#0CF5F9;border-radius:4px"></span> ACTUALLY WON',E4,{left:'54px',top:'560px',fontSize:'28px'});
+const cmp4=glass(E4,{left:'54px',top:'1110px',width:'972px',height:'200px',padding:'0 30px'});
+cmp4.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;height:100%"><div><div class="osw mut" style="font-size:26px">MODEL: BRADY + BELICHICK</div><div class="big cy" style="font-size:90px;line-height:1">~3 RINGS</div></div><div style="text-align:right"><div class="osw mut" style="font-size:26px">REAL LIFE</div><div class="big" style="font-size:90px;line-height:1;color:${LGC}">6 RINGS</div></div></div>`;
+const tough=div('pill','IF ANYTHING, IT’S TOUGH ON BRADY ✓',E4,{left:'170px',top:'1350px',background:'#fff',color:'#050506',fontSize:'36px'});
+function rHon(t){hdrIn(4,t); show([leg4],t>=K.tested); fadeUp(leg4,t,K.tested);
+  CB.forEach(b=>{const t0=K.when-.1+b.i*.15; const g=eOut(prog(t,t0,t0+.5)); const vis=t<K.both-.05;
+    set(b.rp,{y:cy0-b.p/100*chh*g,height:b.p/100*chh*g,opacity:vis?1:0}); set(b.ra,{y:cy0-b.a/100*chh*g,height:b.a/100*chh*g,opacity:vis?1:0});
+    set(b.va,{y:cy0-b.a/100*chh*g-10,opacity:vis&&g>.9?1:0}); set(b.lb||b.rp,{});});
+  S4.querySelectorAll('text').forEach(x=>x.setAttribute('opacity',t<K.both-.05&&t>=K.when-.1?1:0));
+  show([leg4],t>=K.tested&&t<K.both-.05);
+  show([cmp4],t>=K.both-.05); popIn(cmp4,t,K.both-.05,{from:.9}); cmp4.classList.toggle('hot',t>=K.won6);
+  if(t>=K.both-.05) cmp4.style.top='640px';
+  show([tough],t>=K.tough-.05); popIn(tough,t,K.tough-.05,{from:1.3}); tough.style.top='900px';
+  E4.style.transform=`scale(${1+(t-CUT[4])*.0015})`;}
+CAL.forEach((_,i)=>sfx(K.when-.1+i*.15,'pop',.3)); sfx(K.both-.05,'thump',.6); sfx(K.won6,'ding',.4); sfx(K.tough-.05,'pop',.45);
+/* ---------- CTA (follow) ---------- */
+const ECT=CH[5]; const tapT=K.fol+.3;
+const ph=div('abs','',ECT,{left:'200px',top:'290px',width:'680px',height:'990px',background:'#111',borderRadius:'70px',border:'12px solid #2A2A31',boxSizing:'border-box',overflow:'hidden'});
+const GRID='<div style="width:656px;height:199px;background:url(profile.png) 0 -263px/656px auto no-repeat;background-color:#fff"></div>';
+ph.innerHTML=`<div class="scr" style="position:absolute;left:0;top:0;width:656px;background:#fff">
+  <div style="height:70px;background:#fff"></div>
+  <div style="position:relative;width:656px;height:266px;background:url(profile.png) -301px -35px/1247px auto no-repeat;background-color:#fff"></div>
+  ${GRID.repeat(6)}</div>
+  <div class="fbtn" style="position:absolute;left:19px;top:291px;width:225px;height:39px;border-radius:9px;background:#EFEFEF;color:#111;display:none;align-items:center;justify-content:center;font:700 22px Osw">FOLLOWING ✓</div>`;
+const scr=ph.querySelector('.scr'), fbtn=ph.querySelector('.fbtn');
+const fing=div('abs','',ECT,{left:'0',top:'0',width:'120px',height:'120px',fontSize:'110px',lineHeight:'1'}); fing.textContent='👆';
+const ctaT=div('abs big','HIT <span class="cy">FOLLOW</span>',ECT,{left:'0',right:'0',top:'1300px',textAlign:'center',fontSize:'100px',display:'none'});
+const ripple=div('abs','',ECT,{width:'120px',height:'120px',borderRadius:'50%',border:'8px solid #0CF5F9',display:'none'});
+function rCta(t){const t0=CUT[5]; popIn(ph,t,t0+.05,{from:.85});
+  const sc=prog(t,t0+.2,tapT-.25); const off=-Math.sin(sc*Math.PI)*300; scr.style.transform=`translateY(${off}px)`;
+  const bx=200+12+19+112, by=290+12+291+20;
+  const fp=eOut(prog(t,K.fol-.6,tapT)); const fx=lerp(860,bx,fp), fy=lerp(1250,by,fp)+(t>=tapT&&t<tapT+.15?10:0);
+  fing.style.left=(fx-35)+'px'; fing.style.top=(fy-10)+'px'; fing.style.display=t>=K.fol-.6?'block':'none';
+  fbtn.style.display=t>=tapT+.08?'flex':'none';
+  ripple.style.display=t>=tapT&&t<tapT+.5?'block':'none'; const rp=prog(t,tapT,tapT+.5); ripple.style.left=(bx-60)+'px'; ripple.style.top=(by-60)+'px'; ripple.style.transform=`scale(${.4+rp*1.4})`; ripple.style.opacity=1-rp;
+  show([ctaT],t>=tapT); popIn(ctaT,t,tapT,{from:1.3});
+  ECT.style.transform=`scale(${1+(t-t0)*.004})`;}
+sfx(CUT[5]+.05,'whoosh',.45); sfx(tapT,'click',.7); sfx(tapT+.05,'ding',.45); sfx(tapT+.1,'sparkle',.35);
+
+
+/* ---------- 6 RESULTS + LANDING SPOTS ---------- */
+const E6=CH[6], S6=E6._svg;
+const RB=[14517,29861,27489,16385,7498,2851,999,294,80,22];
+const hx0=90,hbw=90,hy0=1230,hh=430;
+const HB=RB.map((n,i)=>{const r=sv('rect',{x:hx0+i*hbw+8,width:hbw-16,y:hy0,height:0,rx:8,fill:'rgba(255,255,255,.22)'},S6);
+  const l=sv('text',{x:hx0+i*hbw+hbw/2,y:hy0+38,'text-anchor':'middle','font-size':28,fill:'#fff',style:'font-family:Anton'},S6); l.textContent=i===9?'9+':i;
+  const v=sv('text',{x:hx0+i*hbw+hbw/2,y:hy0,'text-anchor':'middle','font-size':22,fill:'#8E8E96'},S6); v.textContent=(n/1000).toFixed(n<1000?1:0)+'%';
+  return {r,l,v,n,i};});
+const xl6=sv('text',{x:hx0+10*hbw,y:hy0+76,'text-anchor':'end','font-size':24,fill:'#8E8E96'},S6); xl6.textContent='RINGS WITHOUT BELICHICK →';
+const k6=glass(E6,{left:'54px',top:'520px',width:'972px',padding:'20px 28px'}); k6.classList.add('kpi');
+k6.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><div><div class="osw mut" style="font-size:24px;letter-spacing:2px">TYPICAL CAREER</div><div class="big gold" style="font-size:100px;line-height:1">2 RINGS</div></div>${face('tom-brady-patriots.jpg',120,LGC)}</div>`;
+const c7=glass(E6,{left:'560px',top:'760px',width:'466px',padding:'14px 22px'}); c7.classList.add('hot');
+const c0=glass(E6,{left:'54px',top:'760px',width:'440px',padding:'14px 22px'}); c0.classList.add('cold');
+c0.innerHTML='<div class="osw" style="font-size:24px">ZERO RINGS</div><div class="big rd" style="font-size:70px;line-height:1">1 IN 7</div>';
+c7.innerHTML=`<div class="osw" style="font-size:24px">7+ RINGS</div><div class="big" style="font-size:70px;line-height:1;color:${LGC}">1 IN 250</div>`;
+const LS=[['BAL',4.2],['CHI',3.6],['SEA',2.6],null,['DET',1.0],['WAS',1.0],['LV',0.9]];
+const lsRows=LS.map((r,i)=>{if(!r){return div('abs big mut','· · ·',E6,{left:'0',right:'0',textAlign:'center',top:(560+i*118)+'px',fontSize:'50px'});}
+  const d=glass(E6,{left:'54px',top:(540+i*118)+'px',width:'972px',height:'104px',padding:'0 26px'});
+  const w=r[1]/4.2*520;
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:20px;height:100%"><img src="${LOGO(r[0])}" style="width:70px;height:70px;object-fit:contain"><div style="flex:1;height:30px"><div class="bar" style="height:30px;width:0;border-radius:15px;background:${i<3?'linear-gradient(90deg,#B8860B,'+LGC+')':'rgba(255,75,62,.8)'}"></div></div><span class="big" style="font-size:52px;width:200px;text-align:right;${i<3?'color:'+LGC:'color:#FF4B3E'}">${r[1].toFixed(1)}</span></div>`; d._w=w; d._b=d.querySelector('.bar'); d._t=i<3?K.rav:K.bad; d._i=i; return d;});
+const lsL=div('abs osw mut','AVERAGE RINGS BY LANDING SPOT',E6,{left:'54px',top:'500px',fontSize:'26px',letterSpacing:'2px'});
+function rRun(t){hdrIn(6,t);
+  const A=t<K.lands-.05;
+  show([k6],A); popIn(k6,t,CUT[6]+.15,{from:.9}); E6._svg.style.display=A?'block':'none';
+  HB.forEach(b=>{const t0=CUT[6]+.3+b.i*.08; const g=eOut(prog(t,t0,t0+.5)); const h=Math.max(4,b.n/29861*hh)*g;
+    const hot=(b.i===0&&t>=K.never-.05)?'#FF4B3E':(b.i>=7&&t>=K.r7-.05?LGC:(b.i===2?'rgba(255,255,255,.55)':'rgba(255,255,255,.22)'));
+    set(b.r,{y:hy0-h,height:h,fill:hot}); set(b.v,{y:hy0-h-10,opacity:g>.9?1:0});});
+  show([c0],A&&t>=K.never-.05); popIn(c0,t,K.never-.05,{from:.85});
+  show([c7],A&&t>=K.r7-.05); popIn(c7,t,K.r7-.05,{from:.85});
+  show([lsL],!A); fadeUp(lsL,t,K.lands-.05);
+  lsRows.forEach((d,i)=>{const t0=(d._t||K.rav)+(i<3?i*.2:(i-4)*.2); const tt=i===3?K.bad-.3:t0; show([d],!A&&t>=tt-.05); popIn(d,t,tt-.05,{from:.9,y:20});
+    if(d._b) d._b.style.width=(eOut(prog(t,tt,tt+.6))*d._w)+'px';});
+  E6.style.transform=`scale(${1+(t-CUT[6])*.0012})`;}
+RB.forEach((_,i)=>sfx(CUT[6]+.3+i*.08,'click',.2)); sfx(K.never-.05,'thump',.55); sfx(K.r7-.05,'ding',.45); sfx(K.lands-.05,'whoosh',.4);
+[0,1,2].forEach(i=>sfx(K.rav+i*.2-.05,'pop',.35)); [4,5,6].forEach(i=>sfx(K.bad+(i-4)*.2-.05,'thump',.35));
+
+/* ---------- 7 TWIST ---------- */
+const E7=CH[7], S7=E7._svg;
+const bbC=glass(E7,{left:'54px',top:'540px',width:'972px',height:'260px',padding:'0 30px'}); bbC.classList.add('cold');
+bbC.innerHTML=`<div style="display:flex;align-items:center;gap:26px;height:100%">${face('bill-belichick.jpg',160,'#FF4B3E')}<div><div class="osw mut" style="font-size:26px;letter-spacing:1px">BELICHICK + AN AVERAGE QB</div><div class="big" style="font-size:96px;line-height:1">0.6 <span style="font-size:48px">RINGS</span></div><div class="osw mut" style="font-size:24px">AVERAGE, 2001–2019</div></div></div>`;
+const NB=[50875,36318,10675,1895,212];
+const bx=150,bww=170,by=1290,bh=360;
+const NBR=NB.map((n,i)=>{const r=sv('rect',{x:bx+i*bww+16,width:bww-32,y:by,height:0,rx:10,fill:i?'rgba(255,255,255,.25)':'#FF4B3E'},S7);
+  const v=sv('text',{x:bx+i*bww+bww/2,y:by,'text-anchor':'middle','font-size':30,fill:'#fff',style:'font-family:Anton'},S7); v.textContent=(n/1000).toFixed(n<1000?1:0)+'%';
+  const l=sv('text',{x:bx+i*bww+bww/2,y:by+40,'text-anchor':'middle','font-size':28,fill:'#8E8E96',style:'font-family:Anton'},S7); l.textContent=i===4?'4+':i;
+  return {r,v,n,i};});
+const xl7=sv('text',{x:bx+5*bww,y:by+76,'text-anchor':'end','font-size':24,fill:'#8E8E96'},S7); xl7.textContent='BELICHICK RINGS WITHOUT BRADY →';
+const zero=div('pill','HALF THE TIME: ZERO',E7,{left:'500px',top:'840px',background:'#FF4B3E',color:'#fff',fontSize:'38px',boxShadow:'0 0 40px rgba(255,75,62,.5)'});
+function rTw(t){hdrIn(7,t);
+  show([bbC],t>=CUT[7]+.15); popIn(bbC,t,CUT[7]+.15,{from:.9});
+  NBR.forEach(b=>{const t0=CUT[7]+.6+b.i*.12; const g=eOut(prog(t,t0,t0+.5)); const h=Math.max(4,b.n/50875*bh)*g; set(b.r,{y:by-h,height:h}); set(b.v,{y:by-h-12,opacity:g>.9?1:0});});
+  show([zero],t>=K.half-.05); popIn(zero,t,K.half-.05,{from:1.3});
+  E7.style.transform=`scale(${1+(t-CUT[7])*.0012})`;}
+sfx(CUT[7]+.15,'thump',.6); NB.forEach((_,i)=>sfx(CUT[7]+.6+i*.12,'click',.2)); sfx(K.half-.05,'thump',.75);
+
+/* ---------- 8 VERDICT ---------- */
+const E8=CH[8];
+const vA=glass(E8,{left:'54px',top:'540px',width:'972px',height:'210px',padding:'0 28px'}); vA.classList.add('hot');
+vA.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${face('tom-brady-patriots.jpg',120,LGC)}<div style="flex:1"><div class="osw mut" style="font-size:24px">BRADY WITHOUT BELICHICK</div><div class="big" style="font-size:64px;color:${LGC}">STILL A CHAMPION</div></div><span class="big" style="font-size:60px">~2</span></div>`;
+const vB=glass(E8,{left:'54px',top:'780px',width:'972px',height:'210px',padding:'0 28px'}); vB.classList.add('cold');
+vB.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${face('bill-belichick.jpg',120,'#FF4B3E')}<div style="flex:1"><div class="osw mut" style="font-size:24px">BELICHICK WITHOUT BRADY</div><div class="big rd" style="font-size:64px">BARELY A CONTENDER</div></div><span class="big" style="font-size:60px">0.6</span></div>`;
+const both=div('abs big','7 RINGS TOOK <span style="color:'+LGC+'">BOTH.</span>',E8,{left:'0',right:'0',textAlign:'center',top:'1060px',fontSize:'96px'});
+const poll=glass(E8,{left:'110px',top:'560px',width:'860px',padding:'40px'});
+poll.innerHTML=`<div style="display:flex;justify-content:center;gap:30px">${face('tom-brady-patriots.jpg',140,LGC)}${face('bill-belichick.jpg',140,'#FF3A55')}</div><div class="osw mut" style="font-size:28px;letter-spacing:3px;text-align:center;margin-top:14px">WHO DESERVES MORE CREDIT?</div>`+['BRADY','BELICHICK'].map((s,i)=>`<div class="opt big" style="margin-top:24px;font-size:66px;text-align:center;border-radius:60px;padding:12px 0;${i===0?`background:${LGC};color:#050506;box-shadow:0 0 40px rgba(255,201,60,.5)`:'border:4px solid #fff'}">${s}</div>`).join('');
+const OPT=[...poll.querySelectorAll('.opt')];
+function rVer(t){hdrIn(8,t);
+  const a=t<K.poll-.05; show([vA,vB,both],a); E8._h.style.display=a?'block':'none';
+  if(a){popIn(vA,t,CUT[8]+.15,{from:.9}); show([vB],t>=K.barely-.05); popIn(vB,t,K.barely-.05,{from:.9}); show([both],t>=K.took-.05); popIn(both,t,K.took-.05,{from:1.06});}
+  show([poll],!a); if(!a){popIn(poll,t,K.poll-.05,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,K.poll+.3+i*.35,{from:.4})); poll.style.transform+=` scale(${1+(t-K.poll)*.005})`;}
+  E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
+sfx(CUT[8]+.15,'pop',.45); sfx(K.barely-.05,'thump',.6); sfx(K.took-.05,'thump',.85); sfx(K.poll-.05,'whoosh',.5); sfx(K.poll+.3,'pop',.5); sfx(K.poll+.65,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
+const RF=[rHook,rTog,rSplit,rSwap,rHon,rCta,rRun,rTw,rVer];

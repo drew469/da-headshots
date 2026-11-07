@@ -1,0 +1,232 @@
+/* ===================== chapters (Antonio Brown · best behavior) — premium v2 ===================== */
+const CI=s=>{const i=CUES.findIndex(c=>c.text.toLowerCase().includes(s.toLowerCase())); if(i<0)throw new Error('cue not found: '+s); return i;};
+const CT=s=>C(CI(s));
+const WTs=(w,after,alt)=>{const f=x=>WORDS.find(y=>y.w.toLowerCase().replace(/[^a-z0-9]/g,'').startsWith(x.toLowerCase())&&y.a>=after); const r=f(w)||(alt&&f(alt)); return r?r.a:after;};
+const NL=ab=>`logos/nba-${ab.toLowerCase()}.png`;
+const nlH=(ab,sz)=>`<img class="lg" src="${NL(ab)}" style="width:${sz}px;height:${sz}px">`;
+const GOLD='#FFB612';
+const BR='#CE1141', CW='#860038', CG='#FDBB30', LGC='#FFC93C';
+const K={sim:CT('I simulated it 100,000'),
+  c1:CT('Jordan had Pippen'), fans:CT('LeBron fans say'),
+  c2:CT('So I measured'), raptor:CT('using RAPTOR'), best:CT('At their best'), both:CT('Jordan and LeBron both'),
+  c3:CT('Then I took Jordan'), put:CT('put LeBron in'), replay:CT('and replayed every playoff'),
+  c4:CT('Is it honest'), wj:CT('With the real Jordan'), w6:CT('They won 6'), rem:CT('Remember that'),
+  cta:CT('If you want more'), fol:CT('follow Daily'),
+  c6:CT('With LeBron, the Bulls'), six:CT('6 or more'),
+  c7:CT("But here's the twist"), base:CT("LeBron doesn't play"), y95:CT('In 1995'), fav:CT("LeBron's Bulls are title"),
+  c8:CT('Now flip it'), jw:CT('Jordan with LeBron'), l11:CT("LeBron's real teams"), won3:CT('LeBron actually won 3'), bb:CT('So both beat'), more:CT('Jordan just beat it'), poll:CT("Who's your GOAT")};
+const CUT=[0,K.c1-.05,K.c2-.05,K.c3-.05,K.c4-.05,K.cta-.05,K.c6-.05,K.c7-.05,K.c8-.05];
+const END=CUES[CUES.length-1].b+1.1;
+const T={end:END};
+const HDR=[null,
+ ['01','Jordan’s cast.','Chicago Bulls · 6 titles'],
+ ['02','Measure the player.','RAPTOR · points added per 100 possessions'],
+ ['03','The swap.','LeBron at the same age · every Bulls season'],
+ ['04','Is it honest?','the model with the real Jordan'],
+ null,
+ ['05','100,000 careers.','Bulls titles with LeBron, 1985–1998'],
+ ['06','The twist.','LeBron doesn’t play baseball'],
+ ['07','Flip it.','Jordan on LeBron’s teams, 2006–2018']];
+const AR=['rgba(206,17,65,.38)','rgba(206,17,65,.5)','#FF3A55'], AW=['rgba(134,0,56,.45)','rgba(134,0,56,.55)','#FDBB30'], AC=['rgba(12,245,249,.22)','rgba(12,245,249,.45)','#0CF5F9'], AG=['rgba(255,184,28,.30)','rgba(255,184,28,.5)','#FFC93C'];
+const ACC=[AW,AR,AC,AR,AC,AC,AG,AR,AW];
+/* ---------- premium background ---------- */
+const stage=document.getElementById('stage');
+const BG=document.createElement('div'); BG.id='bg'; stage.insertBefore(BG,stage.firstChild);
+BG.innerHTML='<div class="base"></div><div class="glowA"></div><div class="glowB"></div>';
+const BEAMS=[0,1,2].map(i=>{const b=div('beam','',BG,{left:[90,520,860][i]+'px'});return b;});
+const gridS=sv('svg',{class:'grid',width:1080,height:1920,viewBox:'0 0 1080 1920'}); BG.appendChild(gridS);
+for(let i=0;i<=12;i++){const x=-600+i*190; sv('line',{x1:540,y1:1040,x2:x,y2:1920,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS);}
+const HL=[]; for(let j=0;j<8;j++){HL.push(sv('line',{x1:0,x2:1080,y1:0,y2:0,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS));}
+const DUST=[]; {const R=rng(7); for(let i=0;i<26;i++){const d=div('dust','',BG,{}); DUST.push({d,x:R()*1080,y:R()*1920,s:1.5+R()*3.5,v:6+R()*18,o:.08+R()*.22});}}
+const sweep=div('','',stage); sweep.id='sweep';
+const rootS=document.documentElement.style;
+function bgfx(t,k){const a=ACC[k]; rootS.setProperty('--acc-a',a[0]); rootS.setProperty('--acc-g',a[1]); rootS.setProperty('--acc',a[2]);
+  BEAMS.forEach((b,i)=>{b.style.transform=`rotate(${[-24,8,30][i]+Math.sin(t*.35+i*2)*6}deg)`; b.style.opacity=.55+.45*Math.sin(t*.5+i);});
+  HL.forEach((l,j)=>{const q=((j/8)+(t*.05))%1, y=1040+Math.pow(q,2.2)*900; set(l,{y1:y,y2:y,opacity:q});});
+  DUST.forEach(p=>{const y=(p.y-t*p.v)%1920; p.d.style.left=(p.x+Math.sin(t*.4+p.y)*12)+'px'; p.d.style.top=(y<0?y+1920:y)+'px'; p.d.style.width=p.d.style.height=p.s+'px'; p.d.style.opacity=p.o;});
+  BG.querySelector('.glowA').style.transform=`translate(${Math.sin(t*.2)*40}px,${Math.cos(t*.17)*30}px)`;
+  let sw=-1; CUT.slice(1).forEach(c=>{if(t>=c-.2&&t<c+.25)sw=(t-c+.2)/.45;}); sweep.style.display=sw>=0?'block':'none'; if(sw>=0)sweep.style.left=(-500+sw*1900)+'px';}
+
+const chs=document.getElementById('chs');
+const prg=document.getElementById('prog'); for(let i=0;i<7;i++){const x=document.createElement('i');prg.appendChild(x);}
+const CH=[]; for(let i=0;i<CUT.length;i++){const d=div('ch','',chs);CH.push(d);
+  if(HDR[i]){const h=div('hdr',`<div class="n">${HDR[i][0]}</div><div class="t">${HDR[i][1]}</div><div class="s">${HDR[i][2]}</div>`,d);d._h=h;}
+  const s=sv('svg',{width:1080,height:1920,viewBox:'0 0 1080 1920',style:'position:absolute;left:0;top:0'});d.appendChild(s);d._svg=s;}
+CUT.slice(1).forEach(c=>{sfx(c-.18,'whip',.55);});
+const hdrIn=(k,t)=>fadeUp(CH[k]._h,t,CUT[k]+.05,.3);
+const face=(img,sz,ring)=>`<span style="display:inline-block;width:${sz}px;height:${sz}px;border-radius:50%;overflow:hidden;border:4px solid ${ring};background:#1A1A20;vertical-align:middle;box-shadow:0 8px 24px rgba(0,0,0,.5)"><img src="img/${img}" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></span>`;
+const glass=(parent,st)=>{const d=div('glass abs','',parent,st);return d;};
+
+function trophyN(parent,x,y,s){const g=sv('g',{transform:`translate(${x} ${y}) scale(${s})`},parent);
+  sv('circle',{cx:0,cy:-52,r:20,fill:'#FFC93C',stroke:'#7A5200','stroke-width':3},g);
+  sv('path',{d:'M-20,-52 Q0,-46 20,-52 M0,-72 L0,-32',stroke:'#7A5200','stroke-width':2.5,fill:'none'},g);
+  sv('path',{d:'M-24,-30 L24,-30 L12,30 L-12,30 Z',fill:'#FFC93C',stroke:'#7A5200','stroke-width':3},g);
+  sv('path',{d:'M-18,-22 L-6,22 M0,-30 L0,30 M18,-22 L6,22',stroke:'#C9961A','stroke-width':2},g);
+  sv('rect',{x:-22,y:30,width:44,height:16,rx:3,fill:'#2A2A31',stroke:'#7A5200','stroke-width':3},g);
+  g.style.filter='drop-shadow(0 0 12px rgba(255,201,60,.55))'; return g;}
+const tpop=(g,t,t0,x,y,s)=>{const p=back(prog(t,t0,t0+.35)); set(g,{transform:`translate(${x} ${y}) scale(${Math.max(0,p)*s})`,opacity:t>=t0?1:0});};
+const tagS={zIndex:5,background:'rgba(8,8,12,.9)',border:'1.5px solid rgba(255,255,255,.2)',borderRadius:'22px',boxShadow:'0 18px 50px rgba(0,0,0,.6)',padding:'12px 22px'};
+function calBars(E,S,CAL,y0,hgt,tStart,hide){const x0=130,w=170;
+  return CAL.map(([p,a],i)=>{const x=x0+i*w;
+    const rp=sv('rect',{x:x+20,width:56,y:y0,height:0,rx:6,fill:'rgba(255,255,255,.25)'},S);
+    const ra=sv('rect',{x:x+82,width:56,y:y0,height:0,rx:6,fill:'#0CF5F9'},S);
+    const lb=sv('text',{x:x+79,y:y0+40,'text-anchor':'middle','font-size':28,fill:'#fff',style:'font-family:Anton'},S); lb.textContent=p+'%';
+    const va=sv('text',{x:x+110,y:y0,'text-anchor':'middle','font-size':24,fill:'#0CF5F9',style:'font-family:Anton'},S); va.textContent=a+'%';
+    return {upd(t){const t0=tStart+i*.15; const g=eOut(prog(t,t0,t0+.5)); const v=!hide(t)&&t>=t0;
+      set(rp,{y:y0-p/100*hgt*g,height:p/100*hgt*g,opacity:v?1:0}); set(ra,{y:y0-a/100*hgt*g,height:a/100*hgt*g,opacity:v?1:0}); set(lb,{opacity:v?1:0}); set(va,{y:y0-a/100*hgt*g-10,opacity:v&&g>.9?1:0});}};});}
+const legHTML='<span style="display:inline-block;width:20px;height:20px;background:rgba(255,255,255,.35);border-radius:4px"></span> MODEL SAID &nbsp;&nbsp; <span style="display:inline-block;width:20px;height:20px;background:#0CF5F9;border-radius:4px"></span> ACTUALLY WON';
+
+/* ---------- 0 HOOK ---------- */
+const H=CH[0];
+const wm=div('abs','',H,{left:'150px',top:'660px',width:'780px',height:'780px',background:`url(${NL('chi')}) center/contain no-repeat`,opacity:.09});
+const lbH=div('hero','',H,{left:'40px',top:'640px',width:'440px',height:'900px',backgroundImage:'url(img/lbj_hero.png)'});
+const mjH=div('hero','',H,{left:'500px',top:'720px',width:'600px',height:'820px',backgroundImage:'url(img/mj_hero.png)',webkitMaskImage:'linear-gradient(270deg,transparent 0%,#000 0%),linear-gradient(180deg,#000 78%,transparent 100%)',webkitMaskComposite:'source-in'});
+mjH.style.transform='scaleX(-1)';
+const h1=div('abs big',`HOW MANY RINGS WOULD<br><span style="color:${CG}">LEBRON</span> HAVE WON WITH<br><span style="color:${BR}">JORDAN’S TEAMMATES?</span>`,H,{left:'54px',top:'270px',fontSize:'88px',lineHeight:'1.04',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const h3=div('abs big',`100,000 SIMULATIONS.<br><span style="color:${BR}">LEBRON ON THE BULLS.</span>`,H,{left:'54px',top:'270px',fontSize:'92px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const tL=div('abs','',H,Object.assign({left:'54px',top:'1330px'},tagS)); tL.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('cle',52)}<span class="big" style="font-size:40px">LEBRON · 4</span></div>`;
+const tR=div('abs','',H,Object.assign({left:'720px',top:'1330px'},tagS)); tR.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('chi',52)}<span class="big" style="font-size:40px">JORDAN · 6</span></div>`;
+function rHook(t){const p0=eOut(prog(t,.05,.6)),p1=eOut(prog(t,.2,.75));
+  lbH.style.transform=`translateX(${-(1-p0)*320}px) scale(${1.02+t*.006})`; lbH.style.opacity=Math.min(1,p0*1.5);
+  mjH.style.transform=`translateX(${(1-p1)*320}px) scaleX(-1) scale(${1.02+t*.006})`; mjH.style.opacity=Math.min(1,p1*1.5);
+  show([h1],t<K.sim-.05); fadeUp(h1,t,.05,.35,40); show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.04});
+  show([tL,tR],t>=.9); popIn(tL,t,.9,{from:.85}); popIn(tR,t,1.1,{from:.85});
+  wm.style.transform=`scale(${1+t*.01})`; H.style.transform=`scale(${1+t*.004})`;}
+sfx(.05,'whoosh',.5); sfx(.3,'thump',.7); sfx(.9,'pop',.4); sfx(1.1,'pop',.4); sfx(K.sim-.05,'thump',.8);
+
+/* ---------- 1 CAST ---------- */
+const E1=CH[1], S1=E1._svg;
+const cast=glass(E1,{left:'54px',top:'530px',width:'972px',height:'300px',padding:'24px 28px'});
+const CN=[['pippen.jpg','PIPPEN','pippen'],['rodman.jpg','RODMAN','rodman'],[null,'PHIL JACKSON','phil']];
+cast.innerHTML=`<div class="osw mut" style="font-size:26px;letter-spacing:2px">JORDAN’S SUPPORTING CAST</div><div class="fc" style="display:flex;gap:40px;margin-top:20px;justify-content:center">`+CN.map(([f,n])=>`<div style="text-align:center;opacity:0">${f?face(f,140,BR):`<span style="display:inline-block;width:140px;height:140px;border-radius:50%;border:4px solid ${BR};background:#1A1A20;vertical-align:middle"><img src="${NL('chi')}" style="width:100px;height:100px;margin-top:16px;object-fit:contain"></span>`}<div class="big" style="font-size:28px;margin-top:6px">${n}</div></div>`).join('')+`</div>`;
+const CF=[...cast.querySelectorAll('.fc > div')];
+const TR6=[1991,1992,1993,1996,1997,1998].map((y,i)=>{const g=trophyN(S1,170+i*148,980,1.15); const tx=sv('text',{x:170+i*148,y:1060,'text-anchor':'middle','font-size':28,fill:'#8E8E96',style:'font-family:Anton'},S1); tx.textContent="’"+String(y).slice(2); return [g,tx];});
+const fans=glass(E1,{left:'54px',top:'1110px',width:'972px',height:'190px',padding:'0 28px'});
+fans.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${face('lebron.jpg',120,CG)}<div class="big" style="font-size:46px;line-height:1.1">“GIVE LEBRON THAT TEAM<br><span style="color:${CG}">AND HE WINS JUST AS MANY.”</span></div></div>`;
+function rCast(t){hdrIn(1,t); popIn(cast,t,CUT[1]+.1,{from:.9});
+  CF.forEach((f,i)=>{const t0=WTs(CN[i][2],K.c1)-.05; f.style.opacity=t>=t0?1:0; f.style.transform=`scale(${.6+.4*back(prog(t,t0,t0+.3))})`;});
+  TR6.forEach(([g,tx],i)=>{const t0=CUT[1]+.6+i*.15; tpop(g,t,t0,170+i*148,980,1.15); set(tx,{opacity:t>=t0?1:0});});
+  show([fans],t>=K.fans-.05); popIn(fans,t,K.fans-.05,{from:.9});
+  E1.style.transform=`scale(${1+(t-CUT[1])*.0012})`;}
+sfx(CUT[1]+.1,'pop',.4); CN.forEach(c=>sfx(WTs(c[2],K.c1)-.05,'click',.3)); for(let i=0;i<6;i++)sfx(CUT[1]+.6+i*.15,'ding',.22); sfx(K.fans-.05,'thump',.55);
+
+/* ---------- 2 MEASURE ---------- */
+const E2=CH[2];
+const rap=glass(E2,{left:'54px',top:'530px',width:'972px',height:'200px',padding:'24px 28px'});
+rap.innerHTML=`<div class="osw mut" style="font-size:26px;letter-spacing:2px">RAPTOR (FIVETHIRTYEIGHT)</div><div class="big" style="font-size:56px;line-height:1.1;margin-top:6px">POINTS ADDED <span class="cy">PER 100 POSSESSIONS</span></div>`;
+const PB=[['mj.jpg','JORDAN','1987–88',9.1,BR],['lebron.jpg','LEBRON','2008–09',8.3,CG]];
+const PBR=PB.map(([f,n,y,v,c],i)=>{const d=glass(E2,{left:'54px',top:(770+i*250)+'px',width:'972px',height:'220px',padding:'0 28px'}); d.classList.add('kpi');
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%">${face(f,130,c)}<div style="flex:1"><div class="osw mut" style="font-size:24px">${n} AT HIS BEST · ${y}</div><div style="display:flex;align-items:center;gap:16px"><span class="big" style="font-size:96px;color:${c};width:230px">+${v}</span><div style="flex:1;height:30px;border-radius:15px;background:rgba(255,255,255,.08);overflow:hidden"><div class="bar" style="height:100%;width:0;background:${c}"></div></div></div></div></div>`; d._b=d.querySelector('.bar'); d._v=v; return d;});
+function rMeas(t){hdrIn(2,t); show([rap],t>=K.raptor-.6); popIn(rap,t,K.raptor-.6,{from:.9});
+  PBR.forEach((d,i)=>{const t0=K.best+(i?.6:0)-.05; show([d],t>=t0); popIn(d,t,t0,{from:.9}); d._b.style.width=(eOut(prog(t,t0+.2,t0+1))*d._v/10*100)+'%';});
+  E2.style.transform=`scale(${1+(t-CUT[2])*.0012})`;}
+sfx(K.raptor-.6,'pop',.4); sfx(K.best-.05,'thump',.55); sfx(K.best+.55,'thump',.55);
+
+/* ---------- 3 SWAP ---------- */
+const E3=CH[3];
+const YRS=[...Array(14)].map((_,i)=>1985+i);
+const ST=YRS.map((y,i)=>{const d=glass(E3,{left:(54+(i%5)*196)+'px',top:(530+Math.floor(i/5)*230)+'px',width:'184px',height:'214px',textAlign:'center',paddingTop:'12px'});
+  d.innerHTML=`<div class="big" style="font-size:34px">${y}</div><div class="fx" style="margin-top:6px">${face('mj.jpg',104,BR)}</div><div class="osw mut" style="font-size:22px;margin-top:4px">AGE ${y-1964}</div>`; d._fx=d.querySelector('.fx'); d._sw=false; return d;});
+const rp=div('pill','REAL OPPONENTS · REAL PLAYOFF PATHS',E3,{left:'140px',top:'1240px',background:'#0CF5F9',color:'#050506',fontSize:'34px'});
+function rSwap(t){hdrIn(3,t);
+  ST.forEach((d,i)=>{const t0=CUT[3]+.15+i*.05; show([d],t>=t0); popIn(d,t,t0,{from:.7});
+    const ts=K.put-.1+i*.11; const sw=t>=ts; if(sw!==d._sw){d._fx.innerHTML=sw?face('lebron.jpg',104,CG):face('mj.jpg',104,BR); d._sw=sw;}
+    const k=prog(t,ts-.08,ts+.08); d._fx.style.transform=`scaleX(${Math.abs(1-2*k)||1})`; d.classList.toggle('hot',sw&&t<ts+.4);});
+  show([rp],t>=K.replay-.05); popIn(rp,t,K.replay-.05,{from:1.2});
+  E3.style.transform=`scale(${1+(t-CUT[3])*.0012})`;}
+YRS.forEach((_,i)=>sfx(K.put-.1+i*.11,'click',.25)); sfx(K.replay-.05,'pop',.45);
+
+/* ---------- 4 HONEST ---------- */
+const E4=CH[4];
+const hm=glass(E4,{left:'54px',top:'560px',width:'972px',height:'230px',padding:'0 30px'});
+hm.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%">${face('mj.jpg',130,BR)}<div><div class="osw mut" style="font-size:26px">MODEL · BULLS WITH THE REAL JORDAN</div><div class="big cy num-glow" style="font-size:110px;line-height:1">~2.5 <span style="font-size:52px">TITLES</span></div></div></div>`;
+const hr=glass(E4,{left:'54px',top:'820px',width:'972px',height:'230px',padding:'0 30px'});
+hr.innerHTML=`<div style="display:flex;align-items:center;gap:24px;height:100%">${nlH('chi',130)}<div><div class="osw mut" style="font-size:26px">REAL LIFE</div><div class="big" style="font-size:110px;line-height:1;color:${LGC}">6 <span style="font-size:52px">TITLES</span></div></div></div>`;
+const remb=div('abs','REMEMBER THAT.',E4,{left:'560px',top:'1090px',fontFamily:"'Permanent Marker',cursive",fontSize:'56px',color:'#0CF5F9',transform:'rotate(-5deg)'});
+function rHon(t){hdrIn(4,t); show([hm],t>=K.wj-.05); popIn(hm,t,K.wj-.05,{from:.9});
+  show([hr],t>=K.w6-.05); popIn(hr,t,K.w6-.05,{from:.9}); hr.classList.toggle('hot',t>=K.w6+.3);
+  show([remb],t>=K.rem-.05); popIn(remb,t,K.rem-.05,{from:1.4}); remb.style.transform+=' rotate(-5deg)';
+  E4.style.transform=`scale(${1+(t-CUT[4])*.0015})`;}
+sfx(K.wj-.05,'pop',.4); sfx(K.w6-.05,'thump',.7); sfx(K.rem-.05,'pop',.45);
+/* ---------- CTA (follow) ---------- */
+const ECT=CH[5]; const tapT=K.fol+.3;
+const ph=div('abs','',ECT,{left:'200px',top:'290px',width:'680px',height:'990px',background:'#111',borderRadius:'70px',border:'12px solid #2A2A31',boxSizing:'border-box',overflow:'hidden'});
+const GRID='<div style="width:656px;height:199px;background:url(profile.png) 0 -263px/656px auto no-repeat;background-color:#fff"></div>';
+ph.innerHTML=`<div class="scr" style="position:absolute;left:0;top:0;width:656px;background:#fff">
+  <div style="height:70px;background:#fff"></div>
+  <div style="position:relative;width:656px;height:266px;background:url(profile.png) -301px -35px/1247px auto no-repeat;background-color:#fff"></div>
+  ${GRID.repeat(6)}</div>
+  <div class="fbtn" style="position:absolute;left:19px;top:291px;width:225px;height:39px;border-radius:9px;background:#EFEFEF;color:#111;display:none;align-items:center;justify-content:center;font:700 22px Osw">FOLLOWING ✓</div>`;
+const scr=ph.querySelector('.scr'), fbtn=ph.querySelector('.fbtn');
+const fing=div('abs','',ECT,{left:'0',top:'0',width:'120px',height:'120px',fontSize:'110px',lineHeight:'1'}); fing.textContent='👆';
+const ctaT=div('abs big','HIT <span class="cy">FOLLOW</span>',ECT,{left:'0',right:'0',top:'1300px',textAlign:'center',fontSize:'100px',display:'none'});
+const ripple=div('abs','',ECT,{width:'120px',height:'120px',borderRadius:'50%',border:'8px solid #0CF5F9',display:'none'});
+function rCta(t){const t0=CUT[5]; popIn(ph,t,t0+.05,{from:.85});
+  const sc=prog(t,t0+.2,tapT-.25); const off=-Math.sin(sc*Math.PI)*300; scr.style.transform=`translateY(${off}px)`;
+  const bx=200+12+19+112, by=290+12+291+20;
+  const fp=eOut(prog(t,K.fol-.6,tapT)); const fx=lerp(860,bx,fp), fy=lerp(1250,by,fp)+(t>=tapT&&t<tapT+.15?10:0);
+  fing.style.left=(fx-35)+'px'; fing.style.top=(fy-10)+'px'; fing.style.display=t>=K.fol-.6?'block':'none';
+  fbtn.style.display=t>=tapT+.08?'flex':'none';
+  ripple.style.display=t>=tapT&&t<tapT+.5?'block':'none'; const rp=prog(t,tapT,tapT+.5); ripple.style.left=(bx-60)+'px'; ripple.style.top=(by-60)+'px'; ripple.style.transform=`scale(${.4+rp*1.4})`; ripple.style.opacity=1-rp;
+  show([ctaT],t>=tapT); popIn(ctaT,t,tapT,{from:1.3});
+  ECT.style.transform=`scale(${1+(t-t0)*.004})`;}
+sfx(CUT[5]+.05,'whoosh',.45); sfx(tapT,'click',.7); sfx(tapT+.05,'ding',.45); sfx(tapT+.1,'sparkle',.35);
+
+
+/* ---------- 6 RESULTS ---------- */
+const E6=CH[6], S6=E6._svg;
+const DL=[6374,23844,34042,24098,9355,2020,258,9];
+const hx0=110,hbw=110,hy0=1290,hh=380;
+const HB=DL.map((n,i)=>{const r=sv('rect',{x:hx0+i*hbw+10,width:hbw-20,y:hy0,height:0,rx:8,fill:'rgba(255,255,255,.22)'},S6);
+  const l=sv('text',{x:hx0+i*hbw+hbw/2,y:hy0+38,'text-anchor':'middle','font-size':28,fill:'#fff',style:'font-family:Anton'},S6); l.textContent=i===7?'7':i;
+  const v=sv('text',{x:hx0+i*hbw+hbw/2,y:hy0,'text-anchor':'middle','font-size':22,fill:'#8E8E96'},S6); v.textContent=n<100?'<0.1%':(n/1000).toFixed(n<1000?1:0)+'%';
+  return {r,v,n,i};});
+const xl6=sv('text',{x:hx0+8*hbw,y:hy0+76,'text-anchor':'end','font-size':24,fill:'#8E8E96'},S6); xl6.textContent='BULLS TITLES WITH LEBRON, 1985–98 →';
+const k6=glass(E6,{left:'54px',top:'530px',width:'972px',padding:'20px 28px'}); k6.classList.add('kpi');
+k6.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><div><div class="osw mut" style="font-size:24px;letter-spacing:2px">TYPICAL RUN WITH LEBRON</div><div class="big" style="font-size:100px;line-height:1;color:${CG}">2 TITLES</div></div>${face('lebron.jpg',120,CG)}</div>`;
+const c6=glass(E6,{left:'560px',top:'770px',width:'466px',padding:'14px 22px'}); c6.classList.add('hot');
+c6.innerHTML=`<div class="osw" style="font-size:24px">6 OR MORE TITLES</div><div class="big" style="font-size:72px;line-height:1;color:${LGC}">1 IN 370</div>`;
+function rRes(t){hdrIn(6,t); popIn(k6,t,CUT[6]+.15,{from:.9});
+  HB.forEach(b=>{const t0=CUT[6]+.4+b.i*.08; const g=eOut(prog(t,t0,t0+.5)); const h=Math.max(4,b.n/34042*hh)*g;
+    set(b.r,{y:hy0-h,height:h,fill:b.i>=6&&t>=K.six-.05?LGC:(b.i===2?'rgba(253,187,48,.7)':'rgba(255,255,255,.22)')}); set(b.v,{y:hy0-h-10,opacity:g>.9?1:0});});
+  show([c6],t>=K.six-.05); popIn(c6,t,K.six-.05,{from:.85});
+  E6.style.transform=`scale(${1+(t-CUT[6])*.0012})`;}
+DL.forEach((_,i)=>sfx(CUT[6]+.4+i*.08,'click',.2)); sfx(K.six-.05,'ding',.5);
+
+/* ---------- 7 BASEBALL ---------- */
+const E7=CH[7], S7=E7._svg;
+const ball=sv('g',{},S7); sv('circle',{cx:540,cy:720,r:120,fill:'#F4F1E8',stroke:'#CFC8B4','stroke-width':4},ball);
+sv('path',{d:'M470,620 Q520,720 470,820',stroke:'#D42A2A','stroke-width':5,fill:'none','stroke-dasharray':'10 8'},ball);
+sv('path',{d:'M610,620 Q560,720 610,820',stroke:'#D42A2A','stroke-width':5,fill:'none','stroke-dasharray':'10 8'},ball);
+ball.style.filter='drop-shadow(0 10px 30px rgba(0,0,0,.6))';
+const y94=glass(E7,{left:'54px',top:'880px',width:'972px',height:'170px',padding:'0 28px'});
+y94.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%"><span class="big" style="font-size:64px">1994</span><div style="flex:1"><div class="osw mut" style="font-size:24px">JORDAN: RETIRED (BASEBALL)</div><div class="big" style="font-size:40px">LEBRON’S BULLS TITLE ODDS</div></div><span class="big" style="font-size:80px;color:${CG}">14%</span></div>`;
+const y95=glass(E7,{left:'54px',top:'1080px',width:'972px',height:'220px',padding:'0 28px'});
+y95.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%"><span class="big" style="font-size:64px">1995</span><div style="flex:1"><div class="osw mut" style="font-size:24px">JORDAN: 17 GAMES</div><div class="big" style="font-size:44px">TITLE FAVORITES</div></div><span class="big" style="font-size:110px;color:${LGC}">53%</span></div>`;
+function rTw(t){hdrIn(7,t); const p=back(prog(t,K.base-.1,K.base+.3)); set(ball,{transform:`translate(540 720) rotate(${(t-K.base)*80}) scale(${Math.max(0,p)}) translate(-540 -720)`,opacity:t>=K.base-.1?1:0});
+  show([y94],t>=K.y95-.05); popIn(y94,t,K.y95-.05,{from:.9});
+  show([y95],t>=K.fav-.05); popIn(y95,t,K.fav-.05,{from:.9}); y95.classList.toggle('hot',t>=K.fav+.3);
+  E7.style.transform=`scale(${1+(t-CUT[7])*.0012})`;}
+sfx(CUT[7]+.05,'whoosh',.4); sfx(K.base-.1,'thump',.6); sfx(K.y95-.05,'pop',.4); sfx(K.fav-.05,'thump',.7); sfx(K.fav+.3,'ding',.4);
+
+/* ---------- 8 FLIP + VERDICT ---------- */
+const E8=CH[8];
+const fA=glass(E8,{left:'54px',top:'530px',width:'972px',height:'190px',padding:'0 28px'});
+fA.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${face('mj.jpg',120,BR)}<div style="flex:1"><div class="osw mut" style="font-size:24px">JORDAN ON LEBRON’S TEAMS · 2006–18</div><div class="big" style="font-size:48px">MODEL TITLES</div></div><span class="big" style="font-size:96px;color:${BR}">1.7</span></div>`;
+const fB=glass(E8,{left:'54px',top:'740px',width:'972px',height:'190px',padding:'0 28px'});
+fB.innerHTML=`<div style="display:flex;align-items:center;gap:22px;height:100%">${face('lebron.jpg',120,CG)}<div style="flex:1"><div class="osw mut" style="font-size:24px">LEBRON’S REAL TEAMS · 2006–18</div><div class="big" style="font-size:48px">MODEL <span class="mut">→</span> <span id="act" style="color:${LGC}">ACTUAL 3</span></div></div><span class="big" style="font-size:96px;color:${CG}">1.1</span></div>`;
+const act=fB.querySelector('#act');
+const beat=glass(E8,{left:'54px',top:'960px',width:'972px',height:'330px',padding:'22px 28px'});
+beat.innerHTML=`<div class="osw mut" style="font-size:26px;letter-spacing:2px">BEAT THE MATH BY</div>`+[['JORDAN','+3.5',3.5,BR],['LEBRON','+1.9',1.9,CG]].map(([n,v,x,c])=>`<div style="display:flex;align-items:center;gap:18px;margin-top:18px"><span class="big" style="font-size:44px;width:190px">${n}</span><div style="flex:1;height:44px;border-radius:22px;background:rgba(255,255,255,.08);overflow:hidden"><div class="bar" data-x="${x}" style="height:100%;width:0;background:${c}"></div></div><span class="big" style="font-size:64px;width:140px;text-align:right;color:${c}">${v}</span></div>`).join('')+` <div class="osw mut" style="font-size:22px;margin-top:10px">TITLES WON MINUS MODEL EXPECTATION</div>`;
+const BB=[...beat.querySelectorAll('.bar')];
+const poll=glass(E8,{left:'110px',top:'560px',width:'860px',padding:'40px'});
+poll.innerHTML=`<div style="display:flex;justify-content:center;gap:30px">${face('mj.jpg',140,BR)}${face('lebron.jpg',140,CG)}</div><div class="osw mut" style="font-size:28px;letter-spacing:3px;text-align:center;margin-top:14px">WHO’S YOUR GOAT?</div>`+['JORDAN','LEBRON'].map((s,i)=>`<div class="opt big" style="margin-top:24px;font-size:66px;text-align:center;border-radius:60px;padding:12px 0;${i===0?`background:${BR};color:#fff;box-shadow:0 0 40px rgba(206,17,65,.5)`:`background:${CW};color:${CG};border:4px solid ${CG}`}">${s}</div>`).join('');
+const OPT=[...poll.querySelectorAll('.opt')];
+const PT=K.poll-.4;
+function rVer(t){hdrIn(8,t); const a=t<PT; show([fA,fB,beat],a); E8._h.style.display=a?'block':'none';
+  if(a){show([fA],t>=K.jw-.05); popIn(fA,t,K.jw-.05,{from:.9}); show([fB],t>=K.l11-.05); popIn(fB,t,K.l11-.05,{from:.9}); act.style.opacity=t>=K.won3-.05?1:0;
+    show([beat],t>=K.bb-.05); popIn(beat,t,K.bb-.05,{from:.9}); BB.forEach((b,i)=>{const t0=i?K.bb+.4:K.more; b.style.width=(eOut(prog(t,t0,t0+.7))*(+b.dataset.x)/3.5*100)+'%';}); beat.classList.toggle('hot',t>=K.more);}
+  show([poll],!a); if(!a){popIn(poll,t,PT,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,PT+.3+i*.3,{from:.4}));}
+  E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
+sfx(K.jw-.05,'pop',.45); sfx(K.l11-.05,'pop',.45); sfx(K.won3-.05,'ding',.4); sfx(K.bb-.05,'thump',.6); sfx(K.more,'thump',.75); sfx(PT,'whoosh',.5); sfx(PT+.3,'pop',.5); sfx(PT+.6,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
+const RF=[rHook,rCast,rMeas,rSwap,rHon,rCta,rRes,rTw,rVer];

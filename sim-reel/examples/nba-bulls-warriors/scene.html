@@ -1,0 +1,383 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: 'Anton'; src: url('fonts/anton-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Mk'; src: url('fonts/permanent-marker-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Osw'; font-weight: 600; src: url('fonts/oswald-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Osw'; font-weight: 700; src: url('fonts/oswald-latin-700-normal.woff2') format('woff2'); }
+:root { --bg:#050506; --ink:#FFFFFF; --mut:#8E8E96; --cy:#0CF5F9; --rd:#FF4B3E; --gr:#2A2A31; --or:#F58426; --lb:#0076B6; }
+html,body { margin:0; background:#000; }
+#stage { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--bg); color:var(--ink); font-family:'Osw',sans-serif; }
+#grain { position:absolute; inset:0; pointer-events:none; opacity:.10; mix-blend-mode:screen; z-index:90;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+#vig { position:absolute; inset:0; pointer-events:none; z-index:89; background:radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(0,0,0,.55) 100%); }
+#brand { position:absolute; left:54px; right:54px; top:150px; height:60px; display:flex; align-items:center; gap:24px; z-index:80; }
+#brand .ln { flex:1; height:3px; background:rgba(255,255,255,.85); }
+#brand img { height:52px; }
+#prog { position:absolute; left:54px; right:54px; top:248px; display:flex; gap:10px; z-index:80; }
+#prog i { flex:1; height:6px; background:#26262C; display:block; }
+#prog i.on { background:var(--cy); }
+.hdr { position:absolute; left:54px; right:54px; top:276px; z-index:70; }
+.hdr .n { font-family:'Osw'; font-weight:700; font-size:30px; color:var(--cy); letter-spacing:3px; }
+.hdr .t { font-family:'Anton'; font-size:88px; line-height:1.02; text-transform:uppercase; margin-top:2px; }
+.hdr .s { font-family:'Osw'; font-weight:600; font-size:30px; color:var(--mut); text-transform:uppercase; letter-spacing:1.5px; margin-top:8px; }
+.ch { position:absolute; inset:0; display:none; transform-origin:50% 45%; }
+.abs { position:absolute; }
+.big { font-family:'Anton'; text-transform:uppercase; line-height:1; }
+.osw { font-family:'Osw'; font-weight:700; text-transform:uppercase; }
+.mk { font-family:'Mk'; line-height:1; white-space:nowrap; }
+.cy { color:var(--cy); } .rd { color:var(--rd); } .mut { color:var(--mut); } .orc { color:var(--or); }
+.pill { position:absolute; font-family:'Osw'; font-weight:700; font-size:30px; padding:8px 22px; border-radius:40px; text-transform:uppercase; letter-spacing:1px; white-space:nowrap; transform-origin:50% 50%; }
+.card { position:absolute; border-radius:22px; padding:22px 30px; transform-origin:50% 50%; box-sizing:border-box; }
+.seed { display:inline-flex; align-items:center; justify-content:center; border-radius:50%; font-family:'Anton'; color:#050506; }
+.lg { object-fit:contain; vertical-align:middle; filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff); }
+#cap { position:absolute; left:60px; right:60px; top:1452px; text-align:center; font-family:'Osw'; font-weight:700; font-size:47px; line-height:1.16; text-transform:uppercase; z-index:85; }
+#cap span { display:inline-block; margin:0 6px; }
+#handle { position:absolute; left:0; right:0; top:1640px; text-align:center; font-family:'Osw'; font-weight:600; font-size:26px; letter-spacing:3px; color:rgba(255,255,255,.35); z-index:85; }
+svg text { font-family:'Osw'; font-weight:700; }
+/* ===== DA premium look v2 ===== */
+#stage { background:#060709; }
+#bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+#bg .base { position:absolute; inset:0; background:linear-gradient(180deg,#0E1015 0%,#07080B 45%,#050506 100%); }
+#bg .glowA { position:absolute; width:1500px; height:1500px; left:-210px; top:-520px; border-radius:50%;
+  background:radial-gradient(circle, var(--acc-a) 0%, transparent 62%); opacity:.55; }
+#bg .glowB { position:absolute; width:1200px; height:1200px; left:300px; top:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(12,245,249,.16) 0%, transparent 60%); }
+#bg .beam { position:absolute; width:340px; height:2600px; top:-500px; transform-origin:50% 0;
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0) 75%); filter:blur(18px); }
+#bg .grid { position:absolute; inset:0; opacity:.5; }
+#bg .dust { position:absolute; border-radius:50%; background:#fff; }
+#sweep { position:absolute; top:-200px; width:420px; height:2400px; z-index:88; pointer-events:none; transform:rotate(18deg);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); filter:blur(6px); display:none; }
+#chs { position:absolute; inset:0; z-index:10; }
+.hdr .t { text-shadow:0 6px 30px rgba(0,0,0,.6); }
+.glass { background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025)) !important;
+  border:1.5px solid rgba(255,255,255,.12) !important; box-shadow:0 18px 50px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.10);
+  border-radius:22px; box-sizing:border-box; }
+.glass.hot { border-color:var(--acc) !important; box-shadow:0 0 0 2px var(--acc) inset, 0 0 40px var(--acc-g), 0 18px 50px rgba(0,0,0,.55); }
+.glass.cold { border-color:#FF4B3E !important; box-shadow:0 0 0 2px #FF4B3E inset, 0 0 40px rgba(255,75,62,.35), 0 18px 50px rgba(0,0,0,.55); }
+.hero { position:absolute; background-repeat:no-repeat; background-position:center bottom; background-size:contain;
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.9)) drop-shadow(0 0 28px var(--acc-g)) drop-shadow(0 40px 50px rgba(0,0,0,.65));
+  -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%); mask-image:linear-gradient(180deg,#000 78%,transparent 100%); }
+.halo { position:absolute; border-radius:50%; border:10px solid #FFD95A; box-shadow:0 0 30px #FFD95A, 0 0 70px rgba(255,217,90,.6), inset 0 0 20px rgba(255,217,90,.6); }
+.gold { color:var(--acc); }
+.kpi .big { text-shadow:0 0 40px var(--acc-g); }
+.num-glow { text-shadow:0 0 36px rgba(12,245,249,.45); }
+
+#safe{ position:absolute; inset:0; scale:.84; transform-origin:510px 900px; z-index:20; }
+</style></head>
+<body><div id="stage">
+<div id="safe"><div id="brand"><span class="ln"></span><img src="brand/da_logo.svg"><span class="ln"></span></div>
+<div id="prog"></div>
+<div id="chs"></div>
+<div id="cap"></div>
+<div id="handle">@IDAILYATHLETE</div></div>
+<div id="vig"></div><div id="grain"></div>
+</div>
+<script src="data.js"></script>
+<script src="timing.js"></script>
+<script>
+/* ===================== helpers (pure functions of t) ===================== */
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), lerp=(a,b,p)=>a+(b-a)*p, prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eOut=p=>1-Math.pow(1-p,3), eIn=p=>p*p*p, eIO=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+const back=p=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2);};
+function rng(s){s=s>>>0||1;return()=>(s=(s*1664525+1013904223)>>>0)/4294967296;}
+const NS='http://www.w3.org/2000/svg';
+function sv(tag,attrs={},parent){const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n;}
+function set(n,a){for(const k in a)n.setAttribute(k,a[k]);return n;}
+function div(cls,html,parent,style={}){const d=document.createElement('div');d.className=cls;d.innerHTML=html;Object.assign(d.style,style);parent.appendChild(d);return d;}
+const C=i=>CUES[i].a;
+const WT=(w,after=0)=>WORDS.find(x=>x.w.toLowerCase().startsWith(w.toLowerCase())&&x.a>=after).a;
+function popIn(el,t,t0,{dur=.28,from=.4,y=0}={}){const p=prog(t,t0,t0+dur);el.style.opacity=p>0?Math.min(1,p*3):0;el.style.transform=`translateY(${(1-eOut(p))*y}px) scale(${from+(1-from)*back(p)})`;return p;}
+function fadeUp(el,t,t0,dur=.3,dy=30){const p=eOut(prog(t,t0,t0+dur));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;return p;}
+const show=(els,on)=>els.forEach(e=>e.style.display=on?(e instanceof SVGElement?'inline':'block'):'none');
+const LG=id=>`logos/ncaa-${id}.png`;
+const L={umbc:2378,uva:258,fdu:161,pur:2509,duke:150,siena:2561,ksu:2306,fau:2226};
+const SFX=[]; const sfx=(t,type,gain=.5,dur)=>SFX.push(dur?{t,type,gain,dur}:{t,type,gain});
+const seedH=(n,sz,bg)=>`<span class="seed" style="width:${sz}px;height:${sz}px;font-size:${sz*.56}px;background:${bg||(n==16?'var(--rd)':n==1?'var(--cy)':'#fff')};color:${n==16?'#fff':'#050506'}">${n}</span>`;
+const logoH=(id,sz)=>`<img class="lg" src="${LG(id)}" style="width:${sz}px;height:${sz}px">`;
+/* basketball + trophy drawings */
+function ball(parent,r=30){const g=sv('g',{},parent);sv('circle',{r,fill:'#F58426',stroke:'#2a1406','stroke-width':r*.08},g);
+  [`M${-r},0 L${r},0`,`M0,${-r} L0,${r}`].forEach(d=>sv('path',{d,stroke:'#2a1406','stroke-width':r*.07,fill:'none'},g));
+  sv('path',{d:`M${-r*.7},${-r*.7} Q0,0 ${-r*.7},${r*.7}`,stroke:'#2a1406','stroke-width':r*.07,fill:'none'},g);
+  sv('path',{d:`M${r*.7},${-r*.7} Q0,0 ${r*.7},${r*.7}`,stroke:'#2a1406','stroke-width':r*.07,fill:'none'},g);return g;}
+function trophy(parent,sc=1,col='#F2C14E'){const g=sv('g',{},parent);
+  sv('path',{d:'M-40,120 L40,120 L32,98 L-32,98 Z',fill:'#6B4A2B',stroke:'#050506','stroke-width':3},g);
+  sv('path',{d:'M-12,98 L12,98 L8,40 L-8,40 Z',fill:col,stroke:'#050506','stroke-width':3},g);
+  sv('path',{d:'M-46,-30 L46,-30 Q44,40 0,46 Q-44,40 -46,-30 Z',fill:col,stroke:'#050506','stroke-width':3},g);
+  sv('path',{d:'M-46,-18 Q-74,-14 -62,12 Q-54,26 -36,22',fill:'none',stroke:col,'stroke-width':7},g);
+  sv('path',{d:'M46,-18 Q74,-14 62,12 Q54,26 36,22',fill:'none',stroke:col,'stroke-width':7},g);
+  const b=ball(g,26); set(b,{transform:'translate(0 -58)'}); set(g,{transform:`scale(${sc})`}); return g;}
+/* 64-team bracket (lines), revealed by p in round order */
+function bracket(parent,x0,x1,y0,y1){const g=sv('g',{},parent),L=[];const cw=(x1-x0)/12;
+  for(const side of [0,1]){for(let r=0;r<6;r++){const n=32>>r, h=(y1-y0)/n;
+    for(let i=0;i<n;i++){const y=y0+h*(i+.5), xa=side?x1-r*cw:x0+r*cw, xb=side?xa-cw:xa+cw;
+      L.push({e:sv('line',{x1:xa,y1:y,x2:xb,y2:y,stroke:'#3A3A44','stroke-width':3},g),r});
+      if(i%2==0&&r<5){const y2=y0+h*(i+1.5); L.push({e:sv('line',{x1:xb,y1:y,x2:xb,y2:y2,stroke:'#3A3A44','stroke-width':3},g),r});}}}}
+  const ctr=sv('rect',{x:(x0+x1)/2-cw*.9,y:(y0+y1)/2-28,width:cw*1.8,height:56,rx:10,fill:'none',stroke:'#0CF5F9','stroke-width':4},g);
+  return {g,L,ctr,draw(p){L.forEach(l=>{const q=clamp(p*6-l.r);set(l.e,{opacity:q>0?1:0,stroke:q>=1&&l.r<1?'#55555F':'#3A3A44'});}); set(ctr,{opacity:clamp(p*6-5.5)*2});}};}
+
+/* ===================== chapters (Antonio Brown · best behavior) — premium v2 ===================== */
+const CI=s=>{const i=CUES.findIndex(c=>c.text.toLowerCase().includes(s.toLowerCase())); if(i<0)throw new Error('cue not found: '+s); return i;};
+const CT=s=>C(CI(s));
+const WTs=(w,after,alt)=>{const f=x=>WORDS.find(y=>y.w.toLowerCase().replace(/[^a-z0-9]/g,'').startsWith(x.toLowerCase())&&y.a>=after); const r=f(w)||(alt&&f(alt)); return r?r.a:after;};
+const NL=ab=>`logos/nba-${ab.toLowerCase()}.png`;
+const nlH=(ab,sz)=>`<img class="lg" src="${NL(ab)}" style="width:${sz}px;height:${sz}px">`;
+const GOLD='#FFB612';
+const BR='#CE1141', GW='#FFC72C', GB='#1D428A';
+const K={sim:CT('I simulated the series'),
+  c1:CT('The Bulls went'), gsw:CT('The Warriors went 67'), po:CT('then 16-1'), cur:CT('in the playoffs with Curry'),
+  c2:CT("You can't compare"), rules:CT('Different eras'), elo:CT('So I used Elo'), own:CT('It rates every team'), same:CT('land on the same'),
+  c3:CT('After their title runs'), bf:CT('the Bulls finished'), wf:CT('The Warriors finished'), hi:CT('Two of the highest'),
+  c4:CT('Is it honest'), tested:CT('I tested it'), when:CT('When it gives'),
+  cta:CT('If you want more'), fol:CT('follow Daily'),
+  c6:CT('So I played the'), hc:CT('with the Bulls getting home'), ww:CT('The Warriors win'), bw:CT('The Bulls win'), w6:CT('The most common'), b7:CT('Next is Bulls'),
+  c7:CT('And home court is everything'), take:CT('Take it away'), peak:CT('But compare both'), flips:CT('Bulls by a hair'),
+  c8:CT('So the greatest debate'), poll:CT('Who are you taking')};
+const CUT=[0,K.c1-.05,K.c2-.05,K.c3-.05,K.c4-.05,K.cta-.05,K.c6-.05,K.c7-.05,K.c8-.05];
+const END=CUES[CUES.length-1].b+1.1;
+const T={end:END};
+const HDR=[null,
+ ['01','Two dynasties.','1995–96 Bulls · 2016–17 Warriors'],
+ ['02','Different eras.','so every team is rated against its own league'],
+ ['03','One scale.','Elo after each title run · average team = 1500'],
+ ['04','Is it honest?','463 playoff series since 1984'],
+ null,
+ ['05','100,000 series.','best of 7 · Bulls get home court'],
+ ['06','Home court.','what flips the series'],
+ ['07','The verdict.','']];
+const AR=['rgba(206,17,65,.38)','rgba(206,17,65,.5)','#FF3A55'], AY=['rgba(255,199,44,.30)','rgba(255,199,44,.5)','#FFC72C'], AC=['rgba(12,245,249,.22)','rgba(12,245,249,.45)','#0CF5F9'];
+const ACC=[AR,AR,AC,AY,AC,AC,AY,AR,AY];
+/* ---------- premium background ---------- */
+const stage=document.getElementById('stage');
+const BG=document.createElement('div'); BG.id='bg'; stage.insertBefore(BG,stage.firstChild);
+BG.innerHTML='<div class="base"></div><div class="glowA"></div><div class="glowB"></div>';
+const BEAMS=[0,1,2].map(i=>{const b=div('beam','',BG,{left:[90,520,860][i]+'px'});return b;});
+const gridS=sv('svg',{class:'grid',width:1080,height:1920,viewBox:'0 0 1080 1920'}); BG.appendChild(gridS);
+for(let i=0;i<=12;i++){const x=-600+i*190; sv('line',{x1:540,y1:1040,x2:x,y2:1920,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS);}
+const HL=[]; for(let j=0;j<8;j++){HL.push(sv('line',{x1:0,x2:1080,y1:0,y2:0,stroke:'rgba(255,255,255,.05)','stroke-width':2},gridS));}
+const DUST=[]; {const R=rng(7); for(let i=0;i<26;i++){const d=div('dust','',BG,{}); DUST.push({d,x:R()*1080,y:R()*1920,s:1.5+R()*3.5,v:6+R()*18,o:.08+R()*.22});}}
+const sweep=div('','',stage); sweep.id='sweep';
+const rootS=document.documentElement.style;
+function bgfx(t,k){const a=ACC[k]; rootS.setProperty('--acc-a',a[0]); rootS.setProperty('--acc-g',a[1]); rootS.setProperty('--acc',a[2]);
+  BEAMS.forEach((b,i)=>{b.style.transform=`rotate(${[-24,8,30][i]+Math.sin(t*.35+i*2)*6}deg)`; b.style.opacity=.55+.45*Math.sin(t*.5+i);});
+  HL.forEach((l,j)=>{const q=((j/8)+(t*.05))%1, y=1040+Math.pow(q,2.2)*900; set(l,{y1:y,y2:y,opacity:q});});
+  DUST.forEach(p=>{const y=(p.y-t*p.v)%1920; p.d.style.left=(p.x+Math.sin(t*.4+p.y)*12)+'px'; p.d.style.top=(y<0?y+1920:y)+'px'; p.d.style.width=p.d.style.height=p.s+'px'; p.d.style.opacity=p.o;});
+  BG.querySelector('.glowA').style.transform=`translate(${Math.sin(t*.2)*40}px,${Math.cos(t*.17)*30}px)`;
+  let sw=-1; CUT.slice(1).forEach(c=>{if(t>=c-.2&&t<c+.25)sw=(t-c+.2)/.45;}); sweep.style.display=sw>=0?'block':'none'; if(sw>=0)sweep.style.left=(-500+sw*1900)+'px';}
+
+const chs=document.getElementById('chs');
+const prg=document.getElementById('prog'); for(let i=0;i<7;i++){const x=document.createElement('i');prg.appendChild(x);}
+const CH=[]; for(let i=0;i<CUT.length;i++){const d=div('ch','',chs);CH.push(d);
+  if(HDR[i]){const h=div('hdr',`<div class="n">${HDR[i][0]}</div><div class="t">${HDR[i][1]}</div><div class="s">${HDR[i][2]}</div>`,d);d._h=h;}
+  const s=sv('svg',{width:1080,height:1920,viewBox:'0 0 1080 1920',style:'position:absolute;left:0;top:0'});d.appendChild(s);d._svg=s;}
+CUT.slice(1).forEach(c=>{sfx(c-.18,'whip',.55);});
+const hdrIn=(k,t)=>fadeUp(CH[k]._h,t,CUT[k]+.05,.3);
+const face=(img,sz,ring)=>`<span style="display:inline-block;width:${sz}px;height:${sz}px;border-radius:50%;overflow:hidden;border:4px solid ${ring};background:#1A1A20;vertical-align:middle;box-shadow:0 8px 24px rgba(0,0,0,.5)"><img src="img/${img}" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></span>`;
+const glass=(parent,st)=>{const d=div('glass abs','',parent,st);return d;};
+
+function trophyN(parent,x,y,s){const g=sv('g',{transform:`translate(${x} ${y}) scale(${s})`},parent);
+  sv('circle',{cx:0,cy:-52,r:20,fill:'#FFC93C',stroke:'#7A5200','stroke-width':3},g);
+  sv('path',{d:'M-20,-52 Q0,-46 20,-52 M0,-72 L0,-32',stroke:'#7A5200','stroke-width':2.5,fill:'none'},g);
+  sv('path',{d:'M-24,-30 L24,-30 L12,30 L-12,30 Z',fill:'#FFC93C',stroke:'#7A5200','stroke-width':3},g);
+  sv('path',{d:'M-18,-22 L-6,22 M0,-30 L0,30 M18,-22 L6,22',stroke:'#C9961A','stroke-width':2},g);
+  sv('rect',{x:-22,y:30,width:44,height:16,rx:3,fill:'#2A2A31',stroke:'#7A5200','stroke-width':3},g);
+  g.style.filter='drop-shadow(0 0 12px rgba(255,201,60,.55))'; return g;}
+const tpop=(g,t,t0,x,y,s)=>{const p=back(prog(t,t0,t0+.35)); set(g,{transform:`translate(${x} ${y}) scale(${Math.max(0,p)*s})`,opacity:t>=t0?1:0});};
+const tagS={zIndex:5,background:'rgba(8,8,12,.9)',border:'1.5px solid rgba(255,255,255,.2)',borderRadius:'22px',boxShadow:'0 18px 50px rgba(0,0,0,.6)',padding:'12px 22px'};
+function calBars(E,S,CAL,y0,hgt,tStart,hide){const x0=130,w=170;
+  return CAL.map(([p,a],i)=>{const x=x0+i*w;
+    const rp=sv('rect',{x:x+20,width:56,y:y0,height:0,rx:6,fill:'rgba(255,255,255,.25)'},S);
+    const ra=sv('rect',{x:x+82,width:56,y:y0,height:0,rx:6,fill:'#0CF5F9'},S);
+    const lb=sv('text',{x:x+79,y:y0+40,'text-anchor':'middle','font-size':28,fill:'#fff',style:'font-family:Anton'},S); lb.textContent=p+'%';
+    const va=sv('text',{x:x+110,y:y0,'text-anchor':'middle','font-size':24,fill:'#0CF5F9',style:'font-family:Anton'},S); va.textContent=a+'%';
+    return {upd(t){const t0=tStart+i*.15; const g=eOut(prog(t,t0,t0+.5)); const v=!hide(t)&&t>=t0;
+      set(rp,{y:y0-p/100*hgt*g,height:p/100*hgt*g,opacity:v?1:0}); set(ra,{y:y0-a/100*hgt*g,height:a/100*hgt*g,opacity:v?1:0}); set(lb,{opacity:v?1:0}); set(va,{y:y0-a/100*hgt*g-10,opacity:v&&g>.9?1:0});}};});}
+const legHTML='<span style="display:inline-block;width:20px;height:20px;background:rgba(255,255,255,.35);border-radius:4px"></span> MODEL SAID &nbsp;&nbsp; <span style="display:inline-block;width:20px;height:20px;background:#0CF5F9;border-radius:4px"></span> ACTUALLY WON';
+
+/* ---------- 0 HOOK ---------- */
+const H=CH[0];
+const wmL=div('abs','',H,{left:'-80px',top:'700px',width:'620px',height:'620px',background:`url(${NL('chi')}) center/contain no-repeat`,opacity:.10});
+const wmR=div('abs','',H,{left:'540px',top:'700px',width:'620px',height:'620px',background:`url(${NL('gs')}) center/contain no-repeat`,opacity:.10});
+const mjH=div('hero','',H,{left:'-40px',top:'660px',width:'600px',height:'880px',backgroundImage:'url(img/mj_hero.png)',webkitMaskImage:'linear-gradient(90deg,transparent 0%,#000 16%),linear-gradient(180deg,#000 78%,transparent 100%)',webkitMaskComposite:'source-in',maskImage:'linear-gradient(90deg,transparent 0%,#000 16%),linear-gradient(180deg,#000 78%,transparent 100%)',maskComposite:'intersect'});
+const scH=div('hero','',H,{left:'560px',top:'640px',width:'520px',height:'900px',backgroundImage:'url(img/sc_hero.png)'});
+const h1=div('abs big',`WHO WINS:<br><span style="color:${BR}">THE ’96 BULLS</span><br>OR <span style="color:${GW}">THE ’17 WARRIORS?</span>`,H,{left:'54px',top:'270px',fontSize:'100px',lineHeight:'1.02',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const h3=div('abs big',`100,000 SERIES.<br><span style="color:${GW}">BEST OF 7.</span>`,H,{left:'54px',top:'270px',fontSize:'110px',textShadow:'0 8px 40px rgba(0,0,0,.7)'});
+const tL=div('abs','',H,Object.assign({left:'54px',top:'1330px'},tagS)); tL.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('chi',52)}<span class="big" style="font-size:40px">72-10</span></div>`;
+const tR=div('abs','',H,Object.assign({left:'730px',top:'1330px'},tagS)); tR.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('gs',52)}<span class="big" style="font-size:40px">67-15</span></div>`;
+const vs=div('abs big','VS',H,{zIndex:5,left:'478px',top:'1060px',fontSize:'110px',color:'#fff',textShadow:'0 0 40px rgba(255,255,255,.5)'});
+function rHook(t){const p0=eOut(prog(t,.05,.6)),p1=eOut(prog(t,.2,.75));
+  mjH.style.transform=`translateX(${-(1-p0)*320}px) scale(${1.02+t*.006})`; mjH.style.opacity=Math.min(1,p0*1.5);
+  scH.style.transform=`translateX(${(1-p1)*320}px) scale(${1.02+t*.006})`; scH.style.opacity=Math.min(1,p1*1.5);
+  show([h1],t<K.sim-.05); fadeUp(h1,t,.05,.35,40); show([h3],t>=K.sim-.05); popIn(h3,t,K.sim-.05,{from:1.04});
+  show([tL,tR],t>=.9); popIn(tL,t,.9,{from:.85}); popIn(tR,t,1.1,{from:.85}); show([vs],t>=1.2); popIn(vs,t,1.2,{from:1.4});
+  wmL.style.transform=wmR.style.transform=`scale(${1+t*.01})`; H.style.transform=`scale(${1+t*.004})`;}
+sfx(.05,'whoosh',.5); sfx(.3,'thump',.7); sfx(.9,'pop',.4); sfx(1.1,'pop',.4); sfx(1.2,'thump',.6); sfx(K.sim-.05,'thump',.8);
+
+/* ---------- 1 ROSTERS ---------- */
+const E1=CH[1];
+const team=(top,ab,col,rec,sub,faces)=>{const d=glass(E1,{left:'54px',top:top+'px',width:'972px',height:'330px',padding:'22px 28px'});
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:18px">${nlH(ab,80)}<div style="flex:1"><div class="big" style="font-size:96px;line-height:1;color:${col}">${rec}</div><div class="osw mut" style="font-size:26px">${sub}</div></div></div><div class="fc" style="display:flex;gap:18px;margin-top:20px">${faces.map(([f,n])=>`<div style="text-align:center;opacity:0">${face(f,104,col)}<div class="big" style="font-size:22px;margin-top:4px">${n}</div></div>`).join('')}</div>`;
+  d._f=[...d.querySelectorAll('.fc > div')]; return d;};
+const tB=team(530,'chi',BR,'72-10','1995–96 · BEST RECORD AT THE TIME',[['mj.jpg','JORDAN'],['pippen.jpg','PIPPEN'],['rodman.jpg','RODMAN']]);
+const tW=team(900,'gs',GW,'67-15','2016–17 · THEN 16-1 IN THE PLAYOFFS',[['curry.jpg','CURRY'],['durant.jpg','DURANT'],['klay.jpg','KLAY'],['draymond.jpg','DRAYMOND']]);
+const BW_N=[['jordan',0],['pippen',0],['rodman',0]], GW_N=['curry','durant','klay','draymond'];
+function rRost(t){hdrIn(1,t);
+  popIn(tB,t,CUT[1]+.1,{from:.9}); tB._f.forEach((f,i)=>{const t0=WTs(BW_N[i][0],K.c1)-.05; f.style.opacity=t>=t0?1:0; f.style.transform=`scale(${.6+.4*back(prog(t,t0,t0+.3))})`;});
+  show([tW],t>=K.gsw-.05); popIn(tW,t,K.gsw-.05,{from:.9}); tW._f.forEach((f,i)=>{const t0=WTs(GW_N[i],K.po)-.05; f.style.opacity=t>=t0?1:0; f.style.transform=`scale(${.6+.4*back(prog(t,t0,t0+.3))})`;});
+  E1.style.transform=`scale(${1+(t-CUT[1])*.0012})`;}
+sfx(CUT[1]+.1,'pop',.4); BW_N.forEach(n=>sfx(WTs(n[0],K.c1)-.05,'click',.3)); sfx(K.gsw-.05,'pop',.4); GW_N.forEach(n=>sfx(WTs(n,K.po)-.05,'click',.3));
+
+/* ---------- 2 ERAS ---------- */
+const E2=CH[2];
+const era=(left,yr,col,rows)=>{const d=glass(E2,{left:left+'px',top:'530px',width:'476px',height:'360px',padding:'22px 24px'});
+  d.innerHTML=`<div class="big" style="font-size:80px;color:${col}">${yr}</div>`+rows.map(r=>`<div class="osw" style="font-size:28px;margin-top:14px">${r}</div>`).join(''); return d;};
+const e96=era(54,'1996',BR,['HAND-CHECKING: LEGAL','ZONE DEFENSE: ILLEGAL','3-PT LINE: 22 FT']);
+const e17=era(550,'2017',GW,['HAND-CHECKING: BANNED','ZONE DEFENSE: LEGAL','3-PT LINE: 23 FT 9 IN']);
+const neq=div('abs big','≠',E2,{left:'500px',top:'640px',fontSize:'90px',color:'#FF4B3E'});
+const eloC=glass(E2,{left:'54px',top:'930px',width:'972px',height:'360px',padding:'24px 28px'});
+eloC.innerHTML=`<div class="osw mut" style="font-size:26px;letter-spacing:2px">THE FIX: ELO (FIVETHIRTYEIGHT)</div><div class="big" style="font-size:56px;line-height:1.1;margin-top:8px">EVERY TEAM RATED<br>VS. <span class="cy">ITS OWN LEAGUE</span></div><div style="display:flex;align-items:center;gap:20px;margin-top:22px"><span class="big" style="font-size:44px">AVERAGE TEAM =</span><span class="big cy num-glow" style="font-size:70px">1500</span></div>`;
+function rEra(t){hdrIn(2,t);
+  show([e96],t>=CUT[2]+.15); popIn(e96,t,CUT[2]+.15,{from:.9}); show([e17],t>=CUT[2]+.4); popIn(e17,t,CUT[2]+.4,{from:.9});
+  show([neq],t>=K.rules-.05); popIn(neq,t,K.rules-.05,{from:1.5});
+  show([eloC],t>=K.elo-.05); popIn(eloC,t,K.elo-.05,{from:.9}); eloC.classList.toggle('hot',t>=K.own);
+  E2.style.transform=`scale(${1+(t-CUT[2])*.0012})`;}
+sfx(CUT[2]+.15,'pop',.4); sfx(CUT[2]+.4,'pop',.4); sfx(K.rules-.05,'thump',.55); sfx(K.elo-.05,'whoosh',.4); sfx(K.own,'ding',.35);
+
+/* ---------- 3 ONE SCALE ---------- */
+const E3=CH[3], S3=E3._svg;
+const X=e=>110+(e-1300)/600*860; const sy=1000;
+sv('rect',{x:110,y:sy-8,width:860,height:16,rx:8,fill:'rgba(255,255,255,.12)'},S3);
+const grad=sv('rect',{x:110,y:sy-8,width:0,height:16,rx:8,fill:'#0CF5F9'},S3);
+[1300,1400,1500,1600,1700,1800,1900].forEach(e=>{sv('line',{x1:X(e),x2:X(e),y1:sy+14,y2:sy+30,stroke:'#6A6A72','stroke-width':3},S3); const tx=sv('text',{x:X(e),y:sy+64,'text-anchor':'middle','font-size':28,fill:'#8E8E96',style:'font-family:Anton'},S3); tx.textContent=e;});
+const avgL=sv('text',{x:X(1500),y:sy-40,'text-anchor':'middle','font-size':26,fill:'#8E8E96'},S3); avgL.textContent='AVERAGE TEAM';
+const mk=(e,col,ab,up)=>{const g=sv('g',{},S3); sv('line',{x1:X(e),x2:X(e),y1:sy-10,y2:up?sy-170:sy+180,stroke:col,'stroke-width':5},g); sv('circle',{cx:X(e),cy:sy,r:14,fill:col,stroke:'#fff','stroke-width':3},g); return g;};
+const mB=mk(1823,BR,'chi',true), mW=mk(1846,GW,'gs',false);
+const lbB=div('abs','',E3,{left:(X(1823)-330)+'px',top:'700px'}); lbB.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('chi',70)}<span class="big" style="font-size:80px;color:${BR}">1,823</span></div>`;
+const lbW=div('abs','',E3,{left:(X(1846)-330)+'px',top:'1170px'}); lbW.innerHTML=`<div style="display:flex;align-items:center;gap:12px">${nlH('gs',70)}<span class="big" style="font-size:80px;color:${GW}">1,846</span></div>`;
+const hiP=div('pill','TWO OF THE HIGHEST RATINGS EVER',E3,{left:'150px',top:'560px',background:GW,color:'#050506',fontSize:'36px',boxShadow:'0 0 40px rgba(255,199,44,.5)'});
+function rScale(t){hdrIn(3,t); set(grad,{width:860*eOut(prog(t,CUT[3]+.1,CUT[3]+.9))*0.9}); set(avgL,{opacity:t>=CUT[3]+.3?1:0});
+  set(mB,{opacity:t>=K.bf+.3?1:0}); show([lbB],t>=K.bf+.3); popIn(lbB,t,K.bf+.3,{from:.8});
+  set(mW,{opacity:t>=K.wf+.3?1:0}); show([lbW],t>=K.wf+.3); popIn(lbW,t,K.wf+.3,{from:.8});
+  show([hiP],t>=K.hi-.05); popIn(hiP,t,K.hi-.05,{from:1.2});
+  E3.style.transform=`scale(${1+(t-CUT[3])*.0015})`;}
+sfx(CUT[3]+.1,'riser',.25,.8); sfx(K.bf+.3,'thump',.6); sfx(K.wf+.3,'thump',.6); sfx(K.hi-.05,'ding',.45);
+
+/* ---------- 4 HONEST ---------- */
+const E4=CH[4], S4=E4._svg;
+const leg4=div('abs osw',legHTML,E4,{left:'54px',top:'560px',fontSize:'28px'});
+const cnt4=glass(E4,{left:'54px',top:'620px',width:'972px',height:'150px',padding:'0 28px'});
+cnt4.innerHTML=`<div style="display:flex;align-items:center;justify-content:space-between;height:100%"><span class="big" style="font-size:96px" >463</span><span class="osw" style="font-size:30px;text-align:right">PLAYOFF SERIES<br><span class="mut">1984 – 2025</span></span></div>`;
+const CB=calBars(E4,S4,[[55,52],[65,67],[75,80],[85,85],[94,96]],1290,400,0,t=>false);
+function rHon(t){hdrIn(4,t); show([cnt4],t>=K.tested-.05); popIn(cnt4,t,K.tested-.05,{from:.9});
+  show([leg4],false); CB.forEach((b,i)=>{b.upd(t-(K.tested+.9))}); 
+  E4.style.transform=`scale(${1+(t-CUT[4])*.0015})`;}
+for(let i=0;i<5;i++)sfx(K.tested+.9+i*.15,'pop',.3); sfx(K.tested-.05,'thump',.5);
+/* ---------- CTA (follow) ---------- */
+const ECT=CH[5]; const tapT=K.fol+.3;
+const ph=div('abs','',ECT,{left:'200px',top:'290px',width:'680px',height:'990px',background:'#111',borderRadius:'70px',border:'12px solid #2A2A31',boxSizing:'border-box',overflow:'hidden'});
+const GRID='<div style="width:656px;height:199px;background:url(profile.png) 0 -263px/656px auto no-repeat;background-color:#fff"></div>';
+ph.innerHTML=`<div class="scr" style="position:absolute;left:0;top:0;width:656px;background:#fff">
+  <div style="height:70px;background:#fff"></div>
+  <div style="position:relative;width:656px;height:266px;background:url(profile.png) -301px -35px/1247px auto no-repeat;background-color:#fff"></div>
+  ${GRID.repeat(6)}</div>
+  <div class="fbtn" style="position:absolute;left:19px;top:291px;width:225px;height:39px;border-radius:9px;background:#EFEFEF;color:#111;display:none;align-items:center;justify-content:center;font:700 22px Osw">FOLLOWING ✓</div>`;
+const scr=ph.querySelector('.scr'), fbtn=ph.querySelector('.fbtn');
+const fing=div('abs','',ECT,{left:'0',top:'0',width:'120px',height:'120px',fontSize:'110px',lineHeight:'1'}); fing.textContent='👆';
+const ctaT=div('abs big','HIT <span class="cy">FOLLOW</span>',ECT,{left:'0',right:'0',top:'1300px',textAlign:'center',fontSize:'100px',display:'none'});
+const ripple=div('abs','',ECT,{width:'120px',height:'120px',borderRadius:'50%',border:'8px solid #0CF5F9',display:'none'});
+function rCta(t){const t0=CUT[5]; popIn(ph,t,t0+.05,{from:.85});
+  const sc=prog(t,t0+.2,tapT-.25); const off=-Math.sin(sc*Math.PI)*300; scr.style.transform=`translateY(${off}px)`;
+  const bx=200+12+19+112, by=290+12+291+20;
+  const fp=eOut(prog(t,K.fol-.6,tapT)); const fx=lerp(860,bx,fp), fy=lerp(1250,by,fp)+(t>=tapT&&t<tapT+.15?10:0);
+  fing.style.left=(fx-35)+'px'; fing.style.top=(fy-10)+'px'; fing.style.display=t>=K.fol-.6?'block':'none';
+  fbtn.style.display=t>=tapT+.08?'flex':'none';
+  ripple.style.display=t>=tapT&&t<tapT+.5?'block':'none'; const rp=prog(t,tapT,tapT+.5); ripple.style.left=(bx-60)+'px'; ripple.style.top=(by-60)+'px'; ripple.style.transform=`scale(${.4+rp*1.4})`; ripple.style.opacity=1-rp;
+  show([ctaT],t>=tapT); popIn(ctaT,t,tapT,{from:1.3});
+  ECT.style.transform=`scale(${1+(t-t0)*.004})`;}
+sfx(CUT[5]+.05,'whoosh',.45); sfx(tapT,'click',.7); sfx(tapT+.05,'ding',.45); sfx(tapT+.1,'sparkle',.35);
+
+
+/* ---------- 6 RESULTS ---------- */
+const E6=CH[6], S6=E6._svg;
+const bar6=div('abs','',E6,{left:'54px',top:'560px',width:'972px',height:'260px'});
+bar6.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-end"><div>${nlH('gs',80)}<div class="big num" id="nW" style="font-size:96px;color:${GW};line-height:1">0</div></div><div style="text-align:right">${nlH('chi',80)}<div class="big num" id="nB" style="font-size:96px;color:${BR};line-height:1">0</div></div></div><div style="display:flex;height:40px;border-radius:20px;overflow:hidden;margin-top:16px;background:rgba(255,255,255,.08)"><div id="bW" style="width:0;background:linear-gradient(90deg,${GB},${GW})"></div><div style="flex:1"></div><div id="bB" style="width:0;background:linear-gradient(90deg,#7a0a25,${BR})"></div></div>`;
+const nW=bar6.querySelector('#nW'), nB=bar6.querySelector('#nB'), bW=bar6.querySelector('#bW'), bB=bar6.querySelector('#bB');
+const OUT=[['GSW IN 4',6.77,0],['GSW IN 5',11.04,0],['GSW IN 6',21.65,0],['GSW IN 7',12.81,0],['CHI IN 7',19.62,1],['CHI IN 6',10.63,1],['CHI IN 5',13.40,1],['CHI IN 4',4.08,1]];
+const ox0=90, ow=112, oy0=1330, oh=360;
+const OB=OUT.map(([n,p,b],i)=>{const x=ox0+i*ow; const r=sv('rect',{x:x+10,width:ow-20,y:oy0,height:0,rx:8,fill:b?'rgba(206,17,65,.55)':'rgba(255,199,44,.45)'},S6);
+  const l=sv('text',{x:x+ow/2,y:oy0+34,'text-anchor':'middle','font-size':24,fill:'#fff',style:'font-family:Anton'},S6); l.textContent=n.split(' IN ')[1];
+  const v=sv('text',{x:x+ow/2,y:oy0,'text-anchor':'middle','font-size':24,fill:'#fff',style:'font-family:Anton'},S6); v.textContent=p.toFixed(0)+'%';
+  return {r,v,p,b,i};});
+const gl=sv('text',{x:ox0+2*ow,y:oy0+72,'text-anchor':'middle','font-size':26,fill:GW,style:'font-family:Anton'},S6); gl.textContent='WARRIORS IN…';
+const bl=sv('text',{x:ox0+6*ow,y:oy0+72,'text-anchor':'middle','font-size':26,fill:'#FF3A55',style:'font-family:Anton'},S6); bl.textContent='…BULLS IN';
+const hcP=div('pill','HOME COURT: BULLS (72 WINS)',E6,{left:'200px',top:'900px',background:'#CE1141',color:'#fff',fontSize:'36px',boxShadow:'0 0 40px rgba(206,17,65,.5)'});
+function rRun(t){hdrIn(6,t); popIn(bar6,t,CUT[6]+.15,{from:.95}); show([hcP],t>=K.hc-.05&&t<K.w6-.3); popIn(hcP,t,K.hc-.05,{from:1.2});
+  const gw=eOut(prog(t,K.ww,K.ww+1.6)), gb=eOut(prog(t,K.bw,K.bw+1.6));
+  nW.textContent=Math.round(52274*gw).toLocaleString('en-US'); nB.textContent=Math.round(47726*gb).toLocaleString('en-US');
+  bW.style.width=(52.274*gw)+'%'; bB.style.width=(47.726*gb)+'%';
+  const on=t>=K.w6-.3; S6.style.display=on?'block':'none';
+  OB.forEach(o=>{const g=eOut(prog(t,K.w6-.3+o.i*.06,K.w6+.3+o.i*.06)); const h=o.p/22*oh*g; const hl=(o.i===2&&t>=K.w6+.3)||(o.i===4&&t>=K.b7-.05);
+    set(o.r,{y:oy0-h,height:h,fill:hl?(o.b?BR:GW):(o.b?'rgba(206,17,65,.4)':'rgba(255,199,44,.3)')}); set(o.v,{y:oy0-h-10,opacity:g>.9?1:0});});
+  E6.style.transform=`scale(${1+(t-CUT[6])*.0012})`;}
+sfx(CUT[6]+.15,'pop',.4); sfx(K.ww,'riser',.3,1.5); sfx(K.ww+1.6,'ding',.4); sfx(K.bw,'riser',.3,1.5); sfx(K.bw+1.6,'ding',.4); sfx(K.w6+.3,'thump',.5); sfx(K.b7-.05,'thump',.5);
+
+/* ---------- 7 HOME COURT ---------- */
+const E7=CH[7];
+const HR=[['BULLS WITH HOME COURT',47.7,CUT[7]+.2],['BULLS WITHOUT IT',38.7,K.take+.6],['AT THEIR PEAKS (BULLS HOME)',51.1,K.flips-.1]];
+const HRR=HR.map(([a,p,t0],i)=>{const d=glass(E7,{left:'54px',top:(560+i*250)+'px',width:'972px',height:'220px',padding:'24px 28px'});
+  d.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><span class="big" style="font-size:44px">${a}</span><span class="big" style="font-size:80px;color:${i===1?'#FF4B3E':(i===2?'#0CF5F9':'#fff')}">${Math.round(p)}%</span></div><div style="height:30px;border-radius:15px;background:rgba(255,255,255,.08);margin-top:18px;position:relative;overflow:hidden"><div class="bar" style="position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#7a0a25,${BR})"></div><div style="position:absolute;left:50%;top:-4px;bottom:-4px;width:4px;background:#fff"></div></div>`;
+  d._b=d.querySelector('.bar'); d._p=p; d._t=t0; d._i=i; return d;});
+function rHome(t){hdrIn(7,t);
+  HRR.forEach(d=>{show([d],t>=d._t-.05); popIn(d,t,d._t-.05,{from:.9,y:20}); d._b.style.width=(eOut(prog(t,d._t,d._t+.8))*d._p)+'%'; d.classList.toggle(d._i===1?'cold':'hot',d._i>0&&t>=d._t+.6);});
+  E7.style.transform=`scale(${1+(t-CUT[7])*.0012})`;}
+HR.forEach(r=>sfx(r[2]-.05,'thump',.55));
+
+/* ---------- 8 VERDICT ---------- */
+const E8=CH[8];
+const coin=div('abs','',E8,{left:'340px',top:'560px',width:'400px',height:'400px',borderRadius:'50%',background:`radial-gradient(circle at 35% 30%, #FFE08A, ${GW} 45%, #9C7A12)`,boxShadow:'0 0 80px rgba(255,199,44,.45), inset 0 0 0 10px rgba(255,255,255,.25)',display:'flex',alignItems:'center',justifyContent:'center'});
+coin.innerHTML=`<img id="cf" src="${NL('chi')}" style="width:250px;height:250px;object-fit:contain">`;
+const cf=coin.querySelector('#cf');
+const cfT=div('abs big','BASICALLY A <span style="color:'+GW+'">COIN FLIP.</span>',E8,{left:'0',right:'0',textAlign:'center',top:'1040px',fontSize:'92px'});
+const cfS=div('abs osw mut','52% WARRIORS · 48% BULLS',E8,{left:'0',right:'0',textAlign:'center',top:'1160px',fontSize:'36px'});
+const poll=glass(E8,{left:'110px',top:'560px',width:'860px',padding:'40px'});
+poll.innerHTML=`<div style="display:flex;justify-content:center;gap:30px">${face('mj.jpg',140,BR)}${face('curry.jpg',140,GW)}</div><div class="osw mut" style="font-size:28px;letter-spacing:3px;text-align:center;margin-top:14px">WHO ARE YOU TAKING?</div>`+["’96 BULLS","’17 WARRIORS"].map((s,i)=>`<div class="opt big" style="margin-top:24px;font-size:62px;text-align:center;border-radius:60px;padding:12px 0;${i===0?`background:${BR};color:#fff;box-shadow:0 0 40px rgba(206,17,65,.5)`:`background:${GW};color:#050506`}">${s}</div>`).join('');
+const OPT=[...poll.querySelectorAll('.opt')];
+function rVer(t){hdrIn(8,t); const a=t<K.poll-.05; show([coin,cfT,cfS],a); E8._h.style.display=a?'block':'none';
+  if(a){popIn(coin,t,CUT[8]+.1,{from:.6}); const ang=(t-CUT[8])*540; coin.style.transform+=` rotateY(${ang}deg)`; cf.src=NL(Math.floor(((ang+90)%360)/180)?'gs':'chi');
+    show([cfT],t>=WTs('coin',K.c8)-.1); popIn(cfT,t,WTs('coin',K.c8)-.1,{from:1.08}); show([cfS],t>=WTs('coin',K.c8)+.3); fadeUp(cfS,t,WTs('coin',K.c8)+.3);}
+  show([poll],!a); if(!a){popIn(poll,t,K.poll-.05,{from:.85}); OPT.forEach((o,i)=>popIn(o,t,K.poll+.3+i*.35,{from:.4}));}
+  E8.style.transform=`scale(${1+(t-CUT[8])*.0012})`;}
+sfx(CUT[8]+.1,'whoosh',.45); sfx(WTs('coin',K.c8)-.1,'thump',.75); sfx(K.poll-.05,'whoosh',.5); sfx(K.poll+.3,'pop',.5); sfx(K.poll+.65,'pop',.5); sfx(CUES[CUES.length-1].a,'sparkle',.4);
+const RF=[rHook,rRost,rEra,rScale,rHon,rCta,rRun,rHome,rVer];
+
+/* ---------- captions ---------- */
+const cap=document.getElementById('cap');
+const isNum=w=>/\d/.test(w)||/^(FOLLOW|DAILY|ATHLETE|BULLS|WARRIORS)$/i.test(w.replace(/[.,?:]/g,''));
+function rCap(t){
+  if(t<CT('I simulated the series')-.02){cap.innerHTML='';return;}
+  let i=CUES.findIndex((c,k)=>t>=c.a-.02&&t<(CUES[k+1]?CUES[k+1].a-.02:END)); if(i<0){cap.innerHTML='';return;}
+  const c=CUES[i], ws=c.text.split(' '), dur=Math.max(.3,c.b-c.a);
+  const tot=ws.reduce((s,w)=>s+w.length+1,0); let acc=0;
+  cap.innerHTML=ws.map(w=>{const st=c.a+acc/tot*dur; acc+=w.length+1; const on=t>=st-.03; const p=eOut(prog(t,st-.03,st+.09));
+    const col=on?(isNum(w)?'var(--cy)':'#fff'):'rgba(255,255,255,.28)';
+    return `<span style="color:${col};transform:scale(${on?1+.12*(1-p):1})">${w}</span>`;}).join(' ');
+}
+
+/* ---------- master render ---------- */
+function render(t){
+  let k=0; for(let i=0;i<CUT.length;i++)if(t>=CUT[i])k=i;
+  CH.forEach((c,i)=>c.style.display=i===k?'block':'none');
+  CH[k].style.transform='';
+  RF[k](t);
+  const nx=CUT[k+1]??999, wIn=prog(t,CUT[k],CUT[k]+.18), wOut=prog(t,nx-.16,nx);
+  const bl=k?(1-eOut(wIn))*22:0, bo=eIn(wOut)*22;
+  CH[k].style.filter=(bl+bo)>.4?`blur(${(bl+bo).toFixed(1)}px)`:'none';
+  CH[k].style.opacity=Math.min(1,(k?.3+.7*wIn:1))*(1-.5*wOut);
+  CH[k].style.transform=(CH[k].style.transform||'')+` scale(${1+(k?(1-eOut(wIn))*.04:0)+eIn(wOut)*.05})`;
+  const NUM=HDR.slice(1,k+1).filter(Boolean).length; [...prg.children].forEach((x,i)=>x.className=k&&i<NUM?'on':'');
+  prg.style.opacity=k?1:0;
+  bgfx(t,k);
+  rCap(t);
+}
+window.T=T; window.render=render; window.SFX=SFX;
+</script></body></html>
