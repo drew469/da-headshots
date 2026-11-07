@@ -995,6 +995,18 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AMichael_Jordan_holds_up_his_Chicago_Bulls_jersey_on_September_12%2C_1984.jpg"
  },
+ "michael-jordan-lipofsky": {
+  "league": "nba",
+  "name": "Michael Jordan Lipofsky",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJordan_by_Lipofsky_16577.jpg"
+ },
+ "michael-jordan-lipofsky-b": {
+  "league": "nba",
+  "name": "Michael Jordan Lipofsky B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ASteve_Lipfosky_--_Michael_Jordan_%281997%29.jpg"
+ },
  "michael-jordan-prime": {
   "league": "nba",
   "name": "Michael Jordan Prime",
@@ -1162,6 +1174,12 @@
   "name": "Scottie Pippen",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/663.png"
+ },
+ "scottie-pippen-lipofsky": {
+  "league": "nba",
+  "name": "Scottie Pippen Lipofsky",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ALipofsky_Pippen.jpg"
  },
  "shaquille-o-neal": {
   "league": "nba",
