@@ -156,8 +156,11 @@ def try_wikidata(name, league):
             fname = ent['entities'][e['id']]['claims']['P18'][0]['mainsnak']['datavalue']['value']
         except Exception:
             continue
-        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fname.replace(' ', '_')) + '?width=2400'
-        r = get(url)
+        base = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fname.replace(' ', '_'))
+        r = None
+        for suffix in ('?width=2400', '?width=1600', '?width=900', ''):
+            r = get(base + suffix)
+            if r and len(r[0]) > 3000: break
         if r and len(r[0]) > 3000:
             return r[0], ('png' if fname.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(fname.replace(' ', '_'))
     return None
@@ -175,8 +178,11 @@ def try_commons(name, query):
         DEBUG.append(f'{name}: commons search [{query}] -> ' + ' | '.join(files[:6]))
     for f in files[:3]:
         fn = f.split(':', 1)[1]
-        url = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fn.replace(' ', '_')) + '?width=2400'
-        r = get(url)
+        base = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + urllib.parse.quote(fn.replace(' ', '_'))
+        r = None
+        for suffix in ('?width=2400', '?width=1600', '?width=1000', ''):  # big thumb first; fall back when the original is smaller
+            r = get(base + suffix)
+            if r and len(r[0]) > 3000: break
         if r and len(r[0]) > 3000:
             return r[0], ('png' if fn.lower().endswith('.png') else 'jpg'), 'https://commons.wikimedia.org/wiki/' + urllib.parse.quote(f.replace(' ', '_'))
     return None
