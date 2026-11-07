@@ -197,6 +197,18 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ABill_Belichick_2019_crop.jpg"
  },
+ "bill-belichick-hq": {
+  "league": "nfl",
+  "name": "Bill Belichick HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ABill_Belichick_2019_crop.jpg"
+ },
+ "bill-belichick-hq2": {
+  "league": "nfl",
+  "name": "Bill Belichick HQ2",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ABill_Belichick_2019_crop.jpg"
+ },
  "bill-russell": {
   "league": "nba",
   "name": "Bill Russell",
@@ -329,6 +341,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13216.png"
  },
+ "dennis-rodman": {
+  "league": "nba",
+  "name": "Dennis Rodman",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Dennis_Rodman"
+ },
  "devin-booker": {
   "league": "nba",
   "name": "Devin Booker",
@@ -346,6 +364,18 @@
   "name": "Dominique Wilkins Prime",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ADominique_Wilkins_2022.jpg"
+ },
+ "draymond-green": {
+  "league": "nba",
+  "name": "Draymond Green",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/6589.png"
+ },
+ "draymond-green-hq": {
+  "league": "nba",
+  "name": "Draymond Green HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ADraymond_Green_%2833053301711%29_%28cropped%29.jpg"
  },
  "drew-brees": {
   "league": "nfl",
@@ -749,6 +779,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/3202.png"
  },
+ "kevin-durant-hq": {
+  "league": "nba",
+  "name": "Kevin Durant HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AGolden_State_Warriors_Small_Forward_Kevin_Durant_%28cropped%29.jpg"
+ },
  "khalil-mack": {
   "league": "nfl",
   "name": "Khalil Mack",
@@ -838,6 +874,18 @@
   "name": "LeBron James",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png"
+ },
+ "lebron-james-hq": {
+  "league": "nba",
+  "name": "LeBron James HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ALeBron_James_%2832264991443%29_%28cropped%29.jpg"
+ },
+ "lebron-james-hq2": {
+  "league": "nba",
+  "name": "LeBron James HQ2",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ALeBron_James_with_Cleveland_2018.jpeg"
  },
  "lebron-james-rookie-b": {
   "league": "nba",
@@ -932,6 +980,18 @@
  "michael-jordan-bulls": {
   "league": "nba",
   "name": "Michael Jordan Bulls",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AMichael_Jordan_holds_up_his_Chicago_Bulls_jersey_on_September_12%2C_1984.jpg"
+ },
+ "michael-jordan-hq": {
+  "league": "nba",
+  "name": "Michael Jordan HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJordan_by_Lipofsky_16577.jpg"
+ },
+ "michael-jordan-hq2": {
+  "league": "nba",
+  "name": "Michael Jordan HQ2",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AMichael_Jordan_holds_up_his_Chicago_Bulls_jersey_on_September_12%2C_1984.jpg"
  },
@@ -1037,6 +1097,12 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3APeyton_Manning_Throwing_TD509.png"
  },
+ "phil-jackson": {
+  "league": "nba",
+  "name": "Phil Jackson",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AHead_Coach_Phil_Jackson%2C_Chicago_Bulls_banner.jpg"
+ },
  "randy-moss": {
   "league": "nfl",
   "name": "Randy Moss",
@@ -1091,6 +1157,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png"
  },
+ "scottie-pippen": {
+  "league": "nba",
+  "name": "Scottie Pippen",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/663.png"
+ },
  "shaquille-o-neal": {
   "league": "nba",
   "name": "Shaquille O'Neal",
@@ -1114,6 +1186,18 @@
   "name": "Stephen Curry Full",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AStephen_Curry_close_up.jpg"
+ },
+ "stephen-curry-hq": {
+  "league": "nba",
+  "name": "Stephen Curry HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AStephen_Curry_close_up.jpg"
+ },
+ "stephen-curry-hq2": {
+  "league": "nba",
+  "name": "Stephen Curry HQ2",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AStephen_Curry_dribbling_2016_%28cropped%29.jpg"
  },
  "terrell-owens": {
   "league": "nfl",
