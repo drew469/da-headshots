@@ -26,3 +26,11 @@
 .gold { color:var(--acc); }
 .kpi .big { text-shadow:0 0 40px var(--acc-g); }
 .num-glow { text-shadow:0 0 36px rgba(12,245,249,.45); }
+
+/* ===== IG Reels safe zone (Nov 2026) =====
+   Wrap all foreground chrome in the scene body:
+   <div id="safe"> #brand #prog #chs #cap #handle </div>
+   Backgrounds (#bg, vignette, grain, sweep) stay full-bleed outside it.
+   Scale .84 about (510,900) maps: logo y150->270, captions y1452->1364, handle 1640->1522,
+   sides 54/1026 -> 127/943 (clear of the like/comment column, x>950). */
+#safe { position:absolute; inset:0; scale:.84; transform-origin:510px 900px; z-index:20; }
