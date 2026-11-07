@@ -325,3 +325,9 @@ nfl: Josh Gordon Browns A | url:https://static.clubs.nfl.com/image/private/t_edi
 nfl: Josh Gordon Browns B | url:https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/pmatquhpp33gzknuj0xg
 nfl: Josh Gordon Browns C | url:https://static.clubs.nfl.com/image/upload/browns/gdfan2sxkcefsohpk6br
 nfl: Josh Gordon Browns D | url:https://static.clubs.nfl.com/image/upload/browns/pmatquhpp33gzknuj0xg
+nfl: Josh Gordon Camp A | commons:File:Josh Gordon 2014 Browns Training Camp.jpg
+nfl: Josh Gordon Camp B | commons:File:Josh Gordon 2014 Browns training camp (3).jpg
+nfl: Josh Gordon Camp C | commons:File:Josh Gordon 2014 Browns training camp (2).jpg
+nfl: Josh Gordon 2012 | commons:File:Josh Gordon 2012.jpg
+nfl: Tom Brady HQ2 | commons:File:Tom Brady 2017.JPG
+nfl: Tom Brady HQ3 | commons:File:Tom Brady 2011.jpg
