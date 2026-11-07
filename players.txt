@@ -305,3 +305,19 @@ nfl: Andre Johnson
 nfl: Terrell Owens
 nfl: Randy Moss
 nfl: Isaac Bruce
+# NFL — Josh Gordon + Mahomes sims
+nfl: Josh Gordon
+nfl: Josh Gordon HQ A | commons:Josh Gordon Browns
+nfl: Josh Gordon HQ B | commons:Josh Gordon wide receiver
+nfl: Josh Gordon HQ C | commons:Josh Gordon Patriots
+nfl: Mike Evans
+nfl: Odell Beckham Jr.
+nfl: DeAndre Hopkins
+nfl: Kenny Britt
+nfl: Hakeem Nicks
+nfl: Patrick Mahomes
+nfl: Patrick Mahomes HQ A | commons:Patrick Mahomes Chiefs
+nfl: Patrick Mahomes HQ B | commons:Patrick Mahomes 2023
+nfl: Tom Brady HQ | commons:Tom Brady Patriots
+logo: nfl cle
+logo: nfl kc
