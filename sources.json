@@ -113,6 +113,24 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/13934.png"
  },
+ "antonio-brown-c1": {
+  "league": "nfl",
+  "name": "Antonio Brown C1",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_vs_Redskins_2016.jpg"
+ },
+ "antonio-brown-c3": {
+  "league": "nfl",
+  "name": "Antonio Brown C3",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_2015.jpg"
+ },
+ "antonio-brown-c4": {
+  "league": "nfl",
+  "name": "Antonio Brown C4",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ACleveland_Browns_vs._Pittsburgh_Steelers_%2815344207578%29.jpg"
+ },
  "antonio-brown-c5": {
   "league": "nfl",
   "name": "Antonio Brown C5",
@@ -130,6 +148,12 @@
   "name": "Antonio Brown HQ B",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_%28wide_receiver%2C_born_1988%29.JPG"
+ },
+ "antonio-brown-hq-c": {
+  "league": "nfl",
+  "name": "Antonio Brown HQ C",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AArnaldo_Brown_%28cropped%29.jpg"
  },
  "antonio-brown-nfl-a": {
   "league": "nfl",
@@ -599,6 +623,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/15705.png"
  },
+ "josh-gordon-2012": {
+  "league": "nfl",
+  "name": "Josh Gordon 2012",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_2012.jpg"
+ },
  "josh-gordon-browns-a": {
   "league": "nfl",
   "name": "Josh Gordon Browns A",
@@ -610,6 +640,30 @@
   "name": "Josh Gordon Browns B",
   "source": "URL",
   "url": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/pmatquhpp33gzknuj0xg"
+ },
+ "josh-gordon-camp-b": {
+  "league": "nfl",
+  "name": "Josh Gordon Camp B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_2014_Browns_training_camp_%283%29.jpg"
+ },
+ "josh-gordon-camp-c": {
+  "league": "nfl",
+  "name": "Josh Gordon Camp C",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_2014_Browns_training_camp_%282%29.jpg"
+ },
+ "josh-gordon-hq-a": {
+  "league": "nfl",
+  "name": "Josh Gordon HQ A",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_2014_Browns_training_camp_%283%29.jpg"
+ },
+ "josh-gordon-hq-b": {
+  "league": "nfl",
+  "name": "Josh Gordon HQ B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_%2828192530463%29_%28cropped%29.jpg"
  },
  "josh-gordon-hq-c": {
   "league": "nfl",
@@ -941,6 +995,12 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3APatrick_Mahomes_%2851615475056%29.jpg"
  },
+ "patrick-mahomes-hq-b": {
+  "league": "nfl",
+  "name": "Patrick Mahomes HQ B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APatrick_Mahomes_2023_%28cropped%29.jpg"
+ },
  "patrick-willis": {
   "league": "nfl",
   "name": "Patrick Willis",
@@ -1108,6 +1168,18 @@
   "name": "Tom Brady Full C",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3ATomBrady.jpg"
+ },
+ "tom-brady-hq": {
+  "league": "nfl",
+  "name": "Tom Brady HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2017.JPG"
+ },
+ "tom-brady-hq2": {
+  "league": "nfl",
+  "name": "Tom Brady HQ2",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3ATom_Brady_2017.JPG"
  },
  "tom-brady-patriots": {
   "league": "nfl",
