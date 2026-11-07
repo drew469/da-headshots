@@ -321,3 +321,7 @@ nfl: Patrick Mahomes HQ B | commons:Patrick Mahomes 2023
 nfl: Tom Brady HQ | commons:Tom Brady Patriots
 logo: nfl cle
 logo: nfl kc
+nfl: Josh Gordon Browns A | url:https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/gdfan2sxkcefsohpk6br
+nfl: Josh Gordon Browns B | url:https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/pmatquhpp33gzknuj0xg
+nfl: Josh Gordon Browns C | url:https://static.clubs.nfl.com/image/upload/browns/gdfan2sxkcefsohpk6br
+nfl: Josh Gordon Browns D | url:https://static.clubs.nfl.com/image/upload/browns/pmatquhpp33gzknuj0xg
