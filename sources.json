@@ -275,6 +275,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/4396907.png"
  },
+ "deandre-hopkins": {
+  "league": "nfl",
+  "name": "DeAndre Hopkins",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/15795.png"
+ },
  "deion-sanders": {
   "league": "nfl",
   "name": "Deion Sanders",
@@ -358,6 +364,12 @@
   "name": "Goff Swift Lions crop",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AJared_Goff_%26_D%27Andre_Swift_Commanders_vs_Lions_SEP2022_%28cropped%29.jpg"
+ },
+ "hakeem-nicks": {
+  "league": "nfl",
+  "name": "Hakeem Nicks",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12586.png"
  },
  "hakeem-olajuwon": {
   "league": "nba",
@@ -575,6 +587,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png"
  },
+ "josh-gordon": {
+  "league": "nfl",
+  "name": "Josh Gordon",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/15705.png"
+ },
+ "josh-gordon-hq-c": {
+  "league": "nfl",
+  "name": "Josh Gordon HQ C",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AJosh_Gordon_2019.png"
+ },
  "julian-edelman-full": {
   "league": "nfl",
   "name": "Julian Edelman Full",
@@ -640,6 +664,12 @@
   "name": "Kawhi Leonard",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/6450.png"
+ },
+ "kenny-britt": {
+  "league": "nfl",
+  "name": "Kenny Britt",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12556.png"
  },
  "kevin-durant": {
   "league": "nba",
@@ -887,6 +917,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png"
  },
+ "patrick-mahomes-hq-a": {
+  "league": "nfl",
+  "name": "Patrick Mahomes HQ A",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3APatrick_Mahomes_%2851615475056%29.jpg"
+ },
  "patrick-willis": {
   "league": "nfl",
   "name": "Patrick Willis",
@@ -1000,6 +1036,12 @@
   "name": "Stephen Curry Full",
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AStephen_Curry_close_up.jpg"
+ },
+ "terrell-owens": {
+  "league": "nfl",
+  "name": "Terrell Owens",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Terrell_Owens"
  },
  "terrell-suggs": {
   "league": "nfl",
