@@ -125,6 +125,12 @@
   "source": "Commons",
   "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_2018.png"
  },
+ "antonio-brown-hq-b": {
+  "league": "nfl",
+  "name": "Antonio Brown HQ B",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AAntonio_Brown_%28wide_receiver%2C_born_1988%29.JPG"
+ },
  "antonio-brown-nfl-a": {
   "league": "nfl",
   "name": "Antonio Brown NFL A",
@@ -592,6 +598,18 @@
   "name": "Josh Gordon",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/15705.png"
+ },
+ "josh-gordon-browns-a": {
+  "league": "nfl",
+  "name": "Josh Gordon Browns A",
+  "source": "URL",
+  "url": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/gdfan2sxkcefsohpk6br"
+ },
+ "josh-gordon-browns-b": {
+  "league": "nfl",
+  "name": "Josh Gordon Browns B",
+  "source": "URL",
+  "url": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/browns/pmatquhpp33gzknuj0xg"
  },
  "josh-gordon-hq-c": {
   "league": "nfl",
