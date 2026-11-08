@@ -263,6 +263,12 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/12438.png"
  },
+ "clyde-drexler": {
+  "league": "nba",
+  "name": "Clyde Drexler",
+  "source": "Wikipedia",
+  "url": "https://en.wikipedia.org/wiki/Clyde_Drexler"
+ },
  "cooper-flagg-duke": {
   "league": "mens-college-basketball",
   "name": "Cooper Flagg Duke",
@@ -767,6 +773,18 @@
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/6450.png"
  },
+ "kawhi-leonard-hq": {
+  "league": "nba",
+  "name": "Kawhi Leonard HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AKawhi_Leonard_Dunk_cropped.jpg"
+ },
+ "kawhi-leonard-spurs": {
+  "league": "nba",
+  "name": "Kawhi Leonard Spurs",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AKawhi_Leonard_Dunk_cropped.jpg"
+ },
  "kenny-britt": {
   "league": "nfl",
   "name": "Kenny Britt",
@@ -802,6 +820,12 @@
   "name": "Kobe Bryant",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nba/players/full/110.png"
+ },
+ "kobe-bryant-hq": {
+  "league": "nba",
+  "name": "Kobe Bryant HQ",
+  "source": "Commons",
+  "url": "https://commons.wikimedia.org/wiki/File%3AKobe_Bryant_November_2003.jpg"
  },
  "kristaps-porzingis": {
   "league": "nba",
@@ -1078,6 +1102,12 @@
   "name": "Patrick Willis",
   "source": "ESPN",
   "url": "https://a.espncdn.com/i/headshots/nfl/players/full/10455.png"
+ },
+ "paul-george": {
+  "league": "nba",
+  "name": "Paul George",
+  "source": "ESPN",
+  "url": "https://a.espncdn.com/i/headshots/nba/players/full/4251.png"
  },
  "percy-harvin": {
   "league": "nfl",
