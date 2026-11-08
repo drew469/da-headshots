@@ -358,3 +358,14 @@ nba: Michael Jordan Lipofsky B | commons:Michael Jordan Lipofsky Bulls
 nba: Michael Jordan 1987 | commons:File:Michael Jordan in 1987.jpg
 nba: Scottie Pippen Lipofsky | commons:Scottie Pippen Lipofsky
 nba: Dennis Rodman Bulls | commons:Dennis Rodman Lipofsky
+nba: Kawhi Leonard Spurs | commons:Kawhi Leonard Spurs
+nba: Kawhi Leonard HQ | commons:Kawhi Leonard 2017
+nba: Paul George
+nba: Clyde Drexler
+nba: Terrell Brandon
+nba: Clyde Drexler Lipofsky | commons:Clyde Drexler Lipofsky
+nba: Kobe Bryant HQ | commons:Kobe Bryant 2003
+logo: nba sa
+logo: nba por
+logo: nba lac
+logo: nba tor
